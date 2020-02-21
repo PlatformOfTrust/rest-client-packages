@@ -1,8 +1,159 @@
 _type: export
 __export_format: 4
-__export_date: 2020-02-20T21:43:56.828Z
+__export_date: 2020-02-21T07:46:28.559Z
 __export_source: insomnia.desktop.app:v7.1.1
 resources:
+  - _id: req_9b58753bbb6c4a95a1de2119c29536a2
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |
+        {
+        	"read": true,
+        	"write": true,
+        	"link": true,
+        	"manage": true
+        }
+    created: 1582270692386
+    description: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{ bearer_token  }}
+    isPrivate: false
+    metaSortKey: -1582197679876
+    method: POST
+    modified: 1582271019260
+    name: Set Permission
+    parameters: []
+    parentId: fld_1ab38042f523459187703ac4c9b9ed26
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/acl/v1/:from_id/:target_id"
+    _type: request
+  - _id: fld_1ab38042f523459187703ac4c9b9ed26
+    created: 1582270692383
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1582205000559.75
+    modified: 1582270692406
+    name: ACL API
+    parentId: wrk_149837657b724d1dbf068785172068bd
+    _type: request_group
+  - _id: wrk_149837657b724d1dbf068785172068bd
+    created: 1577049267105
+    description: ""
+    modified: 1577049267105
+    name: Platform of Trust - Public APIs
+    parentId: null
+    _type: workspace
+  - _id: req_8b67fe5b04bf4ef4b8dda49b41119826
+    authentication: {}
+    body: {}
+    created: 1582270692388
+    description: ""
+    headers:
+      - name: Authorization
+        value: Bearer {{ bearer_token  }}
+    isPrivate: false
+    metaSortKey: -1582197679863.5
+    method: DELETE
+    modified: 1582271025679
+    name: Delete Permission
+    parameters: []
+    parentId: fld_1ab38042f523459187703ac4c9b9ed26
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/acl/v1/:from_id/:target_id"
+    _type: request
+  - _id: req_0a71b56dd7964d8c85cab5152af1d432
+    authentication: {}
+    body: {}
+    created: 1582270692391
+    description: ""
+    headers:
+      - name: Authorization
+        value: Bearer {{ bearer_token  }}
+    isPrivate: false
+    metaSortKey: -1582197679857.25
+    method: GET
+    modified: 1582270841610
+    name: List Permissions
+    parameters: []
+    parentId: fld_1ab38042f523459187703ac4c9b9ed26
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/acl/v1/:target_id"
+    _type: request
+  - _id: req_7a9fc0156a5343e7b078b141211bcc01
+    authentication: {}
+    body: {}
+    created: 1582270692394
+    description: ""
+    headers:
+      - name: Authorization
+        value: Bearer {{ bearer_token  }}
+    isPrivate: false
+    metaSortKey: -1582197679854.125
+    method: GET
+    modified: 1582271030142
+    name: Check Permission
+    parameters: []
+    parentId: fld_1ab38042f523459187703ac4c9b9ed26
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/acl/v1/:target_id/read,write,link,manage"
+    _type: request
+  - _id: req_0116e0b9ecbf450787a82101b142bf3f
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |
+        {
+        	"targets" : [
+        		""
+        	]
+        }
+    created: 1582270692395
+    description: ""
+    headers:
+      - name: Authorization
+        value: Bearer {{ bearer_token  }}
+      - name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1582197679852.5625
+    method: POST
+    modified: 1582270950984
+    name: Batch Check Permissions
+    parameters: []
+    parentId: fld_1ab38042f523459187703ac4c9b9ed26
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/acl/v1/batch/read,write,link,manage"
+    _type: request
   - _id: req_3061700765124ba0bb1e8fb8f2e50b22
     authentication: {}
     body: {}
@@ -38,13 +189,6 @@ resources:
     name: Application API
     parentId: wrk_149837657b724d1dbf068785172068bd
     _type: request_group
-  - _id: wrk_149837657b724d1dbf068785172068bd
-    created: 1577049267105
-    description: ""
-    modified: 1577049267105
-    name: Platform of Trust - Public APIs
-    parentId: null
-    _type: workspace
   - _id: req_d85c570ed9ec45fcbdc2c06009e503ef
     authentication: {}
     body:
@@ -157,6 +301,37 @@ resources:
     metaSortKey: -1577085145750.5
     modified: 1582203009636
     name: Broker API
+    parentId: wrk_149837657b724d1dbf068785172068bd
+    _type: request_group
+  - _id: req_a248891ee35a40a4b61f279054faab6e
+    authentication: {}
+    body: {}
+    created: 1582271122468
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1582228795799
+    method: GET
+    modified: 1582271122468
+    name: List Contexts
+    parameters: []
+    parentId: fld_36e8827297eb4d5fb0312355f805f10c
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ pot_base_url  }}/contexts/v1/"
+    _type: request
+  - _id: fld_36e8827297eb4d5fb0312355f805f10c
+    created: 1582271122463
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1577056019419.4375
+    modified: 1582271122487
+    name: Context API
     parentId: wrk_149837657b724d1dbf068785172068bd
     _type: request_group
   - _id: req_b0ccae129e604d2f82305f7c9ad4e2c2
