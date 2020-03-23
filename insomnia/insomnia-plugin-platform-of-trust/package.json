@@ -1,6 +1,6 @@
 {
-    "name": "insomnia-plugin-platform-of-trust",
-    "version": "0.0.10",
+    "name": "@platform-of-trust/insomnia-plugin-platform-of-trust",
+    "version": "0.0.15",
     "description": "Platform of Trust plugin for Insomnia REST Client",
     "main": "index.js",
     "scripts": {
@@ -10,7 +10,7 @@
         "name": "pot",
         "description": "A plugin for calculating X-Pot-Signature header for Broker API"
     },
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "json-stable-stringify": "^1.0.1",
         "jssha": "^2.3.1"
