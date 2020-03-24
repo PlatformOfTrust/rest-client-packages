@@ -14,6 +14,10 @@ There are Insomnia clients for Mac, Linux and Windows available.
 
 Download and import the provided workspace file __platform-of-trust-public.yaml__ from repository.
 
+## Install Platform Of Trust Plugin
+
+Install plugin via [Plugin Hub](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust/).
+
 ## Walk Through guides
 
-- [a relative link](add-product-walkthrough.md)
+- [HowTo Add Product](add-product-walkthrough.md)
