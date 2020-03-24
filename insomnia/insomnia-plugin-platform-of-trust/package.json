@@ -1,6 +1,6 @@
 {
     "name": "@platform-of-trust/insomnia-plugin-platform-of-trust",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "description": "Platform of Trust plugin for Insomnia REST Client",
     "main": "index.js",
     "scripts": {
