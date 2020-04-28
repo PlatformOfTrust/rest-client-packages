@@ -35,7 +35,7 @@ Location of the file in this repository: `/insomnia/platform-of-trust-public.jso
 
 4. Select `Sandbox` as **Environment**.
 
-5. Set the `Bearer Token` as an Environment variable.
+5. Set the `Bearer Token` as an Environment variable.<br>
 ![choose Manage Environment in Insomnia REST client](https://developer.oftrust.net/media/images/tools-insomnia-setenvvar.width-800.png)
 ![set Bearer token as environment variable](https://developer.oftrust.net/media/images/tools-insomnia-bearertokenenvvar.width-800.png)
 
