@@ -40,10 +40,10 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 - Batch Set permissions for a list of `Identities` with their `@id`s
 - Delete all permissions from an `Identity` to another `Identity` with their `@id`s
 
-Context API
+`Context API`
 - List all @contexts related to Platform of Trust Identities
 
-Broker API
+`Broker API`
 - Fetch harmonized data from a Data Product
 (requires installing and using this additional [plugin](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust))
 
