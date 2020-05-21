@@ -2,25 +2,50 @@
 Aim is to aid developers willing to onboard Platform of Trust by familiarizing them with with the core Platform APIs without overwhelming knowlege on API structures and functionalities.
 
 # Version and Contents
-1.0
+2.0
+
+## Chain Requests
+
+- Create a `Group`
+- Create a demo `Identity Network` (specific to attached diagram)
+- Delete a `Group`
+![Demo Identity Network](https://developer.oftrust.net/media/images/Insomnia-Demo-Identity_Network_-_Identity_Netw.width-800_1Mu5mgr.jpg)
+
+## APIs
 
 `Application API`:
-- List applications
-- Create a new application,
+- List `Applications`
+- Create a new `Application`
 - Delete an application with its `ID`
 
 `Identity API`:
-- Discover Identities
-- Read an identity with its `ID`
-- Delete an Identity with its `ID`
-- Delete Links by `type`
+- Discover `Identities`
+- Read an `Identity` with its `@id`
+- Create `Identities`
+- Create `Link` between `Identities`
+- Delete an `Identity` with its `@id`
+- Delete `Links` by `@type`
 
 `Product API`:
-- List Products
-- Read a Product by its `ID`
-- Create a new Product
-- Update a Product by its `ID`
-- Delete a product by its `ID`
+- List `Products`
+- Read a `Product` by its `ID`
+- Create a new `Product`
+- Update a `Product` by its `ID`
+- Delete a `Product` by its `ID`
+
+`Access Control List (ACL) API`
+- List permissions for a target `Identity` with its `@id`
+- Check READ, WRITE, LINK and MANAGE permissions for a target `Identity` with its `@id`
+- Set READ, WRITE, LINK and MANAGE permissions from an `Identity` to another `Identity` with their `@id`s
+- Batch Set permissions for a list of `Identities` with their `@id`s
+- Delete all permissions from an `Identity` to another `Identity` with their `@id`s
+
+Context API
+- List all @contexts related to Platform of Trust Identities
+
+Broker API
+- Fetch harmonized data from a Data Product
+(requires installing and using this additional [plugin](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust))
 
 # Get Started
 
@@ -33,12 +58,17 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 Location of the file in this repository: `/insomnia/platform-of-trust-public.json`
 ![workspace import](https://developer.oftrust.net/media/images/tools-insomnia-importworkspace.width-800.png)
 
-4. Select `Sandbox` as **Environment**.
+4. Go to **Manage Environment** and paste the copied `Bearer Token` value under `bearer_token` attribute. Make sure to exclude the "Bearer " part from the token. Click **Done**.
+![Insomnia Manage Environment](https://developer.oftrust.net/media/images/insomnia4.width-500.png)
+![set Bearer token](https://developer.oftrust.net/media/images/insomnia5.width-500.png)
 
-5. Set the `Bearer Token` as an Environment variable.<br>
-![choose Manage Environment in Insomnia REST client](https://developer.oftrust.net/media/images/tools-insomnia-setenvvar.width-800.png)
-![set Bearer token as environment variable](https://developer.oftrust.net/media/images/tools-insomnia-bearertokenenvvar.width-800.png)
-
+5. From Insomnia REST client environments, select **Use Sandbox**.
+![Use Sandbox](https://developer.oftrust.net/media/images/insomnia6.width-500.png)
 
 # You are ready to go!
 
+# Additional Resources
+
+1. Start using Platform of Trust [Sandbox](https://world-sandbox.oftrust.net/api/login)
+2. Read [Workflow using Insomnia Workspace](https://developer.oftrust.net/guides/workflow-using-insomnia-workspace/) guide in Platform of Trust Developer Portal to know how to use this workspace.
+3. Learn about [Chain Request](https://support.insomnia.rest/article/43-chaining-requests), [Template Tags](https://support.insomnia.rest/article/40-template-tags) and [Environment Variables](https://support.insomnia.rest/article/18-environment-variables) in Insomnia
