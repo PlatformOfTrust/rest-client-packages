@@ -1,5 +1,5 @@
-const jsSHA = require('jssha')
-const stringify = require('json-stable-stringify')
+const jsSHA = require('jssha');
+const stringify = require('json-stable-stringify');
 
 module.exports = function(context) {
 	if (context.request.getUrl().endsWith('fetch-data-product')) {
@@ -7,14 +7,14 @@ module.exports = function(context) {
 			const signatureHeader = calculateHMAC(
 				context.request.getBodyText(),
 				context.request.getEnvironmentVariable('client_secret'),
-			)
+			);
 
-			context.request.setHeader('x-pot-signature', signatureHeader)
+			context.request.setHeader('x-pot-signature', signatureHeader);
 		} catch (err) {
-			alert(err.message)
+			alert(err.message);
 		}
 	}
-}
+};
 
 // /**
 //  * Creates a Broker API compliant X-Pot-Signature header (The signature is created from the request payload and the app's client secret)
@@ -23,49 +23,49 @@ module.exports = function(context) {
 //  * @param {String} client_secret apps's client secret
 //  */
 function calculateHMAC(bodyText, client_secret) {
-	var sha = new jsSHA('SHA-256', 'TEXT')
+	var sha = new jsSHA('SHA-256', 'TEXT');
 
 	// calculated json payload should:
 	// - contain no indents
 	// - no spaces around property separator comma (,)
 	// - and colon + space (: ) separator between key/values
 	// - additionally sorted alphabetically by property keys
-	const message = jsonAddSpaces(stringify(JSON.parse(bodyText)))
+	const message = jsonAddSpaces(stringify(JSON.parse(bodyText)));
 
-	sha.setHMACKey(client_secret, 'TEXT')
-	sha.update(message)
-	return sha.getHMAC('B64')
+	sha.setHMACKey(client_secret, 'TEXT');
+	sha.update(message);
+	return sha.getHMAC('B64');
 }
 
 // Adds spaces after the value declarations into the payload
 function jsonAddSpaces(json) {
-	let res = ''
-	let isEscaped = false
-	let isValue = false
+	let res = '';
+	let isEscaped = false;
+	let isValue = false;
 
 	for (let i = 0; i < json.length; i++) {
-		let b = json[i]
-		res = res + b
+		let b = json[i];
+		res = res + b;
 		// specify the start of the json value
 		if (!isEscaped && b === '"') {
-			isValue = !isValue
+			isValue = !isValue;
 		}
 		// specify if the value separator is outside of a value declaration
 		if (b === ':' && !isValue) {
-			res = res + ' '
+			res = res + ' ';
 		}
 
 		// mark the next charracter as escaped if theres a leading backward
 		// slash and it's not escaped
 		if (b === '\\' && !isEscaped) {
-			isEscaped = true
-			continue
+			isEscaped = true;
+			continue;
 		}
 		// if the charracter was escaped turn of escaping for the next one
 		if (isEscaped) {
-			isEscaped = false
+			isEscaped = false;
 		}
 	}
 
-	return res
+	return res;
 }
