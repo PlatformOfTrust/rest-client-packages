@@ -30,22 +30,32 @@ function calculateHMAC(bodyText, client_secret) {
     // - no spaces around property separator comma (,)
     // - and colon + space (: ) separator between key/values
     // - additionally sorted alphabetically by property keys
-    const message = jsonAddSpaces(stringify(JSON.parse(bodyText)));
+    const message = jsonEncode(stringify(JSON.parse(bodyText)));
+
+    console.log(message);
 
     sha.setHMACKey(client_secret, 'TEXT');
     sha.update(message);
     return sha.getHMAC('B64');
 }
 
-// Adds spaces after the value declarations into the payload
-function jsonAddSpaces(json) {
+// Adds spaces after the value declarations into the payload and escapes non ASCII charracters
+function jsonEncode(json) {
     let res = '';
     let isEscaped = false;
     let isValue = false;
 
     for (let i = 0; i < json.length; i++) {
         let b = json[i];
+
+        // Escape non ASCII characters
+        const charCode = b.charCodeAt(0);
+        if (charCode > 127) {
+            b = unicodeCharEscape(charCode);
+        }
+
         res = res + b;
+
         // specify the start of the json value
         if (!isEscaped && b === '"') {
             isValue = !isValue;
@@ -68,4 +78,12 @@ function jsonAddSpaces(json) {
     }
 
     return res;
+}
+
+function padWithLeadingZeros(string) {
+    return new Array(5 - string.length).join('0') + string;
+}
+
+function unicodeCharEscape(charCode) {
+    return '\\u' + padWithLeadingZeros(charCode.toString(16));
 }
