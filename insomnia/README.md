@@ -44,8 +44,10 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 - List all @contexts related to Platform of Trust Identities
 
 `Broker API`
-- Fetch harmonized data from a Data Product
-(requires installing and using this additional [plugin](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust))
+- Fetch harmonized data from a Data Product, which requires installing and using the following additional plugins: 
+	* [plugin-platform-of-trust](insomnia://plugins/install?name=@platform-of-trust/insomnia-plugin-platform-of-trust)
+	* [plugin-customtimestamp](insomnia://plugins/install?name=insomnia-plugin-customtimestamp)
+
 
 # Get Started
 
