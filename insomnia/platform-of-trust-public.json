@@ -1,15 +1,15 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2020-05-18T11:00:43.440Z",
-	"__export_source": "insomnia.desktop.app:v7.1.1",
+	"__export_date": "2020-06-11T12:25:29.125Z",
+	"__export_source": "insomnia.desktop.app:v2020.2.2",
 	"resources": [
 		{
 			"_id": "req_ecb2347a62464e2cb335e3b87c9a3311",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\t\"name\": \"One Click Create Group\",\n\t\t\"type\": \"Create\",\n\t\t\"Create Group\": \"{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\t\"Create MemberOf Link\": \"{% response 'url', 'req_a47dfe283b39438aa733d29b8d3e39f5', 'b64::::46b', 'always' %}\"\n}\n"
+				"text": "{\n\t\t\"name\": \"One Click Create Group\",\n\t\t\"Create Group\": \"{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\t\"Create MemberOf Link\": \"{% response 'url', 'req_a47dfe283b39438aa733d29b8d3e39f5', 'b64::::46b', 'always' %}\"\n}\n"
 			},
 			"created": 1588766420156,
 			"description": "",
@@ -29,7 +29,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497512,
 			"method": "POST",
-			"modified": 1589445687079,
+			"modified": 1591878310569,
 			"name": "One Click Create Group",
 			"parameters": [],
 			"parentId": "wrk_149837657b724d1dbf068785172068bd",
@@ -39,7 +39,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "https://apiengine.oftrust.net/statistics/group",
+			"url": "https://apiengine.oftrust.net/statistics",
 			"_type": "request"
 		},
 		{
@@ -49,6 +49,7 @@
 			"modified": 1577049267105,
 			"name": "Platform of Trust - Public APIs",
 			"parentId": null,
+			"scope": null,
 			"_type": "workspace"
 		},
 		{
@@ -76,7 +77,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497462,
 			"method": "POST",
-			"modified": 1589441907577,
+			"modified": 1591877613028,
 			"name": "One Click Create Demo Identity Network",
 			"parameters": [],
 			"parentId": "wrk_149837657b724d1dbf068785172068bd",
@@ -86,44 +87,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "https://apiengine.oftrust.net/statistics/entity",
-			"_type": "request"
-		},
-		{
-			"_id": "req_fd10a3d02a9542058381afe1af3de847",
-			"authentication": {},
-			"body": {
-				"mimeType": "application/json",
-				"text": "{\n\t\t\"name\": \"One Click Create Group\",\n\t\t\"type\": \"Delete\",\n\t\t\"Delete MemberOf Link\": \"{% response 'url', 'req_6d0c1af9e18b4e98a4307aaa437bce03', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\t\"Delete Group\": \"{% response 'url', 'req_c2d87a472b9047a2a49a58bc2967f383', 'b64::::46b', 'always' %}\"\n}\n"
-			},
-			"created": 1589377942893,
-			"description": "",
-			"headers": [
-				{
-					"id": "pair_d1244e7be0fd4414aeb24f26dc7c22ab",
-					"name": "Content-Type",
-					"value": "application/json"
-				},
-				{
-					"id": "pair_372c3a49443c4dd291b68ebbf61c385f",
-					"name": "Authorization",
-					"value": "Bearer {{ bearer_token  }}"
-				}
-			],
-			"isPrivate": false,
-			"metaSortKey": -1588689497437,
-			"method": "POST",
-			"modified": 1589445695306,
-			"name": "One Click Delete Group",
-			"parameters": [],
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingFollowRedirects": "global",
-			"settingRebuildPath": true,
-			"settingSendCookies": true,
-			"settingStoreCookies": true,
-			"url": "https://apiengine.oftrust.net/statistics/group",
+			"url": "https://apiengine.oftrust.net/statistics",
 			"_type": "request"
 		},
 		{
@@ -710,7 +674,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"productCode\": \"CO2_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\"groupId\" : \"{{ group_id  }}\",\n\t\"translatorUrl\": \"https://api-sandbox.lifeengine.io/translator/v1/business-identity\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"https://api-sandbox.lifeengine.io/translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
+				"text": "{\n\t\"productCode\": \"CO2_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\"groupId\" : \"{{ group_id  }}\",\n\t\"translatorUrl\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/fetch\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
 			},
 			"created": 1588761568438,
 			"description": "",
@@ -730,7 +694,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269955.7422,
 			"method": "POST",
-			"modified": 1589438101615,
+			"modified": 1591877648959,
 			"name": "Create Data Product1 for CO2",
 			"parameters": [],
 			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
@@ -748,7 +712,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"productCode\": \"Temperature_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\"groupId\" :  \"{{ group_id  }}\",\n\"translatorUrl\": \"https://api-sandbox.lifeengine.io/translator/v1/business-identity\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\"url\": \"https://api-sandbox.lifeengine.io/translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
+				"text": "{\n\t\"productCode\": \"Temperature_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\"groupId\" :  \"{{ group_id  }}\",\n\"translatorUrl\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/fetch\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\"url\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
 			},
 			"created": 1588761384053,
 			"description": "",
@@ -768,7 +732,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269930.7422,
 			"method": "POST",
-			"modified": 1589294787815,
+			"modified": 1591877666774,
 			"name": "Create Data Product2 for Temperature",
 			"parameters": [],
 			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
@@ -1013,78 +977,6 @@
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
 			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JC5tZXRhZGF0YS5jcmVhdGVkQnk=::46b', 'always' %}/link/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
-			"_type": "request"
-		},
-		{
-			"_id": "req_6d0c1af9e18b4e98a4307aaa437bce03",
-			"authentication": {},
-			"body": {},
-			"created": 1589378301509,
-			"description": "",
-			"headers": [
-				{
-					"description": "",
-					"id": "pair_5018e7dea10341d9abf5fd32192290f4",
-					"name": "Authorization",
-					"value": "Bearer {{ bearer_token  }}"
-				}
-			],
-			"isPrivate": false,
-			"metaSortKey": -1588689517432.625,
-			"method": "DELETE",
-			"modified": 1589378827659,
-			"name": "Demo Delete MemberOf Link",
-			"parameters": [],
-			"parentId": "fld_ff35d2a771f04f5eb338f144d5fafa6f",
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingFollowRedirects": "global",
-			"settingRebuildPath": true,
-			"settingSendCookies": true,
-			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JC5tZXRhZGF0YS5jcmVhdGVkQnk=::46b', 'never' %}/link/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'never' %}/MemberOf",
-			"_type": "request"
-		},
-		{
-			"_id": "fld_ff35d2a771f04f5eb338f144d5fafa6f",
-			"created": 1589378225737,
-			"description": "",
-			"environment": {},
-			"environmentPropertyOrder": null,
-			"metaSortKey": -1588689517357.625,
-			"modified": 1589378231963,
-			"name": "Delete Demo Group",
-			"parentId": "fld_29e8bb78b31e48e28b68ff0a2d10dbc7",
-			"_type": "request_group"
-		},
-		{
-			"_id": "req_c2d87a472b9047a2a49a58bc2967f383",
-			"authentication": {},
-			"body": {},
-			"created": 1589378326037,
-			"description": "",
-			"headers": [
-				{
-					"description": "",
-					"id": "pair_146bafc4261c42faa40eb1ad3e9f781f",
-					"name": "Authorization",
-					"value": "Bearer {{ bearer_token  }}"
-				}
-			],
-			"isPrivate": false,
-			"metaSortKey": -1588689517382.625,
-			"method": "DELETE",
-			"modified": 1589378890274,
-			"name": "Demo Delete Group",
-			"parameters": [],
-			"parentId": "fld_ff35d2a771f04f5eb338f144d5fafa6f",
-			"settingDisableRenderRequestBody": false,
-			"settingEncodeUrl": true,
-			"settingFollowRedirects": "global",
-			"settingRebuildPath": true,
-			"settingSendCookies": true,
-			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
@@ -1958,6 +1850,16 @@
 			"name": "Default Jar",
 			"parentId": "wrk_149837657b724d1dbf068785172068bd",
 			"_type": "cookie_jar"
+		},
+		{
+			"_id": "spc_cfbd86b06b4d4eaca4cfb9a9040053a8",
+			"contentType": "yaml",
+			"contents": "",
+			"created": 1591877607024,
+			"fileName": "Platform of Trust - Public APIs",
+			"modified": 1591877607024,
+			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"_type": "api_spec"
 		},
 		{
 			"_id": "env_8c63be56ab6b4d6cb5d5dc59e04535e0",
