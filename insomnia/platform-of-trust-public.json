@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2020-06-12T09:06:52.609Z",
+	"__export_date": "2020-06-12T11:55:01.564Z",
 	"__export_source": "insomnia.desktop.app:v2020.2.2",
 	"resources": [
 		{
@@ -77,8 +77,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497462,
 			"method": "POST",
-			"modified": 1591187178366,
-			"name": "One Click Create Demo Identity Network",
+			"modified": 1591962834823,
+			"name": "One Click Create Demo Identity Network and DataProducts",
 			"parameters": [],
 			"parentId": "wrk_149837657b724d1dbf068785172068bd",
 			"settingDisableRenderRequestBody": false,
@@ -115,8 +115,8 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497449.5,
 			"method": "POST",
-			"modified": 1591187180718,
-			"name": "One Click Test Demo Identity Network",
+			"modified": 1591962845254,
+			"name": "One Click Test Demo DataProducts",
 			"parameters": [],
 			"parentId": "wrk_149837657b724d1dbf068785172068bd",
 			"settingDisableRenderRequestBody": false,
@@ -1099,7 +1099,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517311.4336,
 			"method": "POST",
-			"modified": 1591182048659,
+			"modified": 1591954213194,
 			"name": "Fetch CO2 Data Product",
 			"parameters": [],
 			"parentId": "fld_1ab21ff7812f428ea7175f9fb1092b67",
@@ -2060,7 +2060,7 @@
 			},
 			"isPrivate": false,
 			"metaSortKey": 1587024501145,
-			"modified": 1590571768958,
+			"modified": 1591962866711,
 			"name": "Sandbox",
 			"parentId": "env_582df132aff0b71ffec7430abd77e6509b0816a8",
 			"_type": "environment"

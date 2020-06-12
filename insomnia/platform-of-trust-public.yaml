@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2020-06-12T09:07:12.719Z
+__export_date: 2020-06-12T11:55:16.136Z
 __export_source: insomnia.desktop.app:v2020.2.2
 resources:
   - _id: req_ecb2347a62464e2cb335e3b87c9a3311
@@ -88,8 +88,8 @@ resources:
     isPrivate: false
     metaSortKey: -1588689497462
     method: POST
-    modified: 1591187178366
-    name: One Click Create Demo Identity Network
+    modified: 1591962834823
+    name: One Click Create Demo Identity Network and DataProducts
     parameters: []
     parentId: wrk_149837657b724d1dbf068785172068bd
     settingDisableRenderRequestBody: false
@@ -124,8 +124,8 @@ resources:
     isPrivate: false
     metaSortKey: -1588689497449.5
     method: POST
-    modified: 1591187180718
-    name: One Click Test Demo Identity Network
+    modified: 1591962845254
+    name: One Click Test Demo DataProducts
     parameters: []
     parentId: wrk_149837657b724d1dbf068785172068bd
     settingDisableRenderRequestBody: false
