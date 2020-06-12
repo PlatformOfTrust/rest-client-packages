@@ -1,8 +1,8 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2020-06-03T12:27:27.167Z",
-	"__export_source": "insomnia.desktop.app:v2020.2.1",
+	"__export_date": "2020-06-12T09:06:52.609Z",
+	"__export_source": "insomnia.desktop.app:v2020.2.2",
 	"resources": [
 		{
 			"_id": "req_ecb2347a62464e2cb335e3b87c9a3311",
@@ -1494,7 +1494,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1582228795799,
 			"method": "GET",
-			"modified": 1582271122468,
+			"modified": 1591952780854,
 			"name": "List Contexts",
 			"parameters": [],
 			"parentId": "fld_36e8827297eb4d5fb0312355f805f10c",
@@ -1504,7 +1504,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/contexts/v1/",
+			"url": "{{ pot_base_url  }}/contexts/v1",
 			"_type": "request"
 		},
 		{
