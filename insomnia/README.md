@@ -45,8 +45,8 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 
 `Broker API`
 - Fetch harmonized data from a Data Product, which requires installing and using the following additional plugins: 
-	* [plugin-platform-of-trust](insomnia://plugins/install?name=@platform-of-trust/insomnia-plugin-platform-of-trust)
-	* [plugin-customtimestamp](insomnia://plugins/install?name=insomnia-plugin-customtimestamp)
+	* [@platform-of-trust/insomnia-plugin-platform-of-trust](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust)
+	* [insomnia-plugin-customtimestamp](https://www.npmjs.com/package/insomnia-plugin-customtimestamp)
 
 
 # Get Started
