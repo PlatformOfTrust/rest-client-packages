@@ -1,18 +1,18 @@
 {
 	"_type": "export",
 	"__export_format": 4,
-	"__export_date": "2020-06-12T11:55:01.564Z",
+	"__export_date": "2020-06-23T10:02:12.731Z",
 	"__export_source": "insomnia.desktop.app:v2020.2.2",
 	"resources": [
 		{
-			"_id": "req_ecb2347a62464e2cb335e3b87c9a3311",
+			"_id": "req_1315db98e2a5411186b320b08304d917",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"One Click Create Group\",\n\t\"Create Group\": \"{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create MemberOf Link\": \"{% response 'url', 'req_a47dfe283b39438aa733d29b8d3e39f5', 'b64::::46b', 'always' %}\"\n}"
+				"text": "{\n\t\"name\": \"One Click Create Group\",\n\t\"Create Group\": \"{% response 'body', 'req_5035bc2212f64c7785c53d52d8bb4ce7', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create MemberOf Link\": \"{% response 'url', 'req_f476ea1aef274d14bb6532ecfb40eb1d', 'b64::::46b', 'always' %}\"\n}"
 			},
-			"created": 1588766420156,
-			"description": "",
+			"created": 1592393169720,
+			"description": "* Calling the 'One Click Create Group' request will create a group and attach that group to the user that created the group .\n* This request is mandatory for the others 'One Click' .\n* In order for the request to work properly, in the Sandbox environment, you need to have a valid \"bearer_token\"\n* Sending this request it will set the 'group_id' value in the Sandbox environment\n* For more detailed information you can look at the Preview for the requests that were used.\n* Each time the request is sent, a new group is created and attached to the current user.\n",
 			"headers": [
 				{
 					"id": "pair_d1244e7be0fd4414aeb24f26dc7c22ab",
@@ -29,10 +29,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497512,
 			"method": "POST",
-			"modified": 1591187231997,
+			"modified": 1592900663746,
 			"name": "One Click Create Group",
 			"parameters": [],
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -43,24 +43,24 @@
 			"_type": "request"
 		},
 		{
-			"_id": "wrk_149837657b724d1dbf068785172068bd",
-			"created": 1577049267105,
+			"_id": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
+			"created": 1592393169538,
 			"description": "",
-			"modified": 1577049267105,
-			"name": "Platform of Trust - Public APIs",
+			"modified": 1592393169538,
+			"name": "Platform of Trust - Public APIs 2.0",
 			"parentId": null,
 			"scope": null,
 			"_type": "workspace"
 		},
 		{
-			"_id": "req_ebaf5866c5004566990a5cd76965ac3e",
+			"_id": "req_39f941fb9f904cbb92bb74c12261972d",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"name\": \"One Click Create Demo Identity Network\",\n\t\"Create Building Identity\": \"{% response 'body', 'req_8ddfe997450847a0a8b9a2d571bbb98a', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Floor Identity\": \"{% response 'body', 'req_a63b2b5aa142422d878baf536a221b8b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Floor and Building\": \"{% response 'body', 'req_f9914c2ac8014948b5d4c6965e9c4907', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Room1\": \"{% response 'body', 'req_60624ac7fee34ad692c0c05ab97cc603', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Room1 and Floor\": \"{% response 'body', 'req_664217a25cc74430bc63b37b70877aff', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create CO2 Sensor1 Identity\": \"{% response 'body', 'req_66cbc141b3fc443f86ed8085627b154c', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between CO2 Sensor1 and Room1\": \"{% response 'body', 'req_9fba83cbd0884ca59e20eeaa94b13526', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Temperature Sensor2 Identity\": \"{% response 'body', 'req_dd0c74a54bef45ca9663df38b4b0b134', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Temperature Sensor2 and Room1\": \"{% response 'body', 'req_c3de63719578407784eb4fdb5490dcba', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Room2\": \"{% response 'body', 'req_65c370cba8e440e6a32be15e057c08a8', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Room2 and Floor\": \"{% response 'body', 'req_72e7eafa58f946ebb9934b8852ba564b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create CO2 Sensor3 Identity\": \"{% response 'body', 'req_e3d6d3a59fa5420ea4515570b7fc090e', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between CO2 Sensor3 and Room2\": \"{% response 'body', 'req_af5741cefda649be8b1c3eb6926193f9', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Temperature Sensor4 Identity\": \"{% response 'body', 'req_792f8dbaec8d4a40857935e9b86d194f', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Temperature Sensor4 and Room2\": \"{% response 'body', 'req_510c2cf714f4445882ea80dbca4b4a4f', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Data Product1 for CO2\": \"{% response 'body', 'req_e3b479f625b3438ebdf7cb997352a576', 'b64::JC5pZGVudGl0eUlk::46b', 'always' %}\",\n\t\"Create Data Product2 for Temperature\": \"{% response 'body', 'req_f4ecf46aa00944c489c96eed289fe4c5', 'b64::JC5pZGVudGl0eUlk::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between CO2 Sensor1 and CO2 Data Product1\": \"{% response 'body', 'req_df3ec66cc1ab4866b58a95edd7da9183', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between CO2 Sensor3 and CO2 Data Product1\": \"{% response 'body', 'req_f5e524f435e946598d077c6372e5ea64', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between Temperature Sensor2 and Temperature Data Product2\": \"{% response 'body', 'req_95f62341e1ab4120b1e4e731a84bb5a1', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between Temperature Sensor4 and Temperature Data Product2\": \"{% response 'body', 'req_b98f126a3f914609890c475db77a27ef', 'b64::JFsiQGlkIl0=::46b', 'always' %}\"\n}"
+				"text": "{\n\t\"name\": \"One Click Create Demo Identity Network\",\n\t\"Create Building Identity\": \"{% response 'body', 'req_7cbfe7aeb2794392a5d64554e69b79bc', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Floor Identity\": \"{% response 'body', 'req_35f0df11f3a24ac2adbe1745a51d8abc', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Floor and Building\": \"{% response 'body', 'req_c1a3dfd7203047118ce6723b9bfea53b', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Room1\": \"{% response 'body', 'req_70ab7b4604574164b301dfea9b3af330', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Room1 and Floor\": \"{% response 'body', 'req_a4064f96c569470bb094fd338e96232c', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create CO2 Sensor1 Identity\": \"{% response 'body', 'req_3fe5e6b03ca1426fbefdf5f961a2a35e', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between CO2 Sensor1 and Room1\": \"{% response 'body', 'req_4d1c4f16e589412392da61f584dc50f1', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Temperature Sensor2 Identity\": \"{% response 'body', 'req_86a5a46f077942a097dbe35303f655a5', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Temperature Sensor2 and Room1\": \"{% response 'body', 'req_717184df188b47feac6aecf877e50be4', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Room2\": \"{% response 'body', 'req_c9a32ff48b234b6a87a152d89c30538c', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Room2 and Floor\": \"{% response 'body', 'req_b6dc602e5f4f49ed93579070cfbb894e', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create CO2 Sensor3 Identity\": \"{% response 'body', 'req_54eeca58ffcc4271a5fdf45988ec2577', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between CO2 Sensor3 and Room2\": \"{% response 'body', 'req_f55b5862fc484ec1898e5ac828a81f3f', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Temperature Sensor4 Identity\": \"{% response 'body', 'req_fc9a86f481404079a8aaf826d3289a6c', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'BelongsTo' between Temperature Sensor4 and Room2\": \"{% response 'body', 'req_14158a2b512d420bbd1460014ee3ea20', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Data Product1 for CO2\": \"{% response 'body', 'req_8b9d034a81134c3db3392362bf486e77', 'b64::JC5pZGVudGl0eUlk::46b', 'always' %}\",\n\t\"Create Data Product2 for Temperature\": \"{% response 'body', 'req_df32481c563c40c5af841832b6f7e419', 'b64::JC5pZGVudGl0eUlk::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between CO2 Sensor1 and CO2 Data Product1\": \"{% response 'body', 'req_9de7f6567b8d47268f8f47e444fe3669', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between CO2 Sensor3 and CO2 Data Product1\": \"{% response 'body', 'req_4dca80ec5f3a4924877ae226bc1a752c', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between Temperature Sensor2 and Temperature Data Product2\": \"{% response 'body', 'req_21ac3cd7321a4668bfed77a69443f8ac', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Create Link of type 'AtDataProduct' between Temperature Sensor4 and Temperature Data Product2\": \"{% response 'body', 'req_c71b9f32905547028f0c4d3d4996afd3', 'b64::JFsiQGlkIl0=::46b', 'always' %}\"\n}"
 			},
-			"created": 1588763864299,
-			"description": "",
+			"created": 1592393169718,
+			"description": "* Calling the 'One Click Create Demo Identity Network and DataProducts' request will create the following Identity Network with Data Products:\n![Demo Identity Network](https://developer.oftrust.net/media/images/Insomnia-Demo-Identity_Network_-_Identity_Netw.width-800_1Mu5mgr.jpg)\n* For this request to work, you need first to send the 'One Click Create Group' request.\n* This request is mandatory for the 'One Click Test Demo DataProducts' request.\n* For more detailed information you can look at the Preview for the requests that were used.\n* Each time the request is sent, a new Identity Network with Data Products is created",
 			"headers": [
 				{
 					"id": "pair_d1244e7be0fd4414aeb24f26dc7c22ab",
@@ -77,10 +77,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497462,
 			"method": "POST",
-			"modified": 1591962834823,
+			"modified": 1592901082295,
 			"name": "One Click Create Demo Identity Network and DataProducts",
 			"parameters": [],
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -91,14 +91,14 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_35bc665bfaf44e14b42f58b4c42472cd",
+			"_id": "req_0e1bec05bd304659b68e29c1c55ed52f",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"Name\": \"One Click Test Demo Identity Network\",\n\t\"Create Application\": \"{% response 'body', 'req_2ee9a3e450094d419755710da67f2351', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Fetch CO2 Data Product\": \"{% response 'body', 'req_4cffe1f6ad5445e0b56d2284e5b10c71', 'b64::JC5zaWduYXR1cmUuY3JlYXRvcg==::46b', 'always' %}\",\n\t\"Fetch Temperature Data Product\": \"{% response 'body', 'req_122c75dd1f794c1ba2e20ce0fd89828b', 'b64::JC5zaWduYXR1cmUuY3JlYXRvcg==::46b', 'always' %}\"\n}"
+				"text": "{\n\t\"Name\": \"One Click Test Demo Identity Network\",\n\t\"Create Application\": \"{% response 'body', 'req_b5b4856f123b4eed9b1ba6f1f895a438', 'b64::JFsiQGlkIl0=::46b', 'always' %}\",\n\t\"Fetch CO2 Data Product\": \"{% response 'body', 'req_0ffede990dc04920ac5db9c9dc7baf9f', 'b64::JC5zaWduYXR1cmUuY3JlYXRvcg==::46b', 'always' %}\",\n\t\"Fetch Temperature Data Product\": \"{% response 'body', 'req_6bb62c4f9fc24366bbf02cc5bb1c50c9', 'b64::JC5zaWduYXR1cmUuY3JlYXRvcg==::46b', 'always' %}\"\n}"
 			},
-			"created": 1589809973756,
-			"description": "",
+			"created": 1592393169722,
+			"description": "* Calling the 'One Click Test Demo DataProducts' will create an application and based on that application client secret and access_token that are saved in the Sandbox environment is going to send a call to the BrokerAPI for each Data Product created by the last request of 'One Click Create Demo Identity Network and DataProducts'\n* For this request to work, you need first to send the 'One Click Create Demo Identity Network and DataProducts' request\n- Fetch harmonized data from a Data Product, which requires installing and using the following additional plugins: \n\t* [plugin-platform-of-trust](insomnia://plugins/install?name=@platform-of-trust/insomnia-plugin-platform-of-trust)\n\t* [plugin-customtimestamp](insomnia://plugins/install?name=insomnia-plugin-customtimestamp)\n* For more detailed information you can look at the Preview for the requests that were used.",
 			"headers": [
 				{
 					"id": "pair_d1244e7be0fd4414aeb24f26dc7c22ab",
@@ -115,10 +115,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689497449.5,
 			"method": "POST",
-			"modified": 1591962845254,
+			"modified": 1592901116303,
 			"name": "One Click Test Demo DataProducts",
 			"parameters": [],
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -129,13 +129,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_8ddfe997450847a0a8b9a2d571bbb98a",
+			"_id": "req_7cbfe7aeb2794392a5d64554e69b79bc",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Building/\",\n\t\"type\": \"Building\",\n\t\"data\": {\n\t\t\"name\": \"Building\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Structure/Building/\",\n\t\"type\": \"Building\",\n\t\"data\": {\n\t\t\"name\": \"Building\"\n\t}\n}"
 			},
-			"created": 1588689706589,
+			"created": 1592393169653,
 			"description": "",
 			"headers": [
 				{
@@ -152,10 +152,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1585459146630.5,
 			"method": "POST",
-			"modified": 1589980974279,
+			"modified": 1592899498406,
 			"name": "Create Building Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -166,37 +166,37 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_6bc5599d439f4cbd9da01b9a79255824",
-			"created": 1588689517267,
+			"_id": "fld_8bbe731db6c7486284605ef99a4fb678",
+			"created": 1592393169650,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1588689517367,
-			"modified": 1588689538917,
+			"modified": 1592393169650,
 			"name": "Create Demo Identity Network",
-			"parentId": "fld_29e8bb78b31e48e28b68ff0a2d10dbc7",
+			"parentId": "fld_e57ddd032061404681108dae9c20b79c",
 			"_type": "request_group"
 		},
 		{
-			"_id": "fld_29e8bb78b31e48e28b68ff0a2d10dbc7",
-			"created": 1588689497412,
+			"_id": "fld_e57ddd032061404681108dae9c20b79c",
+			"created": 1592393169648,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1588689497412,
-			"modified": 1588689497412,
+			"modified": 1592393169648,
 			"name": "Utility",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_a63b2b5aa142422d878baf536a221b8b",
+			"_id": "req_35f0df11f3a24ac2adbe1745a51d8abc",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/BuildingElement/Floor\",\n\t\"type\": \"Floor\",\n\t\"data\": {\n\t\t\"name\": \"Floor\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Element/BuildingElement/Floor/\",\n\t\"type\": \"Floor\",\n\t\"data\": {\n\t\t\"name\": \"Floor\"\n\t}\n}"
 			},
-			"created": 1588689745413,
+			"created": 1592393169656,
 			"description": "",
 			"headers": [
 				{
@@ -213,10 +213,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1583843971214.75,
 			"method": "POST",
-			"modified": 1590491088000,
+			"modified": 1592899600921,
 			"name": "Create Floor Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -227,13 +227,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_f9914c2ac8014948b5d4c6965e9c4907",
+			"_id": "req_c1a3dfd7203047118ce6723b9bfea53b",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690193992,
+			"created": 1592393169669,
 			"description": "",
 			"headers": [
 				{
@@ -250,27 +250,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1583440177360.8125,
 			"method": "POST",
-			"modified": 1589980979829,
+			"modified": 1592900000857,
 			"name": "Create Link of type 'BelongsTo' between Floor and Building",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_a63b2b5aa142422d878baf536a221b8b', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_8ddfe997450847a0a8b9a2d571bbb98a', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_35f0df11f3a24ac2adbe1745a51d8abc', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_7cbfe7aeb2794392a5d64554e69b79bc', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_60624ac7fee34ad692c0c05ab97cc603",
+			"_id": "req_70ab7b4604574164b301dfea9b3af330",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Room/\",\n\t\"type\": \"Room\",\n\t\"data\": {\n\t\t\"name\": \"Room\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Space/Room/\",\n\t\"type\": \"Room\",\n\t\"data\": {\n\t\t\"name\": \"Room\"\n\t}\n}"
 			},
-			"created": 1588689762559,
+			"created": 1592393169658,
 			"description": "",
 			"headers": [
 				{
@@ -287,10 +287,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1583036383506.875,
 			"method": "POST",
-			"modified": 1589980981620,
+			"modified": 1592901700518,
 			"name": "Create Room1",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -301,13 +301,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_664217a25cc74430bc63b37b70877aff",
+			"_id": "req_a4064f96c569470bb094fd338e96232c",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690558188,
+			"created": 1592393169671,
 			"description": "",
 			"headers": [
 				{
@@ -324,27 +324,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582834486579.9062,
 			"method": "POST",
-			"modified": 1589980983571,
+			"modified": 1592901732450,
 			"name": "Create Link of type 'BelongsTo' between Room1 and Floor",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_60624ac7fee34ad692c0c05ab97cc603', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_a63b2b5aa142422d878baf536a221b8b', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_70ab7b4604574164b301dfea9b3af330', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_35f0df11f3a24ac2adbe1745a51d8abc', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_66cbc141b3fc443f86ed8085627b154c",
+			"_id": "req_3fe5e6b03ca1426fbefdf5f961a2a35e",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Device/Sensor/CarbonDioxideSensor/\",\n\t\"type\": \"CarbonDioxideSensor\",\n\t\"data\": {\n\t\t\"name\": \"CO2 Sensor 1\",\n\t\t\"descriptionGeneral\": \"This sensor measures CO2!\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Equipment/Device/Sensor/CarbonDioxideSensor/\",\n\t\"type\": \"CarbonDioxideSensor\",\n\t\"data\": {\n\t\t\"name\": \"CO2 Sensor 1\",\n\t\t\"descriptionGeneral\": \"This sensor measures CO2!\"\n\t}\n}"
 			},
-			"created": 1588690592556,
+			"created": 1592393169673,
 			"description": "",
 			"headers": [
 				{
@@ -361,10 +361,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582733538116.4219,
 			"method": "POST",
-			"modified": 1589980985110,
+			"modified": 1592901821397,
 			"name": "Create CO2 Sensor1 Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -375,13 +375,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_9fba83cbd0884ca59e20eeaa94b13526",
+			"_id": "req_4d1c4f16e589412392da61f584dc50f1",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690614650,
+			"created": 1592393169675,
 			"description": "",
 			"headers": [
 				{
@@ -398,27 +398,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582683063884.6797,
 			"method": "POST",
-			"modified": 1589980986677,
+			"modified": 1592901881944,
 			"name": "Create Link of type 'BelongsTo' between CO2 Sensor1 and Room1",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_66cbc141b3fc443f86ed8085627b154c', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_60624ac7fee34ad692c0c05ab97cc603', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_3fe5e6b03ca1426fbefdf5f961a2a35e', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_70ab7b4604574164b301dfea9b3af330', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_dd0c74a54bef45ca9663df38b4b0b134",
+			"_id": "req_86a5a46f077942a097dbe35303f655a5",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Device/Sensor/TemperatureSensor/\",\n\t\"type\": \"TemperatureSensor\",\n\t\"data\": {\n\t\t\"name\": \"Temperature Sensor 2\",\n\t\t\"descriptionGeneral\": \"This sensor measures temperature!\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Equipment/Device/Sensor/TemperatureSensor/\",\n\t\"type\": \"TemperatureSensor\",\n\t\"data\": {\n\t\t\"name\": \"Temperature Sensor 2\",\n\t\t\"descriptionGeneral\": \"This sensor measures temperature!\"\n\t}\n}"
 			},
-			"created": 1588689837804,
+			"created": 1592393169660,
 			"description": "",
 			"headers": [
 				{
@@ -435,10 +435,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582632589652.9375,
 			"method": "POST",
-			"modified": 1590570463527,
+			"modified": 1592901902173,
 			"name": "Create Temperature Sensor2 Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -449,13 +449,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_c3de63719578407784eb4fdb5490dcba",
+			"_id": "req_717184df188b47feac6aecf877e50be4",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690630051,
+			"created": 1592393169677,
 			"description": "",
 			"headers": [
 				{
@@ -472,27 +472,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582531641189.4531,
 			"method": "POST",
-			"modified": 1589980991165,
+			"modified": 1592901921709,
 			"name": "Create Link of type 'BelongsTo' between Temperature Sensor2 and Room1",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_dd0c74a54bef45ca9663df38b4b0b134', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_60624ac7fee34ad692c0c05ab97cc603', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_86a5a46f077942a097dbe35303f655a5', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_70ab7b4604574164b301dfea9b3af330', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_65c370cba8e440e6a32be15e057c08a8",
+			"_id": "req_c9a32ff48b234b6a87a152d89c30538c",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Room/\",\n\t\"type\": \"Room\",\n\t\"data\": {\n\t\t\"name\": \"Room\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Space/Room/\",\n\t\"type\": \"Room\",\n\t\"data\": {\n\t\t\"name\": \"Room\"\n\t}\n}"
 			},
-			"created": 1588689852403,
+			"created": 1592393169662,
 			"description": "",
 			"headers": [
 				{
@@ -509,10 +509,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582430692725.9688,
 			"method": "POST",
-			"modified": 1589980992311,
+			"modified": 1592901950520,
 			"name": "Create Room2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -523,13 +523,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_72e7eafa58f946ebb9934b8852ba564b",
+			"_id": "req_b6dc602e5f4f49ed93579070cfbb894e",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690648442,
+			"created": 1592393169679,
 			"description": "",
 			"headers": [
 				{
@@ -546,27 +546,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582380218494.2266,
 			"method": "POST",
-			"modified": 1589980995222,
+			"modified": 1592901984453,
 			"name": "Create Link of type 'BelongsTo' between Room2 and Floor",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_65c370cba8e440e6a32be15e057c08a8', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_a63b2b5aa142422d878baf536a221b8b', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_c9a32ff48b234b6a87a152d89c30538c', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_35f0df11f3a24ac2adbe1745a51d8abc', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_e3d6d3a59fa5420ea4515570b7fc090e",
+			"_id": "req_54eeca58ffcc4271a5fdf45988ec2577",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Device/Sensor/CarbonDioxideSensor/\",\n\t\"type\": \"CarbonDioxideSensor\",\n\t\"data\": {\n\t\t\"name\": \"CO2 Sensor 3\",\n\t\t\"descriptionGeneral\": \"This sensor measures CO2!\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Equipment/Device/Sensor/CarbonDioxideSensor/\",\n\t\"type\": \"CarbonDioxideSensor\",\n\t\"data\": {\n\t\t\"name\": \"CO2 Sensor 3\",\n\t\t\"descriptionGeneral\": \"This sensor measures CO2!\"\n\t}\n}"
 			},
-			"created": 1588689868516,
+			"created": 1592393169664,
 			"description": "",
 			"headers": [
 				{
@@ -583,10 +583,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582329744262.4844,
 			"method": "POST",
-			"modified": 1589980996542,
+			"modified": 1592902001916,
 			"name": "Create CO2 Sensor3 Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -597,13 +597,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_af5741cefda649be8b1c3eb6926193f9",
+			"_id": "req_f55b5862fc484ec1898e5ac828a81f3f",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690670307,
+			"created": 1592393169681,
 			"description": "",
 			"headers": [
 				{
@@ -620,27 +620,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582304507146.6133,
 			"method": "POST",
-			"modified": 1589980998155,
+			"modified": 1592902046756,
 			"name": "Create Link of type 'BelongsTo' between CO2 Sensor3 and Room2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_e3d6d3a59fa5420ea4515570b7fc090e', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_65c370cba8e440e6a32be15e057c08a8', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_54eeca58ffcc4271a5fdf45988ec2577', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_c9a32ff48b234b6a87a152d89c30538c', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_792f8dbaec8d4a40857935e9b86d194f",
+			"_id": "req_fc9a86f481404079a8aaf826d3289a6c",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Identity/Device/Sensor/TemperatureSensor/\",\n\t\"type\": \"TemperatureSensor\",\n\t\"data\": {\n\t\t\"name\": \"Temperature Sensor 4\",\n\t\t\"descriptionGeneral\": \"This sensor measures temperature!\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Equipment/Device/Sensor/TemperatureSensor/\",\n\t\"type\": \"TemperatureSensor\",\n\t\"data\": {\n\t\t\"name\": \"Temperature Sensor 4\",\n\t\t\"descriptionGeneral\": \"This sensor measures temperature!\"\n\t}\n}"
 			},
-			"created": 1588689879452,
+			"created": 1592393169667,
 			"description": "",
 			"headers": [
 				{
@@ -657,10 +657,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279270030.7422,
 			"method": "POST",
-			"modified": 1590570482459,
+			"modified": 1592902069303,
 			"name": "Create Temperature Sensor4 Identity",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -671,13 +671,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_510c2cf714f4445882ea80dbca4b4a4f",
+			"_id": "req_14158a2b512d420bbd1460014ee3ea20",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n\t\"type\": \"BelongsTo\"\n}"
 			},
-			"created": 1588690687393,
+			"created": 1592393169684,
 			"description": "",
 			"headers": [
 				{
@@ -694,27 +694,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269980.7422,
 			"method": "POST",
-			"modified": 1589981001916,
+			"modified": 1592902108564,
 			"name": "Create Link of type 'BelongsTo' between Temperature Sensor4 and Room2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_792f8dbaec8d4a40857935e9b86d194f', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_65c370cba8e440e6a32be15e057c08a8', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_fc9a86f481404079a8aaf826d3289a6c', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_c9a32ff48b234b6a87a152d89c30538c', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_e3b479f625b3438ebdf7cb997352a576",
+			"_id": "req_8b9d034a81134c3db3392362bf486e77",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"productCode\": \"CO2_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards-ontotest.oftrust.net/v2/Context/DataProductOutput/\",\n\t\"parameterContext\": \"https://standards-ontotest.oftrust.net/v2/Context/DataProductParameters/\",\n\t\"groupId\": \"{{ group_id  }}\",\n\t\"translatorUrl\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/fetch\",\n\t\"name\": \"Data Product1 for CO2\",\n\t\"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/public.key\",\n\t\t\t\"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"Demo Data Product1 for CO2\"\n}"
+				"text": "{\n\t\"productCode\": \"CO2_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"groupId\": \"{{ group_id  }}\",\n\t\"translatorUrl\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/fetch\",\n\t\"name\": \"Data Product1 for CO2\",\n\t\"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/public.key\",\n\t\t\t\"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"Demo Data Product1 for CO2\"\n}"
 			},
-			"created": 1588761568438,
+			"created": 1592393169690,
 			"description": "",
 			"headers": [
 				{
@@ -732,10 +732,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269955.7422,
 			"method": "POST",
-			"modified": 1590571722023,
+			"modified": 1592903469249,
 			"name": "Create Data Product1 for CO2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -746,13 +746,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_f4ecf46aa00944c489c96eed289fe4c5",
+			"_id": "req_df32481c563c40c5af841832b6f7e419",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"productCode\": \"Temperature_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards-ontotest.oftrust.net/v2/Context/DataProductOutput/\",\n\t\"parameterContext\": \"https://standards-ontotest.oftrust.net/v2/Context/DataProductParameters/\",\n\t\"groupId\": \"{{ group_id  }}\",\n\t\"translatorUrl\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/fetch\",\n\t\"name\": \"Data Product2 for Temperature\",\n\t\"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"https://api-external-sandbox.oftrust.net/dummy-translator/v1/public.key\",\n\t\t\t\"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"Demo Data Product2 for Temperature\"\n}"
+				"text": "{\n\t\"productCode\": \"Temperature_{% now 'millis', '' %}\",\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"groupId\": \"{{ group_id  }}\",\n\t\"translatorUrl\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/fetch\",\n\t\"name\": \"Data Product2 for Temperature\",\n\t\"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/public.key\",\n\t\t\t\"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"Demo Data Product2 for Temperature\"\n}"
 			},
-			"created": 1588761384053,
+			"created": 1592393169686,
 			"description": "",
 			"headers": [
 				{
@@ -770,10 +770,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269930.7422,
 			"method": "POST",
-			"modified": 1590571740300,
+			"modified": 1592903505553,
 			"name": "Create Data Product2 for Temperature",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -784,13 +784,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_df3ec66cc1ab4866b58a95edd7da9183",
+			"_id": "req_9de7f6567b8d47268f8f47e444fe3669",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Link/AtDataProduct/\",\n\t\"type\": \"AtDataProduct\"\n}"
 			},
-			"created": 1588761724028,
+			"created": 1592393169692,
 			"description": "",
 			"headers": [
 				{
@@ -807,27 +807,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269880.7422,
 			"method": "POST",
-			"modified": 1590503108663,
+			"modified": 1592902171000,
 			"name": "Create Link of type 'AtDataProduct' between CO2 Sensor1 and CO2 Data Product1",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_66cbc141b3fc443f86ed8085627b154c', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_e3b479f625b3438ebdf7cb997352a576', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_3fe5e6b03ca1426fbefdf5f961a2a35e', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_8b9d034a81134c3db3392362bf486e77', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_f5e524f435e946598d077c6372e5ea64",
+			"_id": "req_4dca80ec5f3a4924877ae226bc1a752c",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Link/AtDataProduct/\",\n\t\"type\": \"AtDataProduct\"\n}"
 			},
-			"created": 1588761740815,
+			"created": 1592393169696,
 			"description": "",
 			"headers": [
 				{
@@ -844,27 +844,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269830.7422,
 			"method": "POST",
-			"modified": 1590503113127,
+			"modified": 1592902185860,
 			"name": "Create Link of type 'AtDataProduct' between CO2 Sensor3 and CO2 Data Product1",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_e3d6d3a59fa5420ea4515570b7fc090e', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_e3b479f625b3438ebdf7cb997352a576', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_54eeca58ffcc4271a5fdf45988ec2577', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_8b9d034a81134c3db3392362bf486e77', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_95f62341e1ab4120b1e4e731a84bb5a1",
+			"_id": "req_21ac3cd7321a4668bfed77a69443f8ac",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Link/AtDataProduct/\",\n\t\"type\": \"AtDataProduct\"\n}"
 			},
-			"created": 1588761754412,
+			"created": 1592393169699,
 			"description": "",
 			"headers": [
 				{
@@ -881,27 +881,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269780.7422,
 			"method": "POST",
-			"modified": 1590503117292,
+			"modified": 1592902196828,
 			"name": "Create Link of type 'AtDataProduct' between Temperature Sensor2 and Temperature Data Product2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_dd0c74a54bef45ca9663df38b4b0b134', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_f4ecf46aa00944c489c96eed289fe4c5', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_86a5a46f077942a097dbe35303f655a5', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_df32481c563c40c5af841832b6f7e419', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_b98f126a3f914609890c475db77a27ef",
+			"_id": "req_c71b9f32905547028f0c4d3d4996afd3",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Link/AtDataProduct/\",\n\t\"type\": \"AtDataProduct\"\n}"
 			},
-			"created": 1588761765759,
+			"created": 1592393169701,
 			"description": "",
 			"headers": [
 				{
@@ -918,27 +918,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1582279269730.7422,
 			"method": "POST",
-			"modified": 1590503122440,
+			"modified": 1592902202067,
 			"name": "Create Link of type 'AtDataProduct' between Temperature Sensor4 and Temperature Data Product2",
 			"parameters": [],
-			"parentId": "fld_6bc5599d439f4cbd9da01b9a79255824",
+			"parentId": "fld_8bbe731db6c7486284605ef99a4fb678",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_792f8dbaec8d4a40857935e9b86d194f', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_f4ecf46aa00944c489c96eed289fe4c5', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_fc9a86f481404079a8aaf826d3289a6c', 'b64::JFsiQGlkIl0=::46b', 'never' %}/link/{% response 'body', 'req_df32481c563c40c5af841832b6f7e419', 'b64::JC5pZGVudGl0eUlk::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_b7748f5ab632494a97c8c655baf6555b",
+			"_id": "req_5035bc2212f64c7785c53d52d8bb4ce7",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Identity/Group/\",\n\t\"type\": \"Group\",\n\t\"data\": {\n\t\t\"name\": \"DemoGroup\"\n\t}\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Group/\",\n\t\"type\": \"Group\",\n\t\"data\": {\n\t\t\"name\": \"DemoGroup\"\n\t}\n}"
 			},
-			"created": 1588689549202,
+			"created": 1592393169704,
 			"description": "",
 			"headers": [
 				{
@@ -955,10 +955,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517279.5,
 			"method": "POST",
-			"modified": 1590502124675,
+			"modified": 1592902934467,
 			"name": "Demo Create Group",
 			"parameters": [],
-			"parentId": "fld_1669bc2566774fcfbb77be2b8d398f37",
+			"parentId": "fld_174f8ea990fe4bc1a4889b3ec53a91d6",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -969,25 +969,25 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_1669bc2566774fcfbb77be2b8d398f37",
-			"created": 1589378200951,
+			"_id": "fld_174f8ea990fe4bc1a4889b3ec53a91d6",
+			"created": 1592393169703,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1588689517362.3125,
-			"modified": 1589378233555,
+			"modified": 1592393169703,
 			"name": "Create Demo Group",
-			"parentId": "fld_29e8bb78b31e48e28b68ff0a2d10dbc7",
+			"parentId": "fld_e57ddd032061404681108dae9c20b79c",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_a47dfe283b39438aa733d29b8d3e39f5",
+			"_id": "req_f476ea1aef274d14bb6532ecfb40eb1d",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"context\": \"https://standards-ontotest.oftrust.net/v2/Context/Link/Role/MemberOf/\",\n\t\"type\": \"MemberOf\"\n}"
+				"text": "{\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/Role/MemberOf/\",\n\t\"type\": \"MemberOf\"\n}"
 			},
-			"created": 1588689553953,
+			"created": 1592393169707,
 			"description": "",
 			"headers": [
 				{
@@ -1004,27 +1004,27 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517229.5,
 			"method": "POST",
-			"modified": 1590502145934,
+			"modified": 1592902947770,
 			"name": "Demo Create MemberOf Link",
 			"parameters": [],
-			"parentId": "fld_1669bc2566774fcfbb77be2b8d398f37",
+			"parentId": "fld_174f8ea990fe4bc1a4889b3ec53a91d6",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JC5tZXRhZGF0YS5jcmVhdGVkQnk=::46b', 'always' %}/link/{% response 'body', 'req_b7748f5ab632494a97c8c655baf6555b', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
+			"url": "{{ pot_base_url  }}/identities/v1/{% response 'body', 'req_5035bc2212f64c7785c53d52d8bb4ce7', 'b64::JC5tZXRhZGF0YS5jcmVhdGVkQnk=::46b', 'always' %}/link/{% response 'body', 'req_5035bc2212f64c7785c53d52d8bb4ce7', 'b64::JFsiQGlkIl0=::46b', 'never' %}",
 			"_type": "request"
 		},
 		{
-			"_id": "req_2ee9a3e450094d419755710da67f2351",
+			"_id": "req_b5b4856f123b4eed9b1ba6f1f895a438",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"groupId\": \"{{ group_id  }}\",\n\t\"redirectUris\": \"http://foo.bar\",\n\t\"defaultScopes\": \"\",\n\t\"privacyPolicyUrl\": \"http://foo.bar\",\n\t\"name\": \"Demo Application\",\n\t\"webPageUrl\": \"https://foo.bar\",\n\t\"scopes\": \"\",\n\t\"defaultRedirectUri\": \"http://foo.bar\",\n\t\"description\": \"\",\n\t\"iconUrl\": \"http://foo.bar\"\n}"
 			},
-			"created": 1589807142112,
+			"created": 1592393169713,
 			"description": "",
 			"headers": [
 				{
@@ -1043,10 +1043,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517361.4336,
 			"method": "POST",
-			"modified": 1590570396500,
+			"modified": 1592393169713,
 			"name": "Create Application",
 			"parameters": [],
-			"parentId": "fld_1ab21ff7812f428ea7175f9fb1092b67",
+			"parentId": "fld_24588ed0006b4719ae457c90c2d6e296",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1057,25 +1057,25 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_1ab21ff7812f428ea7175f9fb1092b67",
-			"created": 1589807171734,
+			"_id": "fld_24588ed0006b4719ae457c90c2d6e296",
+			"created": 1592393169709,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1588689517361.7266,
-			"modified": 1589899526839,
+			"modified": 1592393169709,
 			"name": "Test Demo",
-			"parentId": "fld_29e8bb78b31e48e28b68ff0a2d10dbc7",
+			"parentId": "fld_e57ddd032061404681108dae9c20b79c",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_4cffe1f6ad5445e0b56d2284e5b10c71",
+			"_id": "req_0ffede990dc04920ac5db9c9dc7baf9f",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"timestamp\": \"{% now 'iso-8601', '' %}\",\n\t\"productCode\": \"{% response 'body', 'req_e3b479f625b3438ebdf7cb997352a576', 'b64::JC5wcm9kdWN0Q29kZQ==::46b', 'never' %}\",\n\t\"parameters\": {\n\t\t\"ids\": [\n\t\t\t{\n\t\t\t\t\"id\": \"id\"\n\t\t\t}\n\t\t],\n\t\t\"startTime\": \"{% customTimestamp 'add', '', '', '-1', '', '', '', '', 'iso-8601', '', '' %}\",\n\t\t\"endTime\": \"{% now 'iso-8601', '' %}\"\n\t}\n}"
+				"text": "{\n\t\"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"timestamp\": \"{% now 'iso-8601', '' %}\",\n\t\"productCode\": \"{% response 'body', 'req_8b9d034a81134c3db3392362bf486e77', 'b64::JC5wcm9kdWN0Q29kZQ==::46b', 'never' %}\",\n\t\"parameters\": {\n\t\t\"ids\": [\n\t\t\t{\n\t\t\t\t\"id\": \"id\"\n\t\t\t}\n\t\t],\n\t\t\"startTime\": \"{% customTimestamp 'add', '', '', '-1', '', '', '', '', 'iso-8601', '', '' %}\",\n\t\t\"endTime\": \"{% now 'iso-8601', '' %}\",\n\t\t\"dataTypes\": [\"MeasureAirTemperatureCelsiusDegree\"]\n\t}\n}"
 			},
-			"created": 1589807129650,
+			"created": 1592393169710,
 			"description": "",
 			"headers": [
 				{
@@ -1099,10 +1099,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517311.4336,
 			"method": "POST",
-			"modified": 1591954213194,
+			"modified": 1592904923022,
 			"name": "Fetch CO2 Data Product",
 			"parameters": [],
-			"parentId": "fld_1ab21ff7812f428ea7175f9fb1092b67",
+			"parentId": "fld_24588ed0006b4719ae457c90c2d6e296",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1113,13 +1113,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_122c75dd1f794c1ba2e20ce0fd89828b",
+			"_id": "req_6bb62c4f9fc24366bbf02cc5bb1c50c9",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"timestamp\": \"{% now 'iso-8601', '' %}\",\n\t\"productCode\": \"{% response 'body', 'req_f4ecf46aa00944c489c96eed289fe4c5', 'b64::JC5wcm9kdWN0Q29kZQ==::46b', 'never' %}\",\n\t\"parameters\": {\n\t\t\"ids\": [\n\t\t\t{\n\t\t\t\t\"id\": \"id\"\n\t\t\t}\n\t\t],\n\t\t\"startTime\": \"{% customTimestamp 'add', '', '', '-1', '', '', '', '', 'iso-8601', '', '' %}\",\n\t\t\"endTime\": \"{% now 'iso-8601', '' %}\"\n\t}\n}"
+				"text": "{\n\t\"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"timestamp\": \"{% now 'iso-8601', '' %}\",\n\t\"productCode\": \"{% response 'body', 'req_df32481c563c40c5af841832b6f7e419', 'b64::JC5wcm9kdWN0Q29kZQ==::46b', 'never' %}\",\n\t\"parameters\": {\n\t\t\"ids\": [\n\t\t\t{\n\t\t\t\t\"id\": \"id\"\n\t\t\t}\n\t\t],\n\t\t\"startTime\": \"{% customTimestamp 'add', '', '', '-1', '', '', '', '', 'iso-8601', '', '' %}\",\n\t\t\"endTime\": \"{% now 'iso-8601', '' %}\",\n\t\t\"dataTypes\": [\"MeasureAirTemperatureCelsiusDegree\"]\n\t}\n}"
 			},
-			"created": 1589809826617,
+			"created": 1592393169715,
 			"description": "",
 			"headers": [
 				{
@@ -1143,10 +1143,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1588689517295.4668,
 			"method": "POST",
-			"modified": 1591182069796,
+			"modified": 1592904944167,
 			"name": "Fetch Temperature Data Product",
 			"parameters": [],
-			"parentId": "fld_1ab21ff7812f428ea7175f9fb1092b67",
+			"parentId": "fld_24588ed0006b4719ae457c90c2d6e296",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1157,13 +1157,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_9b58753bbb6c4a95a1de2119c29536a2",
+			"_id": "req_58fbc0c1a59442dba7b8e33478e54094",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"read\": true,\n\t\"write\": true,\n\t\"link\": true,\n\t\"manage\": true\n}\n"
 			},
-			"created": 1582270692386,
+			"created": 1592393169634,
 			"description": "",
 			"headers": [
 				{
@@ -1178,10 +1178,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679876,
 			"method": "POST",
-			"modified": 1582271019260,
+			"modified": 1592393169634,
 			"name": "Set Permission",
 			"parameters": [],
-			"parentId": "fld_1ab38042f523459187703ac4c9b9ed26",
+			"parentId": "fld_27fd8e43fe194402a33b6ba685aa3883",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1192,22 +1192,22 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_1ab38042f523459187703ac4c9b9ed26",
-			"created": 1582270692383,
+			"_id": "fld_27fd8e43fe194402a33b6ba685aa3883",
+			"created": 1592393169631,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1582205000559.75,
-			"modified": 1582270692406,
+			"modified": 1592393169631,
 			"name": "ACL API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_8b67fe5b04bf4ef4b8dda49b41119826",
+			"_id": "req_98fbdbbd87324cfbada3f5dd14dbeb60",
 			"authentication": {},
 			"body": {},
-			"created": 1582270692388,
+			"created": 1592393169636,
 			"description": "",
 			"headers": [
 				{
@@ -1218,10 +1218,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679863.5,
 			"method": "DELETE",
-			"modified": 1582271025679,
+			"modified": 1592393169636,
 			"name": "Delete Permission",
 			"parameters": [],
-			"parentId": "fld_1ab38042f523459187703ac4c9b9ed26",
+			"parentId": "fld_27fd8e43fe194402a33b6ba685aa3883",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1232,10 +1232,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_0a71b56dd7964d8c85cab5152af1d432",
+			"_id": "req_400a871f1ee64d74b3e0161341a40783",
 			"authentication": {},
 			"body": {},
-			"created": 1582270692391,
+			"created": 1592393169638,
 			"description": "",
 			"headers": [
 				{
@@ -1246,10 +1246,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679857.25,
 			"method": "GET",
-			"modified": 1582270841610,
+			"modified": 1592393169638,
 			"name": "List Permissions",
 			"parameters": [],
-			"parentId": "fld_1ab38042f523459187703ac4c9b9ed26",
+			"parentId": "fld_27fd8e43fe194402a33b6ba685aa3883",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1260,10 +1260,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_7a9fc0156a5343e7b078b141211bcc01",
+			"_id": "req_6feda314ecd54797aa0e52635c35c19f",
 			"authentication": {},
 			"body": {},
-			"created": 1582270692394,
+			"created": 1592393169640,
 			"description": "",
 			"headers": [
 				{
@@ -1274,10 +1274,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679854.125,
 			"method": "GET",
-			"modified": 1582271030142,
+			"modified": 1592393169640,
 			"name": "Check Permission",
 			"parameters": [],
-			"parentId": "fld_1ab38042f523459187703ac4c9b9ed26",
+			"parentId": "fld_27fd8e43fe194402a33b6ba685aa3883",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1288,13 +1288,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_0116e0b9ecbf450787a82101b142bf3f",
+			"_id": "req_20293c03afe14f71bfd39aa9f412e11f",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"targets\" : [\n\t\t\"\"\n\t]\n}\n"
 			},
-			"created": 1582270692395,
+			"created": 1592393169642,
 			"description": "",
 			"headers": [
 				{
@@ -1309,10 +1309,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679852.5625,
 			"method": "POST",
-			"modified": 1582270950984,
+			"modified": 1592393169642,
 			"name": "Batch Check Permissions",
 			"parameters": [],
-			"parentId": "fld_1ab38042f523459187703ac4c9b9ed26",
+			"parentId": "fld_27fd8e43fe194402a33b6ba685aa3883",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1323,10 +1323,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_3061700765124ba0bb1e8fb8f2e50b22",
+			"_id": "req_01f0af6609814ea3af29d25a29f32afa",
 			"authentication": {},
 			"body": {},
-			"created": 1580426683911,
+			"created": 1592393169601,
 			"description": "",
 			"headers": [
 				{
@@ -1339,10 +1339,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1580426683911,
 			"method": "DELETE",
-			"modified": 1587024552677,
+			"modified": 1592393169601,
 			"name": "Delete App",
 			"parameters": [],
-			"parentId": "fld_b2e342aa4e80467dae5baa1a699e58cc",
+			"parentId": "fld_116c736d97f8414bb63636ca7bc3d962",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1353,25 +1353,25 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_b2e342aa4e80467dae5baa1a699e58cc",
-			"created": 1577118432986,
+			"_id": "fld_116c736d97f8414bb63636ca7bc3d962",
+			"created": 1592393169596,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577118432986,
-			"modified": 1577118432986,
+			"modified": 1592393169596,
 			"name": "Application API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_d85c570ed9ec45fcbdc2c06009e503ef",
+			"_id": "req_79c5f4660fa14780b2ae5e1b72e3c535",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
 				"text": "{\n\t\"groupId\": \"{{ group_id  }}\",\n  \"redirectUris\": \"http://foo.bar\",\n  \"defaultScopes\" : \"\",\n\t\"privacyPolicyUrl\" : \"http://foo.bar\",\n  \"name\" : \"test\",\n  \"webPageUrl\" : \"https://foo.bar\",\n  \"scopes\" : \"\",\n  \"defaultRedirectUri\" : \"http://foo.bar\",\n  \"description\" : \"\",\n  \"iconUrl\" : \"http://foo.bar\"\n}"
 			},
-			"created": 1577118620190,
+			"created": 1592393169599,
 			"description": "",
 			"headers": [
 				{
@@ -1390,10 +1390,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577118620190,
 			"method": "POST",
-			"modified": 1580815720335,
+			"modified": 1592393169599,
 			"name": "Create App",
 			"parameters": [],
-			"parentId": "fld_b2e342aa4e80467dae5baa1a699e58cc",
+			"parentId": "fld_116c736d97f8414bb63636ca7bc3d962",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1404,10 +1404,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_511be859c21b439787bafa6216952a35",
+			"_id": "req_22fa9fd09121409ab0ae4a63f4f65518",
 			"authentication": {},
 			"body": {},
-			"created": 1577118457393,
+			"created": 1592393169598,
 			"description": "",
 			"headers": [
 				{
@@ -1420,10 +1420,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577118457393,
 			"method": "GET",
-			"modified": 1580423511024,
+			"modified": 1592393169598,
 			"name": "List Apps",
 			"parameters": [],
-			"parentId": "fld_b2e342aa4e80467dae5baa1a699e58cc",
+			"parentId": "fld_116c736d97f8414bb63636ca7bc3d962",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1434,24 +1434,27 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_7e9feef48f734406b310ab0128fcf72e",
+			"_id": "req_6d73ab8980d248888b7806b272f58373",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n    \"timestamp\": \"{% now 'iso-8601', '' %}\",\n    \"productCode\": \"\",\n    \"parameters\": {\n              \"businessId\": \"2327327-1\"\n    }\n}\n"
+				"text": "{\n\t\"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"timestamp\": \"{% now 'iso-8601', '' %}\",\n\t\"productCode\": \"\",\n\t\"parameters\": {\n\t\t\"ids\": [\n\t\t\t{\n\t\t\t\t\"id\": \"id\"\n\t\t\t}\n\t\t],\n\t\t\"startTime\": \"{% customTimestamp 'add', '', '', '-1', '', '', '', '', 'iso-8601', '', '' %}\",\n\t\t\"endTime\": \"{% now 'iso-8601', '' %}\",\n\t\t\"dataTypes\": [\"MeasureAirTemperatureCelsiusDegree\"]\n\t}\n}"
 			},
-			"created": 1582203022285,
+			"created": 1592393169629,
 			"description": "",
 			"headers": [
 				{
+					"id": "pair_cb3d38c22c914b6e8277a07ec8be32e9",
 					"name": "Content-Type",
 					"value": "application/json"
 				},
 				{
+					"id": "pair_85fad7dd06d54230b34841c5db52ff05",
 					"name": "x-app-token",
 					"value": "{{ app_token  }}"
 				},
 				{
+					"id": "pair_4dc6373b13d940ebb4a4a019ef9819ad",
 					"name": "x-pot-signature",
 					"value": "\"filled-by-plugin\""
 				}
@@ -1459,10 +1462,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582203022285,
 			"method": "POST",
-			"modified": 1582203074423,
+			"modified": 1592904978546,
 			"name": "Fetch",
 			"parameters": [],
-			"parentId": "fld_9d652ccf2f2848b28ce43ad3e9735883",
+			"parentId": "fld_4888d01f30af4464bc419f3b0952e3a1",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1473,31 +1476,31 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_9d652ccf2f2848b28ce43ad3e9735883",
-			"created": 1582203006066,
+			"_id": "fld_4888d01f30af4464bc419f3b0952e3a1",
+			"created": 1592393169627,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577085145750.5,
-			"modified": 1582203009636,
+			"modified": 1592393169627,
 			"name": "Broker API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_a248891ee35a40a4b61f279054faab6e",
+			"_id": "req_72cd8c1b543d4639a748bed1b0e4c1dd",
 			"authentication": {},
 			"body": {},
-			"created": 1582271122468,
+			"created": 1592393169646,
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1582228795799,
 			"method": "GET",
-			"modified": 1591952780854,
+			"modified": 1592393169646,
 			"name": "List Contexts",
 			"parameters": [],
-			"parentId": "fld_36e8827297eb4d5fb0312355f805f10c",
+			"parentId": "fld_b1ecf6837569403b95363b59afaddcc9",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1508,22 +1511,22 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_36e8827297eb4d5fb0312355f805f10c",
-			"created": 1582271122463,
+			"_id": "fld_b1ecf6837569403b95363b59afaddcc9",
+			"created": 1592393169644,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577056019419.4375,
-			"modified": 1582271122487,
+			"modified": 1592393169644,
 			"name": "Context API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_1c5539dfda7e4d0bb8654ddf58dd13bd",
+			"_id": "req_a21b87d8b5c6470fbb93f9b4630e8a2c",
 			"authentication": {},
 			"body": {},
-			"created": 1580930103850,
+			"created": 1592393169612,
 			"description": "",
 			"headers": [
 				{
@@ -1535,7 +1538,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1580930103850,
 			"method": "GET",
-			"modified": 1580933748716,
+			"modified": 1592393169612,
 			"name": "Discover Identities",
 			"parameters": [
 				{
@@ -1574,7 +1577,7 @@
 					"value": "20"
 				}
 			],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1585,32 +1588,34 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
-			"created": 1577150222730,
+			"_id": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
+			"created": 1592393169604,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577051858515,
-			"modified": 1577150232016,
+			"modified": 1592393169604,
 			"name": "Identity API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_89f3ac682c6d4163b88c50994fbcd303",
+			"_id": "req_6e38fb35b4d446c1bd5d47948fe295f9",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n    \"context\": \"https://standards.oftrust.net/v1/Context/Link/BelongsTo/\",\n    \"type\": \"BelongsTo\"\n}\n"
+				"text": "{\n    \"context\": \"https://standards.oftrust.net/v2/Context/Link/BelongsTo/\",\n    \"type\": \"BelongsTo\"\n}\n"
 			},
-			"created": 1582226959511,
+			"created": 1592393169617,
 			"description": "",
 			"headers": [
 				{
+					"id": "pair_5c987c02826d482597c8a89930d80bf6",
 					"name": "Content-Type",
 					"value": "application/json"
 				},
 				{
+					"id": "pair_88427b0bc7e142bd99d720813bc71c23",
 					"name": "Authorization",
 					"value": "Bearer {{ bearer_token  }}"
 				}
@@ -1618,10 +1623,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1580677362362.5,
 			"method": "POST",
-			"modified": 1582234974660,
+			"modified": 1592902805143,
 			"name": "Create Link",
 			"parameters": [],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1632,10 +1637,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_fbd7ec1d46cc4014b17754fee9815016",
+			"_id": "req_091559a33f254b1fb82982a988a9ae08",
 			"authentication": {},
 			"body": {},
-			"created": 1580424620875,
+			"created": 1592393169610,
 			"description": "",
 			"headers": [
 				{
@@ -1648,10 +1653,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1580424620875,
 			"method": "DELETE",
-			"modified": 1580815792865,
+			"modified": 1592393169610,
 			"name": "Delete Link By Type",
 			"parameters": [],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1662,20 +1667,22 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_612e97be018e4816a282c5c6f65721ee",
+			"_id": "req_0e083bda3e594a39b865f6044c64d23f",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n    \"context\": \"https://standards.oftrust.net/v1/Context/Identity/Building/\",\n    \"type\": \"Building\",\n    \"data\": {\n        \"name\": \"\"\n    }\n}\n"
+				"text": "{\n    \"context\": \"https://standards.oftrust.net/v2/Context/Identity/Structure/Building/\",\n    \"type\": \"Building\",\n    \"data\": {\n        \"name\": \"\"\n    }\n}\n"
 			},
-			"created": 1582225938314,
+			"created": 1592393169615,
 			"description": "",
 			"headers": [
 				{
+					"id": "pair_7699a4d55f924c35804cc98f39790f30",
 					"name": "Content-Type",
 					"value": "application/json"
 				},
 				{
+					"id": "pair_2f6dd4679e044514ab488d15f93d4523",
 					"name": "Authorization",
 					"value": "Bearer {{ bearer_token  }}"
 				}
@@ -1683,10 +1690,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1580424480928.5,
 			"method": "POST",
-			"modified": 1582234967114,
+			"modified": 1592902831173,
 			"name": "Create Identity",
 			"parameters": [],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1697,10 +1704,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_3307ebc3596f47f89074bb56803d80cf",
+			"_id": "req_615d37a3b2544099940d3f74668ad968",
 			"authentication": {},
 			"body": {},
-			"created": 1580424340982,
+			"created": 1592393169608,
 			"description": "",
 			"headers": [
 				{
@@ -1713,10 +1720,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1580424340982,
 			"method": "DELETE",
-			"modified": 1580815767393,
+			"modified": 1592393169608,
 			"name": "Delete Identity",
 			"parameters": [],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1727,10 +1734,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_b287993cd7c848659d1c01c43b3ec8d8",
+			"_id": "req_ff1e178854cd409781aaba55a1263996",
 			"authentication": {},
 			"body": {},
-			"created": 1577150289807,
+			"created": 1592393169606,
 			"description": "",
 			"headers": [
 				{
@@ -1743,10 +1750,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577150289807,
 			"method": "GET",
-			"modified": 1580815758056,
+			"modified": 1592393169606,
 			"name": "Read Identity",
 			"parameters": [],
-			"parentId": "fld_a95119b163e344cf9aa51ce6bbaf8f2f",
+			"parentId": "fld_bdba4c3bcf1e4f5485b9895c1a9d7f6e",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1757,13 +1764,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_b0ccae129e604d2f82305f7c9ad4e2c2",
+			"_id": "req_03f73371faff4502a1dd2a18facbd2f1",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n    \"context\": \"https://standards.lifeengine.io/v1/Context/Identity/Group\",\n    \"type\": \"Group\",\n    \"data\": {\n        \"name\": \"\"\n    }\n}\n"
+				"text": "{\n    \"context\": \"https://standards.oftrust.net/v2/Context/Identity/Group/\",\n    \"type\": \"Group\",\n    \"data\": {\n        \"name\": \"\"\n    }\n}\n"
 			},
-			"created": 1582197578290,
+			"created": 1592393169622,
 			"description": "",
 			"headers": [
 				{
@@ -1780,10 +1787,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679901,
 			"method": "POST",
-			"modified": 1588769426232,
+			"modified": 1592903003149,
 			"name": "Create Group",
 			"parameters": [],
-			"parentId": "fld_dc503b3e842a40d6905a661c277825a3",
+			"parentId": "fld_1fce257760a34594b892fcb866bba353",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1794,25 +1801,25 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_dc503b3e842a40d6905a661c277825a3",
-			"created": 1582197561372,
+			"_id": "fld_1fce257760a34594b892fcb866bba353",
+			"created": 1592393169620,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577051858502.5,
-			"modified": 1589799573608,
+			"modified": 1592393169620,
 			"name": "Identity Add Group",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_0a1c828da6574b0aa368e75af374c98a",
+			"_id": "req_c727bc6a317f46b9bdc8fbf4e40f0ce4",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n    \"context\": \"https://standards.lifeengine.io/v1/Context/Link/Role/MemberOf/\",\n    \"type\": \"MemberOf\"\n}\n"
+				"text": "{\n    \"context\": \"https://standards.oftrust.net/v2/Context/Link/Role/MemberOf/\",\n    \"type\": \"MemberOf\"\n}\n"
 			},
-			"created": 1582197679851,
+			"created": 1592393169624,
 			"description": "",
 			"headers": [
 				{
@@ -1829,10 +1836,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1582197679851,
 			"method": "POST",
-			"modified": 1588769435285,
+			"modified": 1592903019089,
 			"name": "Create MemberOf Link",
 			"parameters": [],
-			"parentId": "fld_dc503b3e842a40d6905a661c277825a3",
+			"parentId": "fld_1fce257760a34594b892fcb866bba353",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1843,13 +1850,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_b32722911fa648fd8bc349a923141fa8",
+			"_id": "req_2de54c1ae59e4d42837146844be122c4",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\n\t\"translatorUrl\": \"{{ pot_base_url  }}/se-translator/v1/fetch-trends\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ pot_base_url }}/se-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\n\t\"description\": \"SE translator example updated\"\n}"
+				"text": "{\n\t\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\n\t\"translatorUrl\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/fetch\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\n\t\"description\": \"SE translator example updated\"\n}"
 			},
-			"created": 1577110396259,
+			"created": 1592393169593,
 			"description": "",
 			"headers": [
 				{
@@ -1867,10 +1874,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577110396259,
 			"method": "PUT",
-			"modified": 1580815283418,
+			"modified": 1592903527081,
 			"name": "Update Product",
 			"parameters": [],
-			"parentId": "fld_3cad45bed313488fa256b4c39781cd57",
+			"parentId": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1881,31 +1888,31 @@
 			"_type": "request"
 		},
 		{
-			"_id": "fld_3cad45bed313488fa256b4c39781cd57",
-			"created": 1577051858490,
+			"_id": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
+			"created": 1592393169579,
 			"description": "",
 			"environment": {},
 			"environmentPropertyOrder": null,
 			"metaSortKey": -1577051858490,
-			"modified": 1577051858490,
+			"modified": 1592393169579,
 			"name": "Product API",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "request_group"
 		},
 		{
-			"_id": "req_edf325f85b3f4e558905a5a45258a2d0",
+			"_id": "req_b347340c26414e07a5ceaafea6bbc7dc",
 			"authentication": {},
 			"body": {},
-			"created": 1577110363934,
+			"created": 1592393169591,
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1577110363934,
 			"method": "GET",
-			"modified": 1580423943550,
+			"modified": 1592393169591,
 			"name": "Read Product",
 			"parameters": [],
-			"parentId": "fld_3cad45bed313488fa256b4c39781cd57",
+			"parentId": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1916,10 +1923,10 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_e4d5172c579341a0802a7385f7821079",
+			"_id": "req_c5d1ed78dc324cd8a3ef2d87ce4099c6",
 			"authentication": {},
 			"body": {},
-			"created": 1577094601051,
+			"created": 1592393169589,
 			"description": "",
 			"headers": [
 				{
@@ -1932,10 +1939,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577094601051,
 			"method": "DELETE",
-			"modified": 1580815250830,
+			"modified": 1592393169589,
 			"name": "Delete Product",
 			"parameters": [],
-			"parentId": "fld_3cad45bed313488fa256b4c39781cd57",
+			"parentId": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1946,13 +1953,13 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_4b673d0b2bd34966b67afc107e7ab0db",
+			"_id": "req_7e74d69e4ec24ee9837d485781ea34c5",
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"productCode\": \"\",\n\t\"dataContext\": \"https://standards.oftrust.net/contexts/product-data.jsonld\",\n\t\"parameterContext\": \"https://standards.oftrust.net/contexts/product-parameters.jsonld\",\n\t\"groupId\" : \"{{ group_id  }}\",\n\t\"translatorUrl\": \"{{ pot_base_url  }}/se-translator/v1/fetch-trends\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ pot_base_url }}/se-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
+				"text": "{\n\t\"productCode\": \"\",\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n\t\"groupId\" : \"{{ group_id  }}\",\n\t\"translatorUrl\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/fetch\",\n\t\"name\": \"ProductSE-test\",\n  \"organizationPublicKeys\": [\n\t\t{\n\t\t\t\"url\": \"{{ dummy_translator_base_url  }}/dummy-translator/v1/public.key\",\n      \"type\": \"RsaSignature2018\"\n\t\t}\n\t],\n\t\"imageUrl\": null,\n\t\"description\": \"SE translator example\"\n}\n"
 			},
-			"created": 1577055462184,
+			"created": 1592393169585,
 			"description": "",
 			"headers": [
 				{
@@ -1970,10 +1977,10 @@
 			"isPrivate": false,
 			"metaSortKey": -1577055462185,
 			"method": "POST",
-			"modified": 1580424023773,
+			"modified": 1592903519681,
 			"name": "Create Product",
 			"parameters": [],
-			"parentId": "fld_3cad45bed313488fa256b4c39781cd57",
+			"parentId": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -1984,19 +1991,19 @@
 			"_type": "request"
 		},
 		{
-			"_id": "req_f90a7b5b992a4a139be997898c8f3393",
+			"_id": "req_4a0d0d77659141e7a785f88f6384a436",
 			"authentication": {},
 			"body": {},
-			"created": 1577051871508,
+			"created": 1592393169582,
 			"description": "",
 			"headers": [],
 			"isPrivate": false,
 			"metaSortKey": -1577051871508,
 			"method": "GET",
-			"modified": 1577052010625,
+			"modified": 1592393169582,
 			"name": "List Products",
 			"parameters": [],
-			"parentId": "fld_3cad45bed313488fa256b4c39781cd57",
+			"parentId": "fld_0b3eab6657b04d9ba61482c1c5ba63a4",
 			"settingDisableRenderRequestBody": false,
 			"settingEncodeUrl": true,
 			"settingFollowRedirects": "global",
@@ -2007,46 +2014,47 @@
 			"_type": "request"
 		},
 		{
-			"_id": "env_582df132aff0b71ffec7430abd77e6509b0816a8",
+			"_id": "env_7ceed682b50346a0bad028483bce364e",
 			"color": null,
-			"created": 1577049267288,
+			"created": 1592393169547,
 			"data": {},
 			"dataPropertyOrder": {},
 			"isPrivate": false,
 			"metaSortKey": 1577049267288,
-			"modified": 1587024520773,
+			"modified": 1592393169547,
 			"name": "Base Environment",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "environment"
 		},
 		{
-			"_id": "jar_582df132aff0b71ffec7430abd77e6509b0816a8",
+			"_id": "jar_8e03cc682f8146d4a2e7968c2676e340",
 			"cookies": [],
-			"created": 1577049267291,
-			"modified": 1577049267291,
+			"created": 1592393169569,
+			"modified": 1592393169569,
 			"name": "Default Jar",
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "cookie_jar"
 		},
 		{
-			"_id": "spc_22bf136bb1014928b53b6c54a15f1081",
+			"_id": "spc_281f9a9243424e23b854e3fd00395e38",
 			"contentType": "yaml",
 			"contents": "",
-			"created": 1591182024726,
+			"created": 1592393169573,
 			"fileName": "Platform of Trust - Public APIs",
-			"modified": 1591182024726,
-			"parentId": "wrk_149837657b724d1dbf068785172068bd",
+			"modified": 1592393169573,
+			"parentId": "wrk_0d78dfc6d7a9404baa5cd9900430169a",
 			"_type": "api_spec"
 		},
 		{
-			"_id": "env_8c63be56ab6b4d6cb5d5dc59e04535e0",
+			"_id": "env_36e8767578324341bb93b21258053dca",
 			"color": "#ffff80",
-			"created": 1587024501145,
+			"created": 1592393169552,
 			"data": {
-				"app_token": "{% response 'body', 'req_2ee9a3e450094d419755710da67f2351', 'b64::JC50b2tlbnNbMF0uYWNjZXNzX3Rva2Vu::46b', 'never' %}",
+				"app_token": "{% response 'body', 'req_b5b4856f123b4eed9b1ba6f1f895a438', 'b64::JC50b2tlbnNbMF0uYWNjZXNzX3Rva2Vu::46b', 'never' %}",
 				"bearer_token": "[]",
-				"client_secret": "{% response 'body', 'req_2ee9a3e450094d419755710da67f2351', 'b64::JC5jbGllbnQuY2xpZW50U2VjcmV0c1swXQ==::46b', 'never' %}",
-				"group_id": "{% response 'body', 'req_a47dfe283b39438aa733d29b8d3e39f5', 'b64::JC50bw==::46b', 'never' %}",
+				"client_secret": "{% response 'body', 'req_b5b4856f123b4eed9b1ba6f1f895a438', 'b64::JC5jbGllbnQuY2xpZW50U2VjcmV0c1swXQ==::46b', 'never' %}",
+				"dummy_translator_base_url": "https://api-external-sandbox.oftrust.net",
+				"group_id": "{% response 'body', 'req_f476ea1aef274d14bb6532ecfb40eb1d', 'b64::JC50bw==::46b', 'never' %}",
 				"pot_base_url": "https://api-sandbox.oftrust.net"
 			},
 			"dataPropertyOrder": {
@@ -2055,14 +2063,15 @@
 					"bearer_token",
 					"group_id",
 					"client_secret",
-					"app_token"
+					"app_token",
+					"dummy_translator_base_url"
 				]
 			},
 			"isPrivate": false,
 			"metaSortKey": 1587024501145,
-			"modified": 1591962866711,
+			"modified": 1592904326518,
 			"name": "Sandbox",
-			"parentId": "env_582df132aff0b71ffec7430abd77e6509b0816a8",
+			"parentId": "env_7ceed682b50346a0bad028483bce364e",
 			"_type": "environment"
 		}
 	]
