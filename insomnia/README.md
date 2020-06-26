@@ -2,7 +2,7 @@
 Aim is to aid developers willing to onboard Platform of Trust by familiarizing them with with the core Platform APIs without overwhelming knowlege on API structures and functionalities.
 
 # Version and Contents
-2.0
+2.1
 
 ## Chain Requests
 
