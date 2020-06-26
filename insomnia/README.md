@@ -69,6 +69,11 @@ Location of the file in this repository: `/insomnia/platform-of-trust-public.jso
 
 # You are ready to go!
 
+# Plugins
+
+- Install [this plugin](https://insomnia.rest/plugins/@platform-of-trust/insomnia-plugin-platform-of-trust) from Platform of Trust to compute and add an `X-Pot-Signature` header to `/broker/v1/fetch-data-product` requests
+- Install [this plugin](https://insomnia.rest/plugins/insomnia-plugin-customtimestamp) to add custom timestamps.
+
 # Additional Resources
 
 1. Start using Platform of Trust [Sandbox](https://world-sandbox.oftrust.net/api/login)
