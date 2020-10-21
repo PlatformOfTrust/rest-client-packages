@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "866ff7f4-9c4a-4c93-9f96-1c15145153e3",
+		"name": "Platform of Trust - Public APIs v1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manage Group",
+			"item": [
+				{
+					"name": "Create Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Identity/Group/\",\r\n\t\"type\": \"Group\",\r\n\t\"data\": {\r\n\t\t\"name\": \"DemoGroup\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/identities/v1",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"identities",
+								"v1"
+							]
+						},
+						"description": "Create Group request"
+					},
+					"response": []
+				},
+				{
+					"name": "Create MemeberOf Link",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"context\": \"https://standards.oftrust.net/v2/Context/Link/Role/MemberOf/\",\r\n\t\"type\": \"MemberOf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/identities/v1/:from/link/:to",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"identities",
+								"v1",
+								":from",
+								"link",
+								":to"
+							],
+							"variable": [
+								{
+									"key": "from",
+									"value": "TODO",
+									"description": "User Identity"
+								},
+								{
+									"key": "to",
+									"value": "TODO",
+									"description": "Group Identity"
+								}
+							]
+						},
+						"description": "Create MemberOf Link between a group and the acting user"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Application API",
+			"item": [
+				{
+					"name": "Create Application",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"groupId\": \"TODO\",\r\n\t\"redirectUris\": \"http://foo.bar\",\r\n\t\"defaultScopes\": \"\",\r\n\t\"privacyPolicyUrl\": \"http://foo.bar\",\r\n\t\"name\": \"test\",\r\n\t\"webPageUrl\": \"https://foo.bar\",\r\n\t\"scopes\": \"\",\r\n\t\"defaultRedirectUri\": \"http://foo.bar\",\r\n\t\"description\": \"\",\r\n\t\"iconUrl\": \"http://foo.bar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/apps/v1",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"apps",
+								"v1"
+							]
+						},
+						"description": "\"Create Application\" request - POST"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Application",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pot_base_url}}/apps/v1/:applicationId",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"apps",
+								"v1",
+								":applicationId"
+							],
+							"variable": [
+								{
+									"key": "applicationId",
+									"value": "TODO"
+								}
+							]
+						},
+						"description": "\"Get Application\" request (one entry) - GET"
+					},
+					"response": []
+				},
+				{
+					"name": "List Applications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pot_base_url}}/apps/v1",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"apps",
+								"v1"
+							]
+						},
+						"description": "\"List Applications\" request - GET"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Application",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Example Application\",\r\n\t\"description\": \"Application description\",\r\n\t\"privacyPolicyUrl\": \"http://example.com/privacy.html\",\r\n\t\"webPageUrl\": \"http://example.com/application.html\",\r\n\t\"iconUrl\": \"http://example.com/icon.png\",\r\n\t\"scopes\": \"\",\r\n\t\"defaultScopes\": \"\",\r\n\t\"redirectUris\": \"https://example.com/auth-callback\",\r\n\t\"defaultRedirectUri\": \"https://example.com/auth-callback\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/apps/v1/:applicationId",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"apps",
+								"v1",
+								":applicationId"
+							],
+							"variable": [
+								{
+									"key": "applicationId",
+									"value": "TODO"
+								}
+							]
+						},
+						"description": "\"Update Application\" request (one entry) - PUT"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pot_base_url}}/apps/v1/:applicationId",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"apps",
+								"v1",
+								":applicationId"
+							],
+							"variable": [
+								{
+									"key": "applicationId",
+									"value": "TODO"
+								}
+							]
+						},
+						"description": "\"Delete Application\" (one entry) request - DELETE"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Product API V1",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"productCode\": \"TODO\",\r\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\r\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\r\n\t\"groupId\": \"TODO\",\r\n\t\"translatorUrl\": \"{{dummy_translator_base_url}}/dummy-translator/v1/fetch\",\r\n\t\"name\": \"ProductSE-test\",\r\n\t\"organizationPublicKeys\": [\r\n\t\t{\r\n\t\t\t\"url\": \"{{dummy_translator_base_url}}/dummy-translator/v1/public.key\",\r\n\t\t\t\"type\": \"RsaSignature2018\"\r\n\t\t}\r\n\t],\r\n\t\"imageUrl\": null,\r\n\t\"description\": \"SE translator example\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/products/v1",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"products",
+								"v1"
+							]
+						},
+						"description": "Create Product V1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/products/v1/:productCode",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"products",
+								"v1",
+								":productCode"
+							],
+							"variable": [
+								{
+									"key": "productCode",
+									"value": "ODO"
+								}
+							]
+						},
+						"description": "Get Product V1"
+					},
+					"response": []
+				},
+				{
+					"name": "List Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/products/v1",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"products",
+								"v1"
+							]
+						},
+						"description": "List Products V1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"dataContext\": \"https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/\",\r\n\t\"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\r\n\t\"translatorUrl\": \"{{dummy_translator_base_url}}/dummy-translator/v1/fetch\",\r\n\t\"name\": \"ProductSE-test\",\r\n\t\"organizationPublicKeys\": [\r\n\t\t{\r\n\t\t\t\"url\": \"{{dummy_translator_base_url}}/dummy-translator/v1/public.key\",\r\n\t\t\t\"type\": \"RsaSignature2018\"\r\n\t\t}\r\n\t],\r\n\t\"description\": \"SE translator example updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/products/v1/:productCode",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"products",
+								"v1",
+								":productCode"
+							],
+							"variable": [
+								{
+									"key": "productCode",
+									"value": "TODO"
+								}
+							]
+						},
+						"description": "Update Application V1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pot_base_url}}/products/v1/:productCode",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"products",
+								"v1",
+								":productCode"
+							],
+							"variable": [
+								{
+									"key": "productCode",
+									"value": "TODO"
+								}
+							]
+						},
+						"description": "Delete Product V1"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f190476a-adaa-4958-9d70-6c0ffae0b87d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "982bf089-da42-4b3e-93b9-305c459f9f3b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Product API V2",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
