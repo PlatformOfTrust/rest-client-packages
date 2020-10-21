@@ -33,9 +33,9 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 
 2. [Download](https://www.postman.com/downloads/)  and [install](https://learning.postman.com/docs/getting-started/installation-and-updates/)  Postman REST client in your workstation. There are Postman clients available for **macOS**, **Linux** and **Windows**.
 
-3. After launching Postman REST API client: click  **Import**, select **from URL** and paste [this URL](https://raw.githubusercontent.com/PlatformOfTrust/rest-client-packages/master/insomnia/platform-of-trust-public.json) to import the workspace.
-Location of the file in this repository: `/insomnia/platform-of-trust-public.json` <br/>
-![workspace import](https://developer.oftrust.net/media/images/tools-insomnia-importworkspace.width-800.png)
+3. Clone the [Git Hub repository](https://github.com/PlatformOfTrust/rest-client-packages.git) or just download it as zip, then unzip it
+
+4. After launching Postman REST API client: click  **Import**, select **Folder** and browse to the above unzipped directory, the **postman** sub-directory to import the workspace.
 
 4. Go to **Manage Environment** and paste the copied `Bearer Token` value under `bearer_token` attribute. Make sure to include the "Bearer " part from the token. Click **Done**. <br/>
 ![Insomnia Manage Environment](https://developer.oftrust.net/media/images/insomnia4.width-500.png) <br/>
