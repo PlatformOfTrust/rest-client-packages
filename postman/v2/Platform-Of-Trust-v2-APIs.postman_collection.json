@@ -1,0 +1,1964 @@
+{
+	"info": {
+		"_postman_id": "91021151-4b71-4259-a087-443d23de0b25",
+		"name": "Platform Of Trust v2 APIs",
+		"description": "Collection for managining PoT v2 APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products v2 API",
+			"item": [
+				{
+					"name": "DataProduct",
+					"item": [
+						{
+							"name": "List all data products",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e32150b8-b4bd-4ea9-87b5-286c8bfd5801",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products?type=dataproduct",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "dataproduct",
+											"description": "The type of products to be returned"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get one data product by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4984766c-a705-428d-96b1-e2cf1a0c78fd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Create data product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"dataproduct\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"<uuid>\",\n    \"dataProductPublisherName\": \"<string>\",\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update data product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Bearer token. Each environment has its own token.",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{bearer_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"<uuid>\",\n    \"dataProductPublisherName\": \"<string>\",\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								},
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete data product by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "b36824eb-aeb1-45a9-9c1a-2f6f9e82e3fe",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+											"key": "productCode",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					],
+					"description": "Manage product of type DataProduct",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Connector",
+					"item": [
+						{
+							"name": "List all connectors",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ffe79d40-ae0c-4ac5-8101-ef7b40e587b4",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products?type=connector",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get one connector by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7a2e6860-875b-4110-9f17-1d3075303558",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Create connector",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"connector\",\n    \"name\": \"<string>\",\n    \"parameterContext\": \"<uri>\",\n    \"supportedSystemId\": \"<uuid>\",\n    \"contactPersonId\": \"<uuid>\",\n    \"contactPersonName\": \"<string>\",\n    \"contactPersonEmail\": \"<string>\",\n    \"connectorInfo\": \"<string>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								},
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update connector",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Bearer token. Each environment has its own token.",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{bearer_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"parameterContext\": \"<uri>\",\n    \"supportedSystemId\": \"<uuid>\",\n    \"contactPersonId\": \"<uuid>\",\n    \"contactPersonName\": \"<string>\",\n    \"contactPersonEmail\": \"<string>\",\n    \"connectorInfo\": \"<string>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete connector by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "64b46aba-b947-42e7-b4e8-45de4190834b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+											"key": "productCode",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					],
+					"description": "Manage product type of Connector",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Transformer",
+					"item": [
+						{
+							"name": "List all transformers",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "489b6a54-3643-494f-87b2-72a9f90f4158",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products?type=transformer",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "transformer",
+											"description": "The type of products to be returned"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get one transformer by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "11dc2d0b-402a-49ab-84d2-a589262d87df",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Create transformer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"transformer\",\n    \"name\": \"<string>\",\n    \"connectorId\": \"<uuid>\",\n    \"inputFormat\": \"<uri>\",\n    \"outputFormat\": \"<uri>\",\n    \"transformerInfo\": \"<string>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update transformer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Bearer token. Each environment has its own token.",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{bearer_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"connectorId\": \"<uuid>\",\n    \"inputFormat\": \"<uri>\",\n    \"outputFormat\": \"<uri>\",\n    \"transformerInfo\": \"<string>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								},
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete transformer by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9f35c06c-eec7-4e0e-b55f-451fa7f7a331",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+											"key": "productCode",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					],
+					"description": "Manage product type of Transformer",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DataSource",
+					"item": [
+						{
+							"name": "List all data sources",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f50bc032-a8c8-40dd-b639-128bcc368a33",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products?type=datasource",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "datasource",
+											"description": "The type of products to be returned"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get one data source by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d2e90c91-d759-4c5b-8438-29c81839072d",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Create data source",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"datasource\",\n    \"name\": \"<string>\",\n    \"connectorId\": \"<uuid>\",\n    \"transformerIds\": [\n        \"<uuid>\"\n    ],\n    \"ownerId\": \"<uuid>\",\n    \"ownerName\": \"<string>\",\n    \"protocol\": \"<string>\",\n    \"authType\": \"<string>\",\n    \"accessPoint\": \"<uri>\",\n    \"dataSheetId\": \"<uuid>\",\n    \"licenseInformationId\": \"<uuid>\",\n    \"behindVpn\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products"
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								},
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update data source",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Bearer token. Each environment has its own token.",
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{bearer_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"datasource\",\n    \"name\": \"<string>\",\n    \"connectorId\": \"<uuid>\",\n    \"transformerIds\": [\n        \"<uuid>\"\n    ],\n    \"ownerId\": \"<uuid>\",\n    \"ownerName\": \"<string>\",\n    \"protocol\": \"<string>\",\n    \"authType\": \"<string>\",\n    \"accessPoint\": \"<uri>\",\n    \"dataSheetId\": \"<uuid>\",\n    \"licenseInformationId\": \"<uuid>\",\n    \"behindVpn\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+							},
+							"response": [
+								{
+									"name": "Cannot create product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"error\": {\n  \"status\": 422,\n  \"message\": \"Product with same code already exists.\"\n }\n}"
+								},
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "<string>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"senaatti-kiinteistot-co2-product\",\n    \"type\": \"connector\",\n    \"name\": \"Senaatti-kiinteistot CO2 product\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        },\n        {\n            \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"c005e580-ff06-11ea-adc1-0242ac120002\",\n                \"c005e580-ff06-11ea-adc1-0242ac120002\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n    \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n    \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"c8372e76-ff06-11ea-adc1-0242ac120002\",\n \"productCode\": \"senaatti-kiinteistot-co2-product\",\n \"type\": \"connector\",\n \"name\": \"Senaatti-kiinteistot CO2 product\",\n \"dataSources\": [\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  },\n  {\n   \"dataSourceId\": \"b74f8644-ff06-11ea-adc1-0242ac120002\",\n   \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n   \"transformerIds\": [\n    \"c005e580-ff06-11ea-adc1-0242ac120002\",\n    \"c005e580-ff06-11ea-adc1-0242ac120002\"\n   ]\n  }\n ],\n \"dataProductPublisherId\": \"6c672262-ff0c-11ea-adc1-0242ac120002\",\n \"dataProductPublisherName\": \"Senaatti-kiinteistot\",\n \"termsAndConditionsId\": \"8ef7c318-ff0c-11ea-adc1-0242ac120002\",\n \"createdAt\": \"2020-05-11T07:35:49.00Z\",\n \"updatedAt\": \"2020-05-11T07:35:49.00Z\",\n \"description\": \"Data product to retrieve CO2 data\",\n \"imageUrl\": null,\n \"industries\": \"construction\",\n \"authCredentials\": \"e0c3af37-8d55-4131-bbde-c3302b042250\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete data source by product code",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "01d9b2d0-d9c9-4b8f-b1e1-e1e8c3eff5d6",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Bearer token. Each environment has its own token.",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"{{version}}",
+										"products",
+										":productCode"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "connector",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+											"key": "productCode",
+											"value": "<string>"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					],
+					"description": "Manage product type of Data Source",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "List all available products",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "032fe8f9-0e7d-47b9-921a-3a690c154e92",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/{{version}}/products",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"products"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "<integer>",
+									"description": "Offset of a query",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<integer>",
+									"description": "Limit the result of a query",
+									"disabled": true
+								},
+								{
+									"key": "q",
+									"value": "<string>",
+									"description": "Query parameter to filter by name and description data",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<string>",
+									"description": "The type of products to be returned",
+									"disabled": true
+								}
+							]
+						},
+						"description": "\n"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b38a3c30-ac20-490b-9c6e-b70bb1ca4f8e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1de717be-ddb9-42c2-8105-6d6e35889698",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
