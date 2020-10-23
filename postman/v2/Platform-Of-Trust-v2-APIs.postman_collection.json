@@ -166,8 +166,7 @@
 										"{{version}}",
 										"products"
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -303,8 +302,7 @@
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -633,8 +631,7 @@
 										"{{version}}",
 										"products"
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -770,8 +767,7 @@
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -1100,8 +1096,7 @@
 										"{{version}}",
 										"products"
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -1237,8 +1232,7 @@
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -1567,8 +1561,7 @@
 										"{{version}}",
 										"products"
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
@@ -1704,8 +1697,7 @@
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
-								},
-								"description": "Create one of supported products\n\n___\n\n## The Products API provides means to manage and consume Platform of Trust products\n\n### Capabilities:\n- Allows listing all available products with pagination\n- Allows reading about a single product by its product code\n- Allows creating a new product\n- Allows updating a product by its product code\n- Allows deleting a product by its product code\n\n### Supported product types:\n- dataproduct\n- connector\n- datasource\n- transformer\n\n___\n"
+								}
 							},
 							"response": [
 								{
