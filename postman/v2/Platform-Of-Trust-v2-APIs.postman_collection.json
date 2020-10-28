@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "38b502eb-8b9c-4ffe-85d6-971a9806c0ee",
+		"_postman_id": "a5d2a408-6ae2-4426-b390-40d7f2caf70e",
 		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -18,7 +18,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1298189a-0393-4942-94a8-9360df781c33",
+										"id": "8bb87cbc-507a-482c-9772-61b664edfe11",
 										"exec": [
 											""
 										],
@@ -74,7 +74,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8b238cab-daa3-40a7-aac8-571ddebe7360",
+										"id": "3dac6d78-205a-4147-aadb-c706c1516eb2",
 										"exec": [
 											""
 										],
@@ -229,7 +229,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b5bb171b-d0e1-4451-b08c-c3878ea44ba1",
+										"id": "1f5e1cc5-6cd2-41d7-96e9-78e6e80a3375",
 										"exec": [
 											""
 										],
@@ -286,7 +286,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8cd5560b-2320-4622-8815-e4d12df8eaec",
+										"id": "819c9205-614a-4964-90e8-ba52fc0f4c76",
 										"exec": [
 											""
 										],
@@ -342,7 +342,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4f469526-dbb3-4505-8ed7-801265374359",
+										"id": "7099e31e-5fe3-4b67-8b1e-9acb3963163d",
 										"exec": [
 											""
 										],
@@ -497,7 +497,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bba9b0ae-ac5a-4104-b299-01fe864b85ac",
+										"id": "8e968eec-061f-4764-be69-3ecea2023dd5",
 										"exec": [
 											""
 										],
@@ -554,7 +554,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "180c5dc6-1ce8-48a8-81d4-dd1883613ecb",
+										"id": "deffa30c-a9d6-4b3a-9b4d-72a89fb8f982",
 										"exec": [
 											""
 										],
@@ -610,7 +610,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a1487ee3-0c65-4d63-a125-2bab413ad02a",
+										"id": "c49681c9-679b-4970-a590-61a9a2e6f12d",
 										"exec": [
 											""
 										],
@@ -765,7 +765,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "774ebd3f-2f0f-49df-b60a-b1efdc66aff4",
+										"id": "2d3020d4-7070-4a45-a81f-1c95a6125b0e",
 										"exec": [
 											""
 										],
@@ -822,7 +822,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a86f375c-1582-49b0-9103-cc6075c18968",
+										"id": "0d7f4cdb-38ef-4be6-b557-6132603d84ed",
 										"exec": [
 											""
 										],
@@ -878,7 +878,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1717b860-2130-40c2-a3b4-35d8f1268da3",
+										"id": "390429d5-5884-4e96-afe5-3d435a645f7e",
 										"exec": [
 											""
 										],
@@ -1033,7 +1033,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b317a6a5-7bb1-4151-8039-f03526105307",
+										"id": "c9a8c5ed-0fb4-4c57-80a5-c51db98dc074",
 										"exec": [
 											""
 										],
@@ -1087,7 +1087,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fa24b2cc-525a-4e3e-a33c-21698e028747",
+								"id": "5d84ae4d-2ff7-46d4-9293-e31c4e347a73",
 								"exec": [
 									""
 								],
@@ -1144,7 +1144,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ce168312-1502-467c-9a35-2b31952b77e2",
+								"id": "6bef512d-7127-48d1-894e-ffd7500079fd",
 								"exec": [
 									"// Create timestamp for request body",
 									"var date = (new Date()).toISOString()",
@@ -1184,7 +1184,7 @@
 									"hmac.update(bodyString)",
 									"var hash = hmac.finalize();",
 									"var base64 = CryptoJS.enc.Base64.stringify(hash);",
-									"pm.environment.set(\"x_pot_signature\", base64);"
+									"pm.environment.set(\"x_pot_signature_script_calculated\", base64);"
 								],
 								"type": "text/javascript"
 							}
@@ -1192,11 +1192,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "558009bf-6c4f-46f5-bb2d-ba80e95aa678",
+								"id": "1f3a71c8-46fb-45e5-81d0-bee6e021a609",
 								"exec": [
 									"// Clear variables",
 									"pm.globals.unset(\"date\");",
-									"pm.environment.unset(\"x_pot_signature\");"
+									"pm.environment.unset(\"x_pot_signature_script_calculated\");"
 								],
 								"type": "text/javascript"
 							}
@@ -1208,17 +1208,18 @@
 							{
 								"description": "(Required) NOTE!: Signature generation was changed since v1\n\nA HMAC-SHA256 signature in `base64` encoded format. The signature is created from the request payload and the app's client secret.\n\nE.g. based on following parameters\n\n```\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nsecret = \"topSecret\"\n```\n\nit will always generate the following signature if done correctly, regardless of technology used.\n\n```\n7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPython example:\n\n```\nimport base64\nimport hashlib\nimport hmac\nimport json\n\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nclient_secret = \"topSecret\"\n\nbody_string = json.dumps(\n    body,\n    sort_keys=True,\n    ensure_ascii=False,\n    separators=(\",\", \":\")\n)\n\ndigest = hmac.new(\n    client_secret.encode(\"utf-8\"),\n    body_string.encode(\"utf-8\"),\n    hashlib.sha256\n).digest()\n\n# return the digest in base64 encoded format:\nsignature = base64.b64encode(digest).decode()\n\nprint(signature)  # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nLet's explain once which parameters to use to generate correct `body_string`. \n`sort_keys=True` means that the output of dictionaries will be sorted by keys, `separators=(',', ':')` means there is no spaces between separators. `ensure_ascii=False` is used to keep non-ASCII characters as-is rather than escaping them; e.g. keep \"åäö\" rather than escaping to \"\\\\u00e5\\\\u00e4\\\\u00f6\".\n\nJavaScript example:\n\n```\nconst jsSHA = require(\"jssha\");\nconst stringify = require(\"json-stable-stringify\");\n\nconst body = {\n  \"key\": \"valüe\",\n  \"key2\": {\n    \"name\": \"Jåhn Gätes\",\n    \"address\": \"Test Street\",\n    \"colors\": [\"Red\", \"Blue\"]\n  }\n};\n\nconst clientSecret = \"client_secret\";\n\n// Sort keys and stringify.\n// Note \"json-stable-stringify\" is used\nconst bodyString = stringify(body);\n\nconst shaObj = new jsSHA(\n  \"SHA-256\", \n  \"TEXT\", \n  { encoding: \"UTF8\" }\n);\n\nshaObj.setHMACKey(clientSecret, \"TEXT\");\nshaObj.update(bodyString);\n\n// Signature in base64 to use in request\nconst signature = shaObj.getHMAC(\"B64\");\n\nconsole.log(signature) // 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPHP example:\n\n```\n<?php\n\nfunction ksortRecursive(&$array) {\n    if (is_array($array)) {\n        ksort($array);\n        foreach ($array as &$arr) {\n            ksortRecursive($arr);\n        }\n    }\n}\n\n$body = array(\n  \"key\" => \"valüe\",\n  \"key2\" => array(\n    \"name\" => \"Jåhn Gätes\",\n    \"address\" => \"Test Street\",\n    \"colors\" => array(\"Red\", \"Blue\")\n  )\n);\n\n$client_secret = \"topSecret\";\n\nksortRecursive($body);\n\n$body_string = json_encode(\n   $body,   \n   JSON_UNESCAPED_UNICODE\n);\n\n$signature = base64_encode(\n  hash_hmac(\n    'sha256',\n        $body_string,\n        $client_secret,\n        true\n  )\n);\n\necho($signature . \"\\n\"); # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n",
 								"key": "X-Pot-Signature",
-								"value": "{{x_pot_signature}}"
+								"value": "{{x_pot_signature_script_calculated}}"
 							},
 							{
 								"description": "(Required) The requesting app's JWT token. The token is generated when the app is created.",
 								"key": "X-App-Token",
-								"value": "<string>"
+								"value": "{{x-app-token}}"
 							},
 							{
-								"description": "The currently logged in user's OAuth bearer token. This is not mandatory, but if passed, the token will be verified.",
+								"description": "Platform of Trust OAuth bearer token of the user currently logged in in his application. This is not mandatory, but if passed, the token will be verified.",
 								"key": "X-User-Token",
-								"value": "<string>"
+								"value": "{{x-user-token}}",
+								"disabled": true
 							},
 							{
 								"key": "Content-Type",
@@ -1261,7 +1262,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0f8a2306-9fb6-4cee-9251-7956ae0f23d0",
+				"id": "5b89ae50-9e6f-4f61-b928-6fbeef6aa2a7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1271,7 +1272,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ff0c4f3b-bdfa-4f50-98ab-04844c21c601",
+				"id": "e38257e3-1dbd-490a-95bc-1babb56e6902",
 				"type": "text/javascript",
 				"exec": [
 					""
