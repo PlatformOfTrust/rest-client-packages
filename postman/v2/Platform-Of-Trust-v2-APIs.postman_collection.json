@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "91021151-4b71-4259-a087-443d23de0b25",
+		"_postman_id": "38b502eb-8b9c-4ffe-85d6-971a9806c0ee",
 		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -18,7 +18,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e32150b8-b4bd-4ea9-87b5-286c8bfd5801",
+										"id": "1298189a-0393-4942-94a8-9360df781c33",
 										"exec": [
 											""
 										],
@@ -74,7 +74,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4984766c-a705-428d-96b1-e2cf1a0c78fd",
+										"id": "8b238cab-daa3-40a7-aac8-571ddebe7360",
 										"exec": [
 											""
 										],
@@ -229,7 +229,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b36824eb-aeb1-45a9-9c1a-2f6f9e82e3fe",
+										"id": "b5bb171b-d0e1-4451-b08c-c3878ea44ba1",
 										"exec": [
 											""
 										],
@@ -262,9 +262,9 @@
 									],
 									"variable": [
 										{
-											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
 											"key": "productCode",
-											"value": "<string>"
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
 								},
@@ -286,7 +286,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ffe79d40-ae0c-4ac5-8101-ef7b40e587b4",
+										"id": "8cd5560b-2320-4622-8815-e4d12df8eaec",
 										"exec": [
 											""
 										],
@@ -342,7 +342,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7a2e6860-875b-4110-9f17-1d3075303558",
+										"id": "4f469526-dbb3-4505-8ed7-801265374359",
 										"exec": [
 											""
 										],
@@ -497,7 +497,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "64b46aba-b947-42e7-b4e8-45de4190834b",
+										"id": "bba9b0ae-ac5a-4104-b299-01fe864b85ac",
 										"exec": [
 											""
 										],
@@ -530,9 +530,9 @@
 									],
 									"variable": [
 										{
-											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
 											"key": "productCode",
-											"value": "<string>"
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
 								},
@@ -554,7 +554,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "489b6a54-3643-494f-87b2-72a9f90f4158",
+										"id": "180c5dc6-1ce8-48a8-81d4-dd1883613ecb",
 										"exec": [
 											""
 										],
@@ -610,7 +610,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "11dc2d0b-402a-49ab-84d2-a589262d87df",
+										"id": "a1487ee3-0c65-4d63-a125-2bab413ad02a",
 										"exec": [
 											""
 										],
@@ -765,7 +765,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9f35c06c-eec7-4e0e-b55f-451fa7f7a331",
+										"id": "774ebd3f-2f0f-49df-b60a-b1efdc66aff4",
 										"exec": [
 											""
 										],
@@ -798,9 +798,9 @@
 									],
 									"variable": [
 										{
-											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
 											"key": "productCode",
-											"value": "<string>"
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
 								},
@@ -822,7 +822,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f50bc032-a8c8-40dd-b639-128bcc368a33",
+										"id": "a86f375c-1582-49b0-9103-cc6075c18968",
 										"exec": [
 											""
 										],
@@ -878,7 +878,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d2e90c91-d759-4c5b-8438-29c81839072d",
+										"id": "1717b860-2130-40c2-a3b4-35d8f1268da3",
 										"exec": [
 											""
 										],
@@ -1033,7 +1033,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "01d9b2d0-d9c9-4b8f-b1e1-e1e8c3eff5d6",
+										"id": "b317a6a5-7bb1-4151-8039-f03526105307",
 										"exec": [
 											""
 										],
@@ -1066,9 +1066,9 @@
 									],
 									"variable": [
 										{
-											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
 											"key": "productCode",
-											"value": "<string>"
+											"value": "<string>",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
 								},
@@ -1087,7 +1087,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "032fe8f9-0e7d-47b9-921a-3a690c154e92",
+								"id": "fa24b2cc-525a-4e3e-a33c-21698e028747",
 								"exec": [
 									""
 								],
@@ -1144,10 +1144,10 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a57108a4-f2ed-42c5-8296-c66b51a444ee",
+								"id": "ce168312-1502-467c-9a35-2b31952b77e2",
 								"exec": [
 									"// Create timestamp for request body",
-									"var date = `\"${(new Date()).toISOString()}\"`",
+									"var date = (new Date()).toISOString()",
 									"pm.globals.set(\"date\", date);",
 									"",
 									"// Parse requestbody ",
@@ -1192,7 +1192,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ab999b05-1b3d-4a2b-8705-3fe766a5534e",
+								"id": "558009bf-6c4f-46f5-bb2d-ba80e95aa678",
 								"exec": [
 									"// Clear variables",
 									"pm.globals.unset(\"date\");",
@@ -1227,7 +1227,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"timestamp\": {{date}},\n    \"productCode\": \"denis-signspace\",\n    \"parameters\": {\n        \"filter\": [],\n        \"country\": \"fi\",\n        \"idOfficial\": \"3042282-9\",\n        \"offset\": 0,\n        \"limit\": 10,\n        \"queryText\": \"\",\n        \"startTime\": \"2019-10-19T13:20:09+03:00\",\n        \"endTime\": \"2020-06-04T13:20:09+03:00\",\n        \"status\": [ \"In Progress\" ]\n    }\n}",
+							"raw": "{\n    \"timestamp\": \"{{date}}\",\n    \"productCode\": \"denis-signspace\",\n    \"parameters\": {\n        \"filter\": [],\n        \"country\": \"fi\",\n        \"idOfficial\": \"3042282-9\",\n        \"offset\": 0,\n        \"limit\": 10,\n        \"queryText\": \"\",\n        \"startTime\": \"2019-10-19T13:20:09+03:00\",\n        \"endTime\": \"2020-06-04T13:20:09+03:00\",\n        \"status\": [ \"In Progress\" ]\n    }\n}",
 							"options": {
 								"raw": {}
 							}
@@ -1249,8 +1249,7 @@
 									"value": ""
 								}
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -1262,7 +1261,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b38a3c30-ac20-490b-9c6e-b70bb1ca4f8e",
+				"id": "0f8a2306-9fb6-4cee-9251-7956ae0f23d0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1272,7 +1271,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1de717be-ddb9-42c2-8105-6d6e35889698",
+				"id": "ff0c4f3b-bdfa-4f50-98ab-04844c21c601",
 				"type": "text/javascript",
 				"exec": [
 					""
