@@ -6,7 +6,7 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 
 ## APIs
 
-### `Products API`:
+#### `Products API`:
 - List all `Products`
 - List all `Products` of specific `type` by query parameter "`type`"
 - Read one `Product` by its `productCode`
