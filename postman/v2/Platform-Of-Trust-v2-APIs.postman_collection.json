@@ -1196,7 +1196,8 @@
 								"exec": [
 									"// Clear variables",
 									"pm.globals.unset(\"date\");",
-									"pm.environment.unset(\"x_pot_signature_script_calculated\");"
+									"pm.environment.unset(\"x_pot_signature_script_calculated\");",
+									"console.log(request)"
 								],
 								"type": "text/javascript"
 							}
@@ -1228,7 +1229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"timestamp\": \"{{date}}\",\n    \"productCode\": \"denis-signspace\",\n    \"parameters\": {\n        \"filter\": [],\n        \"country\": \"fi\",\n        \"idOfficial\": \"3042282-9\",\n        \"offset\": 0,\n        \"limit\": 10,\n        \"queryText\": \"\",\n        \"startTime\": \"2019-10-19T13:20:09+03:00\",\n        \"endTime\": \"2020-06-04T13:20:09+03:00\",\n        \"status\": [ \"In Progress\" ]\n    }\n}",
+							"raw": "{\n    \"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"timestamp\": \"{{date}}\",\n    \"productCode\": \"dummy-humidity-product\",\n    \"parameters\": {\n       \"ids\": [{\n                \"id\": \"1\"\n            }],\n        \"startTime\": \"2020-04-20T13:06:40+00:00\",\n        \"endTime\": \"2020-05-20T14:53:54+00:00\",\n        \"dataTypes\": [\"MeasureAirHumidity\"]\n    }\n}",
 							"options": {
 								"raw": {}
 							}
