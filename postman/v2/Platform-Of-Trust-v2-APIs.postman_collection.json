@@ -30,13 +30,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products?type=dataproduct",
+									"raw": "{{pot_base_url}}/products/{{version}}?type=dataproduct",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									],
 									"query": [
 										{
@@ -86,13 +86,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"query": [
@@ -162,13 +162,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products",
+									"raw": "{{pot_base_url}}/products/{{version}}",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									]
 								}
 							},
@@ -203,13 +203,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -251,13 +251,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -298,13 +298,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products?type=connector",
+									"raw": "{{pot_base_url}}/products/{{version}}?type=connector",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									],
 									"query": [
 										{
@@ -354,13 +354,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"query": [
@@ -430,13 +430,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products",
+									"raw": "{{pot_base_url}}/products/{{version}}",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									]
 								}
 							},
@@ -471,13 +471,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -519,13 +519,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -566,13 +566,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products?type=transformer",
+									"raw": "{{pot_base_url}}/products/{{version}}?type=transformer",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									],
 									"query": [
 										{
@@ -622,13 +622,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"query": [
@@ -698,13 +698,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products",
+									"raw": "{{pot_base_url}}/products/{{version}}",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									]
 								}
 							},
@@ -739,13 +739,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -787,13 +787,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -834,13 +834,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products?type=datasource",
+									"raw": "{{pot_base_url}}/products/{{version}}?type=datasource",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									],
 									"query": [
 										{
@@ -890,13 +890,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"query": [
@@ -966,13 +966,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products",
+									"raw": "{{pot_base_url}}/products/{{version}}",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
-										"products"
+										"products",
+										"{{version}}"
 									]
 								}
 							},
@@ -1007,13 +1007,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -1055,13 +1055,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/{{version}}/products/:productCode",
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 									"host": [
 										"{{pot_base_url}}"
 									],
 									"path": [
-										"{{version}}",
 										"products",
+										"{{version}}",
 										":productCode"
 									],
 									"variable": [
@@ -1099,13 +1099,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{pot_base_url}}/{{version}}/products",
+							"raw": "{{pot_base_url}}/products/{{version}}",
 							"host": [
 								"{{pot_base_url}}"
 							],
 							"path": [
-								"{{version}}",
-								"products"
+								"products",
+								"{{version}}"
 							],
 							"query": [
 								{
@@ -1235,20 +1235,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{pot_base_url}}/{{version}}/products/:productCode/fetch",
+							"raw": "{{pot_base_url}}/products/{{version}}/:productCode/fetch",
 							"host": [
 								"{{pot_base_url}}"
 							],
 							"path": [
-								"{{version}}",
 								"products",
+								"{{version}}",
 								":productCode",
 								"fetch"
 							],
 							"variable": [
 								{
 									"key": "productCode",
-									"value": ""
+									"value": "<string>"
 								}
 							]
 						}
