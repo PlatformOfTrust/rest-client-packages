@@ -1,0 +1,2115 @@
+{
+	"info": {
+		"_postman_id": "e4098714-90fb-42ca-a2a8-5de5f9122e4f",
+		"name": "Platform_Of_Trust_v2_APIs_Tests",
+		"description": "Collection for managining PoT v2 APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products v2 API",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "DataProduct",
+							"item": [
+								{
+									"name": "Create data product",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "23e4ef22-81f2-4aab-a95d-eae65a37e519",
+												"exec": [
+													"pm.test(\"Create data product returns 201\", function () {\r",
+													"  pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code_data_product}}\",\n    \"type\": \"dataproduct\",\n    \"name\": \"Postman data product\",\n    \"description\": \"Directly using Function\",\n    \"imageUrl\": \"https://www.example.com/api/v1/endpoint\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"71d5706a-19ef-43cc-858d-e264c0b7dbcb\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n            \"transformerIds\": [\n                \"d48e7e1a-9861-46d6-a3a3-31c880770641\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"a54bc072-1a10-4810-be03-8a03c4af1179\",\n    \"dataProductPublisherName\": \"Publisher name of Data product from Postman\",\n    \"termsAndConditionsId\": \"27b898fc-853c-42e8-9a76-2c5bc1182017\",\n    \"industries\": \"Real Estate, Retail\",\n    \"authCredentials\": \"Auth Credentials\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List all data products",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "8e6af6c7-ae8c-497c-b473-423660d76848",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "dde61ab8-5731-4057-a0df-cac7cf6c8948",
+												"exec": [
+													"pm.test(\"List all data products returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=dataproduct",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "dataproduct",
+													"description": "The type of products to be returned"
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Get one data product by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "24db52ad-8e59-4fb9-8bf3-4c8ef4ad1d90",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "18d2a80b-6c8b-4eb6-b4e7-72ac241cda5f",
+												"exec": [
+													"pm.test(\"Get one data product by product code returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_product}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Update data product",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b2a33ba8-d814-4391-ad99-baed8c5c2b7d",
+												"exec": [
+													"pm.test(\"Update data product returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Postman name edit\",\n    \"description\": \"description edit Postman\",\n    \"imageUrl\": \"https://www.editrobot.com/api/v1/endpoint\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"992ca0c9-bc40-4837-8d76-885df7e7fc21\",\n            \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Forecast/Weather/AccuWeather/\",\n            \"transformerIds\": [\n                \"221227d0-1178-48be-86d7-4f4b7c534dd9\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"99d72471-869c-43bb-a097-f8247daee29b\",\n    \"dataProductPublisherName\": \"edit publisher name Postman\",\n    \"termsAndConditionsId\": \"99b898fc-853c-42e8-9a76-2c5bc1182017\",\n    \"industries\": \"edit industries\",\n    \"authCredentials\": \"edit auth credentials\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_product}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete data product by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "9dd320d1-7ee7-40de-82db-2931a4a63f15",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "cba61dd1-95ee-45d7-9279-ddd30e9e40fa",
+												"exec": [
+													"pm.test(\"Delete data product by product code returns 204\", function () {\r",
+													"  pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_product}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product of type DataProduct",
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Connector",
+							"item": [
+								{
+									"name": "Create connector",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5c7f794f-4ebd-4eff-9f1a-4ec822b70ed1",
+												"exec": [
+													"pm.test(\"Create connector returns 201\", function () {\r",
+													"  pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code_connector}}\",\n    \"type\": \"connector\",\n    \"name\": \"Name of connector from Postman\",\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"supportedSystemId\": \"10209b1d-99a3-4ed4-b9e3-f24162ff072f\",\n    \"contactPersonId\": \"39ff5ffe-0d6d-4511-b4e2-7bba4713019\",\n    \"contactPersonName\": \"Person Name Postman. Tests\",\n    \"contactPersonEmail\": \"connector.person@email.com\",\n    \"connectorInfo\": \"Info of the connector robot tests\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List all connectors",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "b749a993-1cab-426d-9cac-a55b17a50146",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "6a1efee4-5381-4c29-af62-33cdc3c78f93",
+												"exec": [
+													"pm.test(\"List all connectors returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=connector",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned"
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Get one connector by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "c0efcbfa-326e-4100-b2be-89fdd39f4047",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "72a0c96a-39a8-4edf-8be6-ed91e679f050",
+												"exec": [
+													"pm.test(\"Get one connector by product code returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_connector}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Update connector",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5c3643ec-9c6e-4983-9294-74fa20ed2349",
+												"exec": [
+													"pm.test(\"Update connector returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Name edit Postman connector\",\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Forecast/Weather/AccuWeather/\",\n    \"supportedSystemId\": \"20209b1d-99a3-4ed4-b9e3-f24162ff072f\",\n    \"contactPersonId\": \"39ff5ffe-0d6d-4511-b4e2-7bba47130191\",\n    \"contactPersonName\": \"Edit Person Name Postman. Tests\",\n    \"contactPersonEmail\": \"edit.connector.person@email.com\",\n    \"connectorInfo\": \"Edit info of the connector postman tests\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_connector}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete connector by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "60b72b37-0983-4f0f-9b00-62ffbe39e766",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "71efff8b-8406-461d-9447-5da9766238f1",
+												"exec": [
+													"pm.test(\"Delete connector by product code returns 204\", function () {\r",
+													"  pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_connector}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Connector",
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Transformer",
+							"item": [
+								{
+									"name": "Create transformer",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "215aea9c-3a06-43c0-8062-298177a62a4e",
+												"exec": [
+													"pm.test(\"Create transformer returns 201\", function () {\r",
+													"  pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code_transformer}}\",\n    \"type\": \"transformer\",\n    \"name\": \"Name of Transformer from Postman test\",\n    \"connectorId\": \"86723dae-941f-4e0e-a90a-de7001555471\",\n    \"inputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductParameters/Sensor\",\n    \"outputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductOutput/Sensor\",\n    \"transformerInfo\": \"Transformer Info Postman tests\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List all transformers",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "58ad3359-260b-4263-90bc-4cdbc4503757",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "bd3f3597-7a5c-4a07-b8b9-86061e306239",
+												"exec": [
+													"pm.test(\"List all transformers returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=transformer",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "transformer",
+													"description": "The type of products to be returned"
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Get one transformer by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "e7d14de7-a9a1-46e7-9d82-c5e87dbd6a4e",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "6743b380-7605-4461-8ef2-1d1a946fb1c6",
+												"exec": [
+													"pm.test(\"Get one transformer by product code returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_transformer}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Update transformer",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0c8496ca-fef1-4985-ad52-29583b50c905",
+												"exec": [
+													"pm.test(\"Update transformer returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Edit name of Transformer from Postman test\",\n    \"connectorId\": \"9926b693-4727-4248-a258-95a031ffa3d4\",\n    \"inputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductParameters/Sensor\",\n    \"outputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductOutput/Sensor\",\n    \"transformerInfo\": \"Optional information about the Transformer (version, description, organization info, etc.)\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_transformer}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete transformer by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "f5ce1992-1503-444d-8e52-d7ab43a151ac",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "36605b04-bd23-4d1e-95b1-141c8b742b4e",
+												"exec": [
+													"pm.test(\"Delete transformer by product code returns 204\", function () {\r",
+													"  pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_transformer}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Transformer",
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "DataSource",
+							"item": [
+								{
+									"name": "Create data source",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d4859da4-ccf1-44ac-a483-39b9441ab02b",
+												"exec": [
+													"pm.test(\"Create data source returns 201\", function () {\r",
+													"  pm.response.to.have.status(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code_data_source}}\",\n    \"type\": \"datasource\",\n    \"name\": \"Name of data source from Postman tests\",\n    \"connectorId\": \"0426b693-4727-4248-a258-95a031ffa3d4\",\n    \"transformerIds\": [\n        \"d48e7e1a-9861-46d6-a3a3-31c880770641\",\n        \"ee048d21-4efa-4012-92d3-a035d459d20c\"\n    ],\n    \"ownerId\": \"f4d72471-869c-43bb-a097-f8247daee29b\",\n    \"ownerName\": \"Owner name Postman tests\",\n    \"protocol\": \"https\",\n    \"authType\": \"OAuth 2.0\",\n    \"accessPoint\": \"https://data-source-ext.oftrust.com/\",\n    \"dataSheetId\": \"05229c52-6956-44c2-83c8-347034bc0132\",\n    \"licenseInformationId\": \"d42e07a2-ff08-11ea-adc1-0242ac120002\",\n    \"behindVpn\": \"false\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List all data sources",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "e2b57f0c-7c25-42c8-8fc4-cf6703e65e56",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b050ab9c-95b1-4aa5-a63b-d69410f6e967",
+												"exec": [
+													"pm.test(\"List all data sources returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=datasource",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "datasource",
+													"description": "The type of products to be returned"
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Get one data source by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "c95ca8fe-c3d7-42ef-a03d-c11bb95f0ee2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "ec6c4285-2b8b-4924-8897-2800fef26f3e",
+												"exec": [
+													"pm.test(\"Get one data source by product code returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_source}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Update data source",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3450e499-e33f-4b61-b648-6a1c6738aa9e",
+												"exec": [
+													"pm.test(\"Update data source returns 200\", function () {\r",
+													"  pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Name edit Postman data source\",\n    \"connectorId\": \"99209b1d-99a3-4ed4-b9e3-f24162ff072f\",\n    \"transformerIds\": [\n        \"221227d0-1178-48be-86d7-4f4b7c534dd9\"\n    ],\n    \"ownerId\": \"99209b1d-99a3-4ed4-b9e3-f24162ff072f\",\n    \"ownerName\": \"ownerName edit Postman data source\",\n    \"protocol\": \"http\",\n    \"authType\": \"Bearer Token\",\n    \"accessPoint\": \"https://data-source-edit.oftrust.com/\",\n    \"dataSheetId\": \"89ff5ffe-0d6d-4511-b4e2-7bba47130191\",\n    \"licenseInformationId\": \"99d72471-869c-43bb-a097-f8247daee29b\",\n    \"behindVpn\": \"true\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_source}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete data source by product code",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "26740a63-a8f1-4220-b1c1-d6d67bc483be",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "2484cb97-1d22-4a36-8491-5d5f13c4c59b",
+												"exec": [
+													"pm.test(\"Delete data source by product code returns 204\", function () {\r",
+													"  pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code_data_source}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Data Source",
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "List all available products",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "82def6ce-eee2-4590-89cb-a2092f875028",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "2fde92cc-6092-4d21-8e43-d685e74f8c6c",
+										"exec": [
+											"pm.test(\"List all available products returns 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query. Must be at least 0",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query. Must be between 1 and 100",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "<string>",
+											"description": "The type of products to be returned",
+											"disabled": true
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch data a.k.a Broker API",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d469e8b5-45f0-467c-8b06-0ec3485d6181",
+										"exec": [
+											"// Create timestamp for request body",
+											"var date = (new Date()).toISOString()",
+											"pm.globals.set(\"date\", date);",
+											"",
+											"// Parse requestbody ",
+											"var requestBody = pm.variables.replaceIn(pm.request.body.raw)",
+											"requestBody = JSON.parse(requestBody)",
+											"",
+											"// Generating X-Pot-Signature",
+											"const clientSecret = pm.environment.get(\"client_secret\")",
+											"const bodyString = JSON.stringify(sortObject(requestBody))",
+											"",
+											"function sortObject(unordered, sortArrays = false) {",
+											"    if (!unordered || typeof unordered !== 'object') {",
+											"        return unordered;",
+											"    }",
+											"",
+											"    if (Array.isArray(unordered)) {",
+											"        const newArr = unordered.map((item) => sortObject(item, sortArrays));",
+											"        if (sortArrays) {",
+											"        newArr.sort();",
+											"        }",
+											"        return newArr;",
+											"    }",
+											"",
+											"    const ordered = {};",
+											"    Object.keys(unordered)",
+											"        .sort()",
+											"        .forEach((key) => {",
+											"        ordered[key] = sortObject(unordered[key], sortArrays);",
+											"        });",
+											"    return ordered;",
+											"}",
+											"",
+											"var hmac = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, clientSecret);",
+											"hmac.update(bodyString)",
+											"var hash = hmac.finalize();",
+											"var base64 = CryptoJS.enc.Base64.stringify(hash);",
+											"pm.environment.set(\"x_pot_signature_script_calculated\", base64);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "367ded33-9254-426c-a464-bd4f03010f66",
+										"exec": [
+											"// Clear variables",
+											"pm.globals.unset(\"date\");",
+											"pm.environment.unset(\"x_pot_signature_script_calculated\");",
+											"console.log(request)",
+											"",
+											"pm.test(\"Fetch data products returns 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) NOTE!: Signature generation was changed since v1\n\nA HMAC-SHA256 signature in `base64` encoded format. The signature is created from the request payload and the app's client secret.\n\nE.g. based on following parameters\n\n```\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nsecret = \"topSecret\"\n```\n\nit will always generate the following signature if done correctly, regardless of technology used.\n\n```\n7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPython example:\n\n```\nimport base64\nimport hashlib\nimport hmac\nimport json\n\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nclient_secret = \"topSecret\"\n\nbody_string = json.dumps(\n    body,\n    sort_keys=True,\n    ensure_ascii=False,\n    separators=(\",\", \":\")\n)\n\ndigest = hmac.new(\n    client_secret.encode(\"utf-8\"),\n    body_string.encode(\"utf-8\"),\n    hashlib.sha256\n).digest()\n\n# return the digest in base64 encoded format:\nsignature = base64.b64encode(digest).decode()\n\nprint(signature)  # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nLet's explain once which parameters to use to generate correct `body_string`. \n`sort_keys=True` means that the output of dictionaries will be sorted by keys, `separators=(',', ':')` means there is no spaces between separators. `ensure_ascii=False` is used to keep non-ASCII characters as-is rather than escaping them; e.g. keep \"åäö\" rather than escaping to \"\\\\u00e5\\\\u00e4\\\\u00f6\".\n\nJavaScript example:\n\n```\nconst jsSHA = require(\"jssha\");\nconst stringify = require(\"json-stable-stringify\");\n\nconst body = {\n  \"key\": \"valüe\",\n  \"key2\": {\n    \"name\": \"Jåhn Gätes\",\n    \"address\": \"Test Street\",\n    \"colors\": [\"Red\", \"Blue\"]\n  }\n};\n\nconst clientSecret = \"client_secret\";\n\n// Sort keys and stringify.\n// Note \"json-stable-stringify\" is used\nconst bodyString = stringify(body);\n\nconst shaObj = new jsSHA(\n  \"SHA-256\", \n  \"TEXT\", \n  { encoding: \"UTF8\" }\n);\n\nshaObj.setHMACKey(clientSecret, \"TEXT\");\nshaObj.update(bodyString);\n\n// Signature in base64 to use in request\nconst signature = shaObj.getHMAC(\"B64\");\n\nconsole.log(signature) // 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPHP example:\n\n```\n<?php\n\nfunction ksortRecursive(&$array) {\n    if (is_array($array)) {\n        ksort($array);\n        foreach ($array as &$arr) {\n            ksortRecursive($arr);\n        }\n    }\n}\n\n$body = array(\n  \"key\" => \"valüe\",\n  \"key2\" => array(\n    \"name\" => \"Jåhn Gätes\",\n    \"address\" => \"Test Street\",\n    \"colors\" => array(\"Red\", \"Blue\")\n  )\n);\n\n$client_secret = \"topSecret\";\n\nksortRecursive($body);\n\n$body_string = json_encode(\n   $body,   \n   JSON_UNESCAPED_UNICODE\n);\n\n$signature = base64_encode(\n  hash_hmac(\n    'sha256',\n        $body_string,\n        $client_secret,\n        true\n  )\n);\n\necho($signature . \"\\n\"); # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n",
+										"key": "X-Pot-Signature",
+										"value": "{{x_pot_signature_script_calculated}}"
+									},
+									{
+										"description": "(Required) The requesting app's JWT token. The token is generated when the app is created.",
+										"key": "X-App-Token",
+										"value": "{{x-app-token}}"
+									},
+									{
+										"description": "Platform of Trust OAuth bearer token of the user currently logged in in his application. This is not mandatory, but if passed, the token will be verified.",
+										"key": "X-User-Token",
+										"value": "{{x-user-token}}",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"timestamp\": \"{{date}}\",\n    \"parameters\": {\n       \"ids\": [{\n                \"id\": \"1\"\n            }],\n        \"startTime\": \"2020-04-20T13:06:40+00:00\",\n        \"endTime\": \"2020-05-20T14:53:54+00:00\",\n        \"dataTypes\": [\"MeasureAirHumidity\"]\n    },\n    \"authCredentials\": {}\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode/fetch",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productCode",
+										"fetch"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "{{product_code_data_product}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Health",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "95a6ea29-832b-4c46-ae5c-fd015d9bd114",
+										"exec": [
+											"pm.test(\"Health endpoint Product V2 returns 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/health",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"health"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Permissions and terms",
+					"item": [
+						{
+							"name": "Permission Stack",
+							"item": [
+								{
+									"name": "By permissionId",
+									"item": [
+										{
+											"name": "Get one permission stack by permission id (TEMPORARY)",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions/:permissionId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"permissions",
+														":permissionId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "permissionId",
+															"value": "example-id",
+															"description": "(Required) Unique identifier of  permission stack"
+														}
+													]
+												},
+												"description": "Get one permission stacks by permission id"
+											},
+											"response": []
+										},
+										{
+											"name": "Update permission stack final state (TEMPORARY)",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"state\": \"not approved\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions/:permissionId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"permissions",
+														":permissionId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "permissionId",
+															"value": "example-id",
+															"description": "(Required) Unique identifier of  permission stack"
+														}
+													]
+												},
+												"description": "Update permission stack state"
+											},
+											"response": []
+										},
+										{
+											"name": "Delete permission stack (TEMPORARY)",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"approved\": \"not approved\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions/:permissionId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"permissions",
+														":permissionId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "permissionId",
+															"value": "example-id",
+															"description": "(Required) Unique identifier of  permission stack"
+														}
+													]
+												},
+												"description": "Delete permission stack"
+											},
+											"response": []
+										}
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
+								},
+								{
+									"name": "Get all permission stacks",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"permissions"
+											],
+											"query": [
+												{
+													"key": "user_id",
+													"value": "<uuid>",
+													"description": "Unique identifier of internal user (consumer)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "example-product-code",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "Get all permission stacks or use query parameter user_id to ger permission stacks related to specific user"
+									},
+									"response": []
+								},
+								{
+									"name": "Create permission stack",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"userId\": \"d142d40c-0e10-11eb-adc1-0242ac120002\",\n    \"productCode\": \"example-product-code\",\n    \"state\": \"approved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"permissions"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "example-product-code",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										},
+										"description": "Create permission stack (Temporary endpoint)"
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "User Terms",
+							"item": [
+								{
+									"name": "By termId",
+									"item": [
+										{
+											"name": "Get one user term (permission) or permission request by term id",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"userterms",
+														":termId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "termId",
+															"value": "<uuid>",
+															"description": "(Required) Unique identifier of term (permission) or permission request"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update user term (permission) or permission request",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"accepted\": {\n        \"byActingUser\": true\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"userterms",
+														":termId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "termId",
+															"value": "<uuid>",
+															"description": "(Required) Unique identifier of term (permission) or permission request"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Delete user term (permission) or permission request",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"accepted\": {\n        \"byActingUser\": true\n    }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"userterms",
+														":termId"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "example-product-code",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "termId",
+															"value": "<uuid>",
+															"description": "(Required) Unique identifier of term (permission) or permission request"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
+								},
+								{
+									"name": "Get all user terms (permissions) and permission requests",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"userterms"
+											],
+											"query": [
+												{
+													"key": "user_id",
+													"value": "<uuid>",
+													"description": "Unique identifier of internal user (consumer)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "example-product-code",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create user term (permission) and permission request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"termId\": \"b5933430-28ab-11eb-adc1-0242ac120002\",\n    \"userId\": \"dc58a83e-28ab-11eb-adc1-0242ac120002\",\n    \"dplId\": \"0315e748-28ac-11eb-adc1-0242ac120002\",\n    \"productCode\": \"example-product-code\",\n    \"accepted\": {\n        \"byUser\": true,\n        \"byActingUser\": true\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"userterms"
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "example-product-code",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Manage terms (permissions) and permission requests",
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"description": "Manage Data Product permissions",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d7e637b7-c461-4847-9fd3-1718a4563174",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0a53906a-21e2-4c12-ae71-a9d7e67b25ed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
