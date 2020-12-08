@@ -1,5 +1,5 @@
 # Platform of Trust Insomnia Workspace
-Aim is to aid developers willing to onboard Platform of Trust by familiarizing them with with the core Platform APIs without overwhelming knowlege on API structures and functionalities.
+Aim is to aid developers willing to onboard Platform of Trust by familiarizing them with the core Platform APIs without overwhelming knowlege on API structures and functionalities.
 
 # Version and Contents
 2.1
