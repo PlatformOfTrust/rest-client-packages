@@ -31,7 +31,15 @@
 									],
 									"request": {
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"description": "Optional Authorization. Required to discover private and organization level products.",
+												"type": "text",
+												"disabled": true
+											}
+										],
 										"url": {
 											"raw": "{{pot_base_url}}/products/{{version}}?type=dataproduct",
 											"host": [
@@ -64,6 +72,12 @@
 													"key": "type",
 													"value": "dataproduct",
 													"description": "The type of products to be returned"
+												},
+												{
+													"key": "visibility",
+													"value": "<string>",
+													"description": "Visibility of the products to be listed (public, private, organization)",
+													"disabled": true
 												}
 											]
 										},
@@ -87,7 +101,15 @@
 									],
 									"request": {
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"description": "Optional Authorization. Required to discover private and organization level products.",
+												"type": "text",
+												"disabled": true
+											}
+										],
 										"url": {
 											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
 											"host": [
@@ -159,7 +181,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"dataproduct\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"<uuid>\",\n    \"dataProductPublisherName\": \"<string>\",\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\"\n}",
+											"raw": "{\n    \"productCode\": \"<string>\",\n    \"type\": \"dataproduct\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\",\n    \"visibility\": {\n        \"type\": \"string\"\n    }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -200,7 +222,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"dataProductPublisherId\": \"<uuid>\",\n    \"dataProductPublisherName\": \"<string>\",\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\"\n}",
+											"raw": "{\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<uri>\",\n    \"dataSources\": [\n        {\n            \"dataSourceId\": \"<uuid>\",\n            \"parameterContext\": \"<uri>\",\n            \"transformerIds\": [\n                \"uuid\"\n            ]\n        }\n    ],\n    \"termsAndConditionsId\": \"<uuid>\",\n    \"industries\": \"string\",\n    \"authCredentials\": \"string\",\n    \"visibility\": {\n        \"type\": \"string\",\n        \"visibleTo\": [\n            \"uuid\"\n        ]\n    }\n}",
 											"options": {
 												"raw": {}
 											}
@@ -1100,7 +1122,15 @@
 							],
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Optional Authorization. Required to discover private and organization level products.",
+										"type": "text",
+										"disabled": true
+									}
+								],
 								"url": {
 									"raw": "{{pot_base_url}}/products/{{version}}",
 									"host": [
@@ -1132,7 +1162,13 @@
 										{
 											"key": "type",
 											"value": "<string>",
-											"description": "The type of products to be returned",
+											"description": "The type of products to be returned (dataproduct, datasource, connector, transformer)",
+											"disabled": true
+										},
+										{
+											"key": "visibility",
+											"value": "<string>",
+											"description": "Visibility of the products to be listed (public, private, organization)",
 											"disabled": true
 										}
 									]
@@ -1545,7 +1581,7 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/user-terms/:termId",
 													"host": [
 														"{{pot_base_url}}"
 													],
@@ -1553,7 +1589,7 @@
 														"products",
 														"{{version}}",
 														":productCode",
-														"userterms",
+														"user-terms",
 														":termId"
 													],
 													"variable": [
@@ -1597,7 +1633,7 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/user-terms/:termId",
 													"host": [
 														"{{pot_base_url}}"
 													],
@@ -1605,7 +1641,7 @@
 														"products",
 														"{{version}}",
 														":productCode",
-														"userterms",
+														"user-terms",
 														":termId"
 													],
 													"variable": [
@@ -1649,7 +1685,7 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms/:termId",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/user-terms/:termId",
 													"host": [
 														"{{pot_base_url}}"
 													],
@@ -1657,7 +1693,7 @@
 														"products",
 														"{{version}}",
 														":productCode",
-														"userterms",
+														"user-terms",
 														":termId"
 													],
 													"variable": [
@@ -1696,7 +1732,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/user-terms",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1704,7 +1740,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"userterms"
+												"user-terms"
 											],
 											"query": [
 												{
@@ -1750,7 +1786,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/userterms",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/user-terms",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1758,7 +1794,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"userterms"
+												"user-terms"
 											],
 											"variable": [
 												{
@@ -1778,6 +1814,62 @@
 						}
 					],
 					"description": "Manage Data Product permissions",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "My Data Products",
+					"item": [
+						{
+							"name": "List all My Data Products in use or created by me",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "b8f36b96-b174-434e-ad5a-515d7d50191f",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/my-data-products?list=as-consumer",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"my-data-products"
+									],
+									"query": [
+										{
+											"key": "list",
+											"value": "as-consumer",
+											"description": "(Required) Role of user to determine which type of my data products list is returned (as-consumer, as-creator))"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
