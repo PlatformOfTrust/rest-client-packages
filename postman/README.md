@@ -10,7 +10,7 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 2. [Download](https://www.postman.com/downloads/) and install Postman API Client
 3. Clone [repository](https://github.com/PlatformOfTrust/rest-client-packages) or just download it as zip, then unzip it
 4. After launching Postman API Client: click **Import**, Select **Folder** and browse to the above unzipped directory, the postman sub-directory to import the workspace
-5. Go to Manage Environment, select desired version of API and paste the copied Bearer Token value under bearer_token attribute. **IMPORTANT: For v1 make sure to include the "Bearer " part from the token, for v2 include only token without "Bearer " part**. Click "Update"
+5. Go to Manage Environment, select desired environment of API and paste the copied Bearer Token value under bearer_token attribute. **IMPORTANT: For v1 make sure to include the "Bearer " part from the token, for v2 include only token without "Bearer " part**. Click "Update"
 
 ![Select "manage environment](./images/manage_env.png)
 
