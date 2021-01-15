@@ -26,7 +26,7 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 - Update a `Product` by its `ID`
 - Delete a `Product` by its `ID`
 
-# Get Started
+<!-- # Get Started
 
 1. [Register](https://login-sandbox.oftrust.net/) to Platform of Trust Sandbox and get [Bearer token](https://developer.oftrust.net/guides/get-bearer-token/#how-to-get-bearer-token). <br/>
 ![retrieving bearer token using chrome developer tool](https://developer.oftrust.net/media/images/Screen_Shot_2020-04-15_at_11.48.52.width-800.png)
@@ -48,4 +48,4 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 
 # Additional Resources
 
-1. Start using Platform of Trust [Sandbox](https://world-sandbox.oftrust.net/api/login)
+1. Start using Platform of Trust [Sandbox](https://world-sandbox.oftrust.net/api/login) -->

@@ -21,7 +21,7 @@ Supported `types`:
 - `connector` 
 - `transformer`
 
-# Get Started
+<!-- # Get Started -->
 
 <!-- 1. [Register](https://login-sandbox.oftrust.net/) to Platform of Trust Sandbox and get [Bearer token](https://developer.oftrust.net/guides/get-bearer-token/#how-to-get-bearer-token). <br/>
 ![retrieving bearer token using chrome developer tool](https://developer.oftrust.net/media/images/Screen_Shot_2020-04-15_at_11.48.52.width-800.png)
