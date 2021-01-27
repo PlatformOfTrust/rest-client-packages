@@ -5,7 +5,7 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 - [v1](https://github.com/PlatformOfTrust/rest-client-packages/tree/master/postman/v1) for Collections and Environments related to Platform of Trust APIs version 1
 - [v2](https://github.com/PlatformOfTrust/rest-client-packages/tree/master/postman/v2) for Collections and Environments related to Platform Of Trust APIs version 2
 
-# Get started
+<!-- # Get started
 1. [Register](https://world-sandbox.oftrust.net/) to Platform of Trust Sandbox and get [Bearer token](https://developer.oftrust.net/guides/get-bearer-token/#how-to-get-bearer-token)
 2. [Download](https://www.postman.com/downloads/) and install Postman API Client
 3. Clone [repository](https://github.com/PlatformOfTrust/rest-client-packages) or just download it as zip, then unzip it
@@ -20,5 +20,5 @@ Aim is to aid developers willing to onboard Platform of Trust by familiarizing t
 
 6. From Postman API Client environments, select desired environment.
 
-![Paste token](./images/environment.png)
+![Paste token](./images/environment.png) -->
 
