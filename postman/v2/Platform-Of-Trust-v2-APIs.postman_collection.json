@@ -16,6 +16,200 @@
 							"name": "DataProduct",
 							"item": [
 								{
+									"name": "Credentials",
+									"item": [
+										{
+											"name": "Create custom credentials for data product",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Create data product returns 201\", function () {\r",
+															"  pm.response.to.have.status(201);\r",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"description": "Indicate the media type of the resource.",
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"type\": \"api-key\",\n  \"key\": \"x-api-key\",\n  \"value\": \"abcdef12345\",\n  \"position\": \"header\"\n}"
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode"
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "<string>",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update Credentials",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Create data product returns 201\", function () {\r",
+															"  pm.response.to.have.status(201);\r",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"description": "Indicate the media type of the resource.",
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"key\": \"x-api-key\",\n  \"value\": \"abcdef12345\",\n  \"position\": \"header\"\n}"
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/:credentialType",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														":credentialType"
+													],
+													"variable": [
+														{
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+															"key": "productCode",
+															"value": "<string>"
+														},
+														{
+															"key": "credentialType",
+															"value": "<stging>",
+															"description": "Types of the credentials. Used to identify credential"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Update Credentials Copy",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.test(\"Create data product returns 201\", function () {\r",
+															"  pm.response.to.have.status(201);\r",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Indicate the media type of the resource.",
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/:credentialType",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														":credentialType"
+													],
+													"variable": [
+														{
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces.",
+															"key": "productCode",
+															"value": "<string>"
+														},
+														{
+															"key": "credentialType",
+															"value": "<stging>",
+															"description": "Types of the credentials. Used to identify credential"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
 									"name": "List all data products",
 									"event": [
 										{
