@@ -1615,7 +1615,7 @@
 					]
 				},
 				{
-					"name": "Permissions and user terms",
+					"name": "Permission stack and user terms",
 					"item": [
 						{
 							"name": "Permission Stack",
@@ -2160,13 +2160,13 @@
 									"query": [
 										{
 											"key": "requestStatus",
-											"value": null,
+											"value": "",
 											"description": "Used to filter permission requests by request status (pending, responded)",
 											"disabled": true
 										},
 										{
 											"key": "decisionStatus",
-											"value": null,
+											"value": "",
 											"description": "Used to filter permission requests by decision status (accepted, declined, revoked)",
 											"disabled": true
 										}
@@ -2685,10 +2685,10 @@
 					"name": "Data Sheet",
 					"item": [
 						{
-							"name": "Product Quality Attributes",
+							"name": "Quality Attributes Templates",
 							"item": [
 								{
-									"name": "List all product quality attributes",
+									"name": "List all quality attribute templates",
 									"request": {
 										"method": "GET",
 										"header": [
@@ -2701,21 +2701,29 @@
 											}
 										],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/product-quality-attributes",
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												"product-quality-attributes"
+												"quality-attribute-templates"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "standard",
+													"description": "(Optional) Filter response by category",
+													"disabled": true
+												}
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "Create product quality attribute",
+									"name": "Create quality attribute template",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -2728,18 +2736,10 @@
 											]
 										},
 										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "{{bearer_token}}",
-												"description": "(Optional) Log in to see produst quality attributes created by you or your organization",
-												"type": "text",
-												"disabled": true
-											}
-										],
+										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Uptime\",\n    \"description\": \"Information is updated once per day\",\n    \"qualityLevel\": \"informative\",\n    \"categorizationLocal\": \"Update frequancy\",\n    \"publisherOrganizationId\": \"01b8ebdc-778c-11eb-9439-0242ac130002\"\n}",
+											"raw": "{\n    \"name\": \"Uptime\",\n    \"description\": \"Information is updated once per day\",\n    \"qualityLevel\": \"informative\",\n    \"category\": \"extension\",\n    \"categorizationByUser\": \"Update frequancy\",\n    \"publisherOrganizationId\": \"01b8ebdc-778c-11eb-9439-0242ac130002\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2747,21 +2747,21 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/product-quality-attributes",
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												"product-quality-attributes"
+												"quality-attribute-templates"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "Get one product quality attribute by id",
+									"name": "Get one quality attribute template by id",
 									"request": {
 										"method": "GET",
 										"header": [
@@ -2774,14 +2774,14 @@
 											}
 										],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/product-quality-attributes/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												"product-quality-attributes",
+												"quality-attribute-templates",
 												":id"
 											],
 											"variable": [
@@ -2796,7 +2796,7 @@
 									"response": []
 								},
 								{
-									"name": "Update product quaoity attribute",
+									"name": "Update quality attribute template",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -2812,7 +2812,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Uptime\",\n    \"description\": \"Information is updated once per day\",\n    \"qualityLevel\": \"informative\",\n    \"categorizationLocal\": \"Update frequancy\",\n    \"publisherOrganizationId\": \"01b8ebdc-778c-11eb-9439-0242ac130002\"\n}",
+											"raw": "{\n    \"name\": \"Uptime\",\n    \"description\": \"Defines uptime of this product\",\n    \"qualityMetric\": {\n        \"type\": \"percentage\",\n        \"value\": \"99\"\n    },\n    \"categorizationStandard\": \"Uptime\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2820,14 +2820,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/product-quality-attributes/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												"product-quality-attributes",
+												"quality-attribute-templates",
 												":id"
 											],
 											"variable": [
@@ -2842,7 +2842,7 @@
 									"response": []
 								},
 								{
-									"name": "Delete product quaoity attribute",
+									"name": "Delete quality attribute template",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -2857,14 +2857,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/product-quality-attributes/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												"product-quality-attributes",
+												"quality-attribute-templates",
 												":id"
 											],
 											"variable": [
@@ -2935,7 +2935,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Uptime\",\n  \"description\": \"Defines uptime of this product\",\n  \"qualityLevel\": \"informative\",\n  \"measurement\": {\n    \"type\": \"percentage\",\n    \"value\": \"99\"\n  },\n  \"productQualityAttributeId\": \"d53bdc00-778a-11eb-9439-0242ac130002\",\n  \"publisherOrganizationId\": \"414272f8-778e-11eb-9439-0242ac130002\"\n}",
+											"raw": "{\n\t\"templateData\": {\n\t\t\"name\": \"Uptime\",\n\t\t\"description\": \"Defines uptime of this product\",\n\t\t\"qualityLevel\": \"informative\",\n\t\t\"qualityMetric\": {\n\t\t\t\t\"type\": \"percentage\",\n\t\t\t\t\"value\": \"99\"\n\t\t}\n\t},\n    \"qualityAttributeTemplateId\": \"d53bdc00-778a-11eb-9439-0242ac130002\",\n    \"publisherOrganizationId\": \"414272f8-778e-11eb-9439-0242ac130002\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3022,7 +3022,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"Uptime\",\n  \"description\": \"Defines uptime of this product\",\n  \"qualityLevel\": \"informative\",\n  \"measurement\": {\n    \"type\": \"percentage\",\n    \"value\": \"99\"\n  },\n  \"productQualityAttributeId\": \"d53bdc00-778a-11eb-9439-0242ac130002\",\n  \"publisherOrganizationId\": \"414272f8-778e-11eb-9439-0242ac130002\"\n}",
+											"raw": "{\n  \"name\": \"Uptime\",\n  \"description\": \"Defines uptime of this product\",\n  \"qualityLevel\": \"informative\",\n  \"qualityMetric\": {\n    \"type\": \"percentage\",\n    \"value\": \"99\"\n  },\n  \"publisherOrganizationId\": \"414272f8-778e-11eb-9439-0242ac130002\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
