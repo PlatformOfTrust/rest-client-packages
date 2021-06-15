@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "967e7a1d-c022-47d5-8535-85d4b0a3da1e",
-		"name": "Platform Of Trust v2 APIs Design",
+		"_postman_id": "4fcc31f6-931b-419d-8e5a-4849952f6da9",
+		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1109,7 +1109,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contract",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1117,7 +1117,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"contract"
+												"contracts"
 											],
 											"query": [
 												{
@@ -1437,7 +1437,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"contractId\": \"dbf32426-cf38-4818-9c6e-3230d889fa51\",\n  \"productConditionTypeId\": \"b4c99f01-5cde-4169-9ab7-04470b97bbec\",\n  \"name\": \"Consent from Data Publisher\",\n  \"description\": {\n    \"formatType\": \"plaintext\",\n    \"content\": \"Consent from Data Publiser is required\"\n  },\n  \"valueSet\": {\n    \"supported\": false\n  },\n  \"geographicalLimitation\": {\n    \"supported\": false\n  },\n  \"consent\": {\n    \"required\": true,\n    \"selectedChannel\": \"platformOfTrust\",\n    \"selectedPartyRole\": \"datapublisher\",\n    \"party\": {\n\t\t\t\"id\": \"3fdb678a-84fd-42c5-be5c-6c9ee6c313be\"\n\t\t}\n  }\n}",
+											"raw": "{\n  \"contractId\": \"0bfac868-436b-11eb-b378-0242ac130002\",\n  \"productConditionTypeId\": \"b4c99f01-5cde-4169-9ab7-04470b97bbec\",\n  \"name\": \"Consent from Data Publisher\",\n  \"description\": {\n    \"formatType\": \"plaintext\",\n    \"content\": \"Consent from Data Publiser is required\"\n  },\n  \"valueSet\": {\n    \"supported\": false\n  },\n  \"geographicalLimitation\": {\n    \"supported\": false\n  },\n  \"consent\": {\n    \"required\": true,\n    \"selectedChannel\": \"platformoftrust\",\n    \"selectedPartyRole\": \"datapublisher\",\n    \"party\": {\n\t\t\t\"id\": \"3fdb678a-84fd-42c5-be5c-6c9ee6c313be\"\n\t\t}\n  }\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1458,7 +1458,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "<string>",
+													"value": "example-product-code",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 												}
 											]
@@ -1637,7 +1637,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions?consumerUserId=uuid",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1649,10 +1649,9 @@
 											],
 											"query": [
 												{
-													"key": "user_id",
-													"value": "<uuid>",
-													"description": "Unique identifier of internal user (consumer)",
-													"disabled": true
+													"key": "consumerUserId",
+													"value": "uuid",
+													"description": "Unique identifier of internal user (consumer)"
 												}
 											],
 											"variable": [
