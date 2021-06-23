@@ -77,6 +77,12 @@
 													"value": "<string>",
 													"description": "Visibility of the products to be listed (public, private, organization)",
 													"disabled": true
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
 												}
 											]
 										},
@@ -222,6 +228,12 @@
 													"key": "type",
 													"value": "connector",
 													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
 												}
 											]
 										},
@@ -367,6 +379,12 @@
 													"key": "type",
 													"value": "transformer",
 													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
 												}
 											]
 										},
@@ -512,6 +530,12 @@
 													"key": "type",
 													"value": "datasource",
 													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<stging>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
 												}
 											]
 										},
@@ -545,13 +569,19 @@
 											"raw": "{\n    \"productCode\": \"example-data-source-product-code\",\n    \"type\": \"datasource\",\n    \"name\": \"Example data source\",\n\t\t\"description\": \"Example description of the data source\",\n\t\t\"imageUrl\": null, \n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"connectorProductCode\": \"example-connector-product-code\", \n    \"transformerProductCodes\": [\n        \"example-transformer-product-code\"\n    ],\n    \"protocol\": \"https\",\n    \"authType\": \"basic\",\n    \"accessPoint\": \"https://example-data-source.com/api\",\n    \"behindVpn\": false\n}"
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}",
+											"raw": "{{pot_base_url}}/products/{{version}}?extendModels=connector",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "connector"
+												}
 											]
 										}
 									},
@@ -669,6 +699,12 @@
 											"value": "<string>",
 											"description": "Visibility of the products to be listed (public, private, organization)",
 											"disabled": true
+										},
+										{
+											"key": "extendModels",
+											"value": "<string>",
+											"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+											"disabled": true
 										}
 									]
 								},
@@ -690,6 +726,16 @@
 								}
 							],
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -731,7 +777,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "<string>",
+											"value": "example-product-code",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
@@ -1106,6 +1152,16 @@
 								{
 									"name": "List all contracts for the current data product",
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -1130,7 +1186,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "<string>",
+													"value": "example-product-code",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 												}
 											]
