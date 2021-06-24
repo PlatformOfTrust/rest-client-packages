@@ -1243,10 +1243,20 @@
 								{
 									"name": "Get single contract for the current data product by id",
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contract/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1254,7 +1264,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"contract",
+												"contracts",
 												":id"
 											],
 											"query": [
