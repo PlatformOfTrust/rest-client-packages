@@ -569,19 +569,13 @@
 											"raw": "{\n    \"productCode\": \"example-data-source-product-code\",\n    \"type\": \"datasource\",\n    \"name\": \"Example data source\",\n\t\t\"description\": \"Example description of the data source\",\n\t\t\"imageUrl\": null, \n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"connectorProductCode\": \"example-connector-product-code\", \n    \"transformerProductCodes\": [\n        \"example-transformer-product-code\"\n    ],\n    \"protocol\": \"https\",\n    \"authType\": \"basic\",\n    \"accessPoint\": \"https://example-data-source.com/api\",\n    \"behindVpn\": false\n}"
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}?extendModels=connector",
+											"raw": "{{pot_base_url}}/products/{{version}}",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}"
-											],
-											"query": [
-												{
-													"key": "extendModels",
-													"value": "connector"
-												}
 											]
 										}
 									},
@@ -777,7 +771,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 										}
 									]
@@ -958,9 +952,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Create data product returns 201\", function () {\r",
-											"  pm.response.to.have.status(201);\r",
-											"});"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1018,9 +1010,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Create data product returns 201\", function () {\r",
-											"  pm.response.to.have.status(201);\r",
-											"});"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1083,9 +1073,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Create data product returns 201\", function () {\r",
-											"  pm.response.to.have.status(201);\r",
-											"});"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1186,7 +1174,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 												}
 											]
@@ -1316,7 +1304,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contract/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1324,7 +1312,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"contract",
+												"contracts",
 												":id"
 											],
 											"variable": [
@@ -1368,7 +1356,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contract/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
@@ -1376,7 +1364,7 @@
 												"products",
 												"{{version}}",
 												":productCode",
-												"contract",
+												"contracts",
 												":id"
 											],
 											"variable": [
@@ -1524,7 +1512,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
 												}
 											]
@@ -2080,7 +2068,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 										}
 									]
@@ -2126,7 +2114,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 										}
 									]
@@ -2164,7 +2152,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 										},
 										{
@@ -2216,7 +2204,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 										},
 										{
@@ -2268,7 +2256,7 @@
 									"variable": [
 										{
 											"key": "productCode",
-											"value": "example-product-code",
+											"value": "<string>",
 											"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 										},
 										{
@@ -2313,7 +2301,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{pot_base_url}}/products/{{version}}/my-data-products?list=as-consumer",
+									"raw": "{{pot_base_url}}/products/{{version}}/my-data-products?list=as-consumer, as-creator",
 									"host": [
 										"{{pot_base_url}}"
 									],
@@ -2325,7 +2313,7 @@
 									"query": [
 										{
 											"key": "list",
-											"value": "as-consumer",
+											"value": "as-consumer, as-creator",
 											"description": "(Required) Role of user to determine which type of my data products list is returned (as-consumer, as-creator))"
 										}
 									]
@@ -2565,7 +2553,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 												}
 											]
@@ -2611,7 +2599,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 												}
 											]
@@ -2647,7 +2635,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 												},
 												{
@@ -2707,7 +2695,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 												},
 												{
@@ -2758,7 +2746,7 @@
 											"variable": [
 												{
 													"key": "productCode",
-													"value": "example-product-code",
+													"value": "<string>",
 													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
 												},
 												{
