@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4fcc31f6-931b-419d-8e5a-4849952f6da9",
+		"_postman_id": "51cd56b3-d659-4544-a674-1d018c1b4835",
 		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -691,7 +691,19 @@
 										{
 											"key": "visibility",
 											"value": "<string>",
-											"description": "Visibility of the products to be listed (public, private, organization)",
+											"description": "Visibility of the products to be listed (public, private, organization, partner)",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "<string>",
+											"description": "Array of fields to sort the list of products by, in the order provided (supported fields: productCode,type,name,createdAt,updatedAt)",
+											"disabled": true
+										},
+										{
+											"key": "sortOrder",
+											"value": "<string>",
+											"description": "Sort order for the fields defined by the sortBy parameter (asc, desc)",
 											"disabled": true
 										},
 										{
@@ -2760,6 +2772,51 @@
 									"response": []
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "ProductTypes",
+					"item": [
+						{
+							"name": "List all product types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/product-types",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"product-types"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Retrieve the list of supported product types in Platform of Trust",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					]
 				}
