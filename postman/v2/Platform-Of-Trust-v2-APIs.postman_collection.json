@@ -1305,6 +1305,58 @@
 											"response": []
 										},
 										{
+											"name": "Get the generated binary file for the contract document",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "{{bearer_token}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id/document",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														":productCode",
+														"contracts",
+														":id",
+														"document"
+													],
+													"query": [
+														{
+															"key": "documentType",
+															"value": null,
+															"description": "Type of contract document to generate and download. Available values : pdf, docx",
+															"disabled": true
+														}
+													],
+													"variable": [
+														{
+															"key": "productCode",
+															"value": "{{product_code}}",
+															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+														},
+														{
+															"key": "id",
+															"value": "<uuid>",
+															"description": "(Required) Internal identifier of the contract"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
 											"name": "Update contract for the current data product",
 											"request": {
 												"auth": {
@@ -1440,6 +1492,14 @@
 																"products",
 																"{{version}}",
 																"product-condition-types"
+															],
+															"query": [
+																{
+																	"key": "type",
+																	"value": "text, valueset, geographical, consent",
+																	"description": "The type of conditions to be returned: text, valueset, geographical, consent (can be used in any combination)- valueset: Returns the conditions that have the valueSet option set to 'true'- geographical: Returns the conditions that have the geographicalLimitation option set to 'true'- consent: Returns the conditions that have the consent option set to 'true'- text: Returns the conditions that have all of the other options set to 'false'     ",
+																	"disabled": true
+																}
 															]
 														}
 													},
@@ -3801,43 +3861,43 @@
 							"query": [
 								{
 									"key": "offset",
-									"value": null,
+									"value": "",
 									"description": "Offset of a query. Value must be 0 and greater.",
 									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": null,
+									"value": "",
 									"description": "Limit the result of a query. Value must be between 1 and 100.",
 									"disabled": true
 								},
 								{
 									"key": "extendOrganizations",
-									"value": null,
+									"value": "",
 									"description": "By default, some of the models are included as an id reference in the response. Use this query parameter to include the complete model in the response.",
 									"disabled": true
 								},
 								{
 									"key": "q",
-									"value": null,
+									"value": "",
 									"description": "The search query to find organization by the name.",
 									"disabled": true
 								},
 								{
 									"key": "sortBy",
-									"value": null,
+									"value": "",
 									"description": "Sort the list of products by one or more product properties,taking into account the order that these properties are provided. Allowed values - productCode, type, name, createdAt, updatedAt.",
 									"disabled": true
 								},
 								{
 									"key": "sortOrder",
-									"value": null,
+									"value": "",
 									"description": "Sort order:  * 'asc' - Ascending  * 'desc' - Descending",
 									"disabled": true
 								},
 								{
 									"key": "registrationCountry",
-									"value": null,
+									"value": "",
 									"description": "Filter by the registration country.",
 									"disabled": true
 								}
@@ -3875,7 +3935,7 @@
 							"query": [
 								{
 									"key": "extendOrganizations",
-									"value": null,
+									"value": "",
 									"description": "By default, some of the models are included as an id reference in the response. Use this query parameter to include the complete model in the response.",
 									"disabled": true
 								}
@@ -3914,37 +3974,37 @@
 							"query": [
 								{
 									"key": "offset",
-									"value": null,
+									"value": "",
 									"description": "Offset of a query. Value must be 0 and greater.",
 									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": null,
+									"value": "",
 									"description": "Limit the result of a query. Value must be between 1 and 100.",
 									"disabled": true
 								},
 								{
 									"key": "q",
-									"value": null,
+									"value": "",
 									"description": "The search query to find organization by the name.",
 									"disabled": true
 								},
 								{
 									"key": "sortBy",
-									"value": null,
+									"value": "",
 									"description": "Sort the list of products by one or more product properties,taking into account the order that these properties are provided. Allowed values - productCode, type, name, createdAt, updatedAt.",
 									"disabled": true
 								},
 								{
 									"key": "sortOrder",
-									"value": null,
+									"value": "",
 									"description": "Sort order:  * 'asc' - Ascending  * 'desc' - Descending",
 									"disabled": true
 								},
 								{
 									"key": "registrationCountry",
-									"value": null,
+									"value": "",
 									"description": "Filter by the registration country.",
 									"disabled": true
 								}
@@ -4147,37 +4207,37 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": null,
+									"value": "",
 									"description": "Limit the result of a query. Value must be between 1 and 100.",
 									"disabled": true
 								},
 								{
 									"key": "offset",
-									"value": null,
+									"value": "",
 									"description": "Offset of a query. Value must be 0 and greater.",
 									"disabled": true
 								},
 								{
 									"key": "sortBy",
-									"value": null,
+									"value": "",
 									"description": "Sort users by one or more user properties,taking into account the order that these properties are provided. Allowed values - displayName, createdAt",
 									"disabled": true
 								},
 								{
 									"key": "sortOrder",
-									"value": null,
+									"value": "",
 									"description": "Sort order:  * 'asc' - Ascending  * 'desc' - Descending",
 									"disabled": true
 								},
 								{
 									"key": "searchBy",
-									"value": null,
+									"value": "",
 									"description": "Search users by allowed attributes. Must be used in pair with searchValue query.",
 									"disabled": true
 								},
 								{
 									"key": "searchValue",
-									"value": null,
+									"value": "",
 									"description": "Search value for the wanted attribute. Must be used in pair with searchBy query.",
 									"disabled": true
 								}
@@ -4385,6 +4445,188 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Develop",
+			"item": [
+				{
+					"name": "pi8-s1",
+					"item": [
+						{
+							"name": "List all condition types supported by the system",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"product-condition-types"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "text, valueset, geographical, consent",
+											"description": "(Optional) The type of conditions to be returned: text, valueset, geographical, consent (can be used in any combination)- valueset: Returns the conditions that have the valueSet option set to 'true'- geographical: Returns the conditions that have the geographicalLimitation option set to 'true'- consent: Returns the conditions that have the consent option set to 'true'- text: Returns the conditions that have all of the other options set to 'false'     ",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create condition type",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Consent\",\n\t\"conditionTypeDescription\": {\n\t\t\"formatType\": \"plaintext\",\n\t\t\"content\": \"Condition type used create permission request flow\"\n\t},\n\t\"valueSet\": {\n\t\t\"supported\": false\n\t},\n\t\"geographicalLimitation\": {\n\t\t\"supported\": false\n\t},\n\t\"consent\": {\n\t\t\"required\": true,\n\t\t\"channels\": [\n\t\t\t\"platformoftrust\",\n\t\t\t\"mydatashare\",\n\t\t\t\"signspace\"\n\t\t],\n\t\t\"partyRoles\": [\n\t\t\t\"datapublisher\",\n\t\t\t\"datasubject\"\n\t\t],\n\t\t\"exceptionTypes\": [\n\t\t\t\"partners-all\",\n\t\t\t\"organizations-selected\"\n\t\t]\n\t}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"product-condition-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all conditions for the current data product Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productCode",
+										"conditions"
+									],
+									"query": [
+										{
+											"key": "extendModels",
+											"value": "<string>",
+											"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "text, valueset, geographical, consent",
+											"description": "(Optional) The type of conditions to be returned: text, valueset, geographical, consent (can be used in any combination)- valueset: Returns the conditions that have the valueSet option set to 'true'- geographical: Returns the conditions that have the geographicalLimitation option set to 'true'- consent: Returns the conditions that have the consent option set to 'true'- text: Returns the conditions that have all of the other options set to 'false'     ",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "{{product_code}}",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create condition for the current data product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"contractId\": \"dbf32426-cf38-4818-9c6e-3230d889fa51\",\n\t\"productConditionTypeId\": \"6d3ee8a0-3a3f-4017-a0f5-868ab07e278b\",\n\t\"valueSet\": {\n\t\t\"supported\": true,\n\t\t\"selectedValuePath\": \"2.4.1.2.2\",\n\t\t\"customValue\": \"test string\"\n\t},\n\t\"geographicalLimitation\": {\n\t\t\"supported\": false\n\t},\n\t\"consent\": {\n\t\t\"required\": false\n\t}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productCode",
+										"conditions"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "{{product_code}}",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
