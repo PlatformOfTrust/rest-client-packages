@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5c261c06-2a39-4909-b3ff-597de673709e",
+		"_postman_id": "1ef3103d-2974-40c5-9b6e-6e35cb29b355",
 		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -116,7 +116,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"dataproduct\",\n    \"name\": \"Example data product\",\n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"dataSources\": [\n        {\n            \"productCode\": \"example-data-source-product-code\",\n            \"transformersForDataProduct\": [\n                \"example-transformer-product-code\"\n            ]\n        }\n    ],\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    }\n}"
+													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"dataproduct\",\n    \"name\": \"AccuWeather Daily Forecast\",\n    \"description\": \"Data product to retrieve harmonized daily forecast data from the AccuWeather API\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    },\n    \"dataSourceId\": \"1f608758-2c80-4b99-a618-73a7b5bb7922\",\n    \"selectedDataSourceTransformerId\": \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\",\n    \"harmonizedData\": true\n}\n"
 												},
 												"url": {
 													"raw": "{{pot_base_url}}/products/{{version}}",
@@ -144,7 +144,7 @@
 														}
 													]
 												},
-												"method": "PUT",
+												"method": "PATCH",
 												"header": [
 													{
 														"description": "Indicate the media type of the resource.",
@@ -154,23 +154,22 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Example data product\",\n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"description\": \"Data product to retrieve CO2 data\",\n    \"imageUrl\": null,\n    \"dataSources\": [\n        {\n            \"productCode\": \"example-data-source-product-code\",\n            \"transformersForDataProduct\": [\n                \"example-transformer-product-code\"\n            ]\n        }\n    ],\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    }\n}"
+													"raw": "{\n    \"name\": \"AccuWeather Daily Forecast\",\n    \"description\": \"Data product to retrieve harmonized daily forecast data from the AccuWeather API\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    },\n    \"dataSourceId\": \"1f608758-2c80-4b99-a618-73a7b5bb7922\",\n    \"selectedDataSourceTransformerId\": \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\",\n    \"harmonizedData\": true\n}\n"
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode"
+														":productId"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -243,90 +242,6 @@
 												"description": "\n"
 											},
 											"response": []
-										},
-										{
-											"name": "Create connector",
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{bearer_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "POST",
-												"header": [
-													{
-														"description": "Indicate the media type of the resource.",
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"connector\",\n    \"name\": \"Example connector\",\n\t\t\"description\": \"This is example connector\",\n\t\t\"imageUrl\": null,\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"contactPersonName\": \"Example Name\",\n    \"contactPersonEmail\": \"example@mail.com\",\n    \"connectorInfo\": \"v2\"\n}"
-												},
-												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}",
-													"host": [
-														"{{pot_base_url}}"
-													],
-													"path": [
-														"products",
-														"{{version}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Update connector",
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{bearer_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "PUT",
-												"header": [
-													{
-														"description": "Indicate the media type of the resource.",
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"name\": \"Example connector\",\n\t\t\"description\": \"This is example connector\",\n\t\t\"imageUrl\": null,\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"contactPersonName\": \"Example Name\",\n    \"contactPersonEmail\": \"example@mail.com\",\n    \"connectorInfo\": \"v3\"\n}"
-												},
-												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
-													"host": [
-														"{{pot_base_url}}"
-													],
-													"path": [
-														"products",
-														"{{version}}",
-														":productCode"
-													],
-													"variable": [
-														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
-														}
-													]
-												}
-											},
-											"response": []
 										}
 									],
 									"description": "Manage product type of Connector"
@@ -392,90 +307,6 @@
 													]
 												},
 												"description": "\n"
-											},
-											"response": []
-										},
-										{
-											"name": "Create transformer",
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{bearer_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "POST",
-												"header": [
-													{
-														"description": "Indicate the media type of the resource.",
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"transformer\",\n    \"name\": \"Example transformer\",\n\t\t\"description\": \"Description of the transformer\",\n\t\t\"imageUrl\": null,\n    \"connectorProductCode\": \"example-connector-product-code\",\n    \"inputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductParameters/Sensor\",\n    \"outputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductOutput/Sensor\",\n    \"transformerInfo\": \"v2\"\n}"
-												},
-												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}",
-													"host": [
-														"{{pot_base_url}}"
-													],
-													"path": [
-														"products",
-														"{{version}}"
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Update transformer",
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": [
-														{
-															"key": "token",
-															"value": "{{bearer_token}}",
-															"type": "string"
-														}
-													]
-												},
-												"method": "PUT",
-												"header": [
-													{
-														"description": "Indicate the media type of the resource.",
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"name\": \"Example transformer\",\n\t\t\"description\": \"Description of the transformer\",\n\t\t\"imageUrl\": null,\n    \"connectorProductCode\": \"example-connector-product-code\",\n    \"inputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductParameters/Sensor\",\n    \"outputFormat\": \"https://standards.oftrust.net/v2/Schema/DataProductOutput/Sensor\",\n    \"transformerInfo\": \"v2\"\n}"
-												},
-												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
-													"host": [
-														"{{pot_base_url}}"
-													],
-													"path": [
-														"products",
-														"{{version}}",
-														":productCode"
-													],
-													"variable": [
-														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
-														}
-													]
-												}
 											},
 											"response": []
 										}
@@ -569,7 +400,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"datasource\",\n    \"name\": \"Example data source\",\n\t\t\"description\": \"Example description of the data source\",\n\t\t\"imageUrl\": null, \n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"connectorProductCode\": \"example-connector-product-code\", \n    \"transformerProductCodes\": [\n        \"example-transformer-product-code\"\n    ],\n    \"protocol\": \"https\",\n    \"authType\": \"basic\",\n    \"accessPoint\": \"https://example-data-source.com/api\",\n    \"behindVpn\": false\n}"
+													"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"datasource\",\n    \"name\": \"AccuWeather Daily Forecast Data Source\",\n    \"imageUrl\": null,\n    \"dataSourceTemplateId\": \"ec3086c0-2101-4c5e-98f1-00a2c8f49d11\",\n    \"accessPoint\": \"http://dataservice.accuweather.com/forecasts/v1/daily\",\n    \"selectedTransformerIds\": [\n        \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\"\n    ]\n}"
 												},
 												"url": {
 													"raw": "{{pot_base_url}}/products/{{version}}",
@@ -597,7 +428,7 @@
 														}
 													]
 												},
-												"method": "PUT",
+												"method": "PATCH",
 												"header": [
 													{
 														"description": "Indicate the media type of the resource.",
@@ -607,23 +438,22 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Example data source\",\n\t\t\"description\": \"Example description of the data source\",\n\t\t\"imageUrl\": null, \n    \"publisherOrganizationId\": \"32615d6b-c88e-4606-ae39-2131ed6d8912\",\n    \"connectorProductCode\": \"example-connector-product-code\", \n    \"transformerProductCodes\": [\n        \"example-transformer-product-code\"\n    ],\n    \"protocol\": \"https\",\n    \"authType\": \"basic\",\n    \"accessPoint\": \"https://example-data-source.com/api\",\n    \"behindVpn\": false\n}"
+													"raw": "{\n    \"name\": \"AccuWeather Daily Forecast Data Source\",\n    \"imageUrl\": null,\n    \"dataSourceTemplateId\": \"ec3086c0-2101-4c5e-98f1-00a2c8f49d11\",\n    \"accessPoint\": \"http://dataservice.accuweather.com/forecasts/v1/daily\",\n    \"selectedTransformerIds\": [\n        \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\"\n    ]\n}"
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode"
+														":productId"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product-id}}"
 														}
 													]
 												}
@@ -632,6 +462,72 @@
 										}
 									],
 									"description": "Manage product type of Data Source"
+								},
+								{
+									"name": "DataSourceTemplate",
+									"item": [
+										{
+											"name": "List all data source templates",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}?type=datasource-template",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}"
+													],
+													"query": [
+														{
+															"key": "offset",
+															"value": "<integer>",
+															"description": "Offset of a query. Must be at least 0",
+															"disabled": true
+														},
+														{
+															"key": "limit",
+															"value": "<integer>",
+															"description": "Limit the result of a query. Must be between 1 and 100",
+															"disabled": true
+														},
+														{
+															"key": "q",
+															"value": "<string>",
+															"description": "Query parameter to filter by name and description data",
+															"disabled": true
+														},
+														{
+															"key": "type",
+															"value": "datasource-template",
+															"description": "The type of products to be returned"
+														},
+														{
+															"key": "extendModels",
+															"value": "<stging>",
+															"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+															"disabled": true
+														}
+													]
+												},
+												"description": "\n"
+											},
+											"response": []
+										}
+									]
 								},
 								{
 									"name": "List all products",
@@ -722,7 +618,7 @@
 									"response": []
 								},
 								{
-									"name": "Get one product by product code",
+									"name": "Get one product by id",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -748,14 +644,14 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode"
+												":productId"
 											],
 											"query": [
 												{
@@ -785,9 +681,8 @@
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												}
 											]
 										},
@@ -822,20 +717,19 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode"
+												":productId"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												}
 											]
 										},
@@ -942,7 +836,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"timestamp\": \"{{date}}\",\n    \"parameters\": {\n       \"ids\": [{\n                \"id\": \"1\"\n            }],\n        \"startTime\": \"2020-04-20T13:06:40+00:00\",\n        \"endTime\": \"2020-05-20T14:53:54+00:00\",\n        \"dataTypes\": [\"MeasureAirHumidity\"]\n    },\n    \"authCredentials\": {\n\t\t\"type\": \"api-key\",\n    \"encrypted\": true,\n    \"key\": \"x-api-key\",\n    \"value\": \"abcdef12345\",\n    \"position\": \"header\"\n\t\t}\n}"
+											"raw": "{\n    \"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"timestamp\": \"{{date}}\",\n    \"parameters\": {\n       \"ids\": [{\n            \"id\": \"1\"\n        }],\n        \"startTime\": \"2020-04-20T13:06:40+00:00\",\n        \"endTime\": \"2020-05-20T14:53:54+00:00\",\n        \"dataTypes\": [\"MeasureAirHumidity\"]\n    },\n    \"authCredentials\": {\n        \"type\": \"api-key\",\n        \"encrypted\": true,\n        \"key\": \"x-api-key\",\n        \"value\": \"abcdef12345\",\n        \"position\": \"header\"\n    }\n}"
 										},
 										"url": {
 											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/data",
@@ -1004,24 +898,23 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"dataSourceProductCode\": \"example-data-source-product-code\",\n  \"name\": \"API Key credentials\",\n  \"description\": \"Credentials for example-data-source\",\n  \"type\": \"api-key\",\n  \"encrypted\": true,\n  \"key\": \"x-api-key\",\n  \"value\": \"abcdef12345\",\n  \"position\": \"header\"\n}"
+											"raw": "{\n    \"dataSourceId\": \"1f608758-2c80-4b99-a618-73a7b5bb7922\",\n    \"name\": \"API Key credentials\",\n    \"description\": \"Credentials for example-data-source\",\n    \"type\": \"api-key\",\n    \"encrypted\": true,\n    \"key\": \"x-api-key\",\n    \"value\": \"abcdef12345\",\n    \"position\": \"header\"\n}"
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/auth-credentials",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"auth-credentials"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												}
 											]
 										}
@@ -1062,25 +955,24 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"dataSourceProductCode\": \"example-data-source-product-code\",\n  \"description\": \"API key for example-data-source\",\n  \"encrypted\": true,\n  \"key\": \"x-api-key\",\n  \"value\": \"abcdef12345\",\n  \"position\": \"header\"\n}"
+											"raw": "{\n    \"dataSourceId\": \"1f608758-2c80-4b99-a618-73a7b5bb7922\",\n    \"description\": \"API key for example-data-source\",\n    \"encrypted\": true,\n    \"key\": \"x-api-key\",\n    \"value\": \"abcdef12345\",\n    \"position\": \"header\"\n}"
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/auth-credentials/:credentialId",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials/:credentialId",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"auth-credentials",
 												":credentialId"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												},
 												{
 													"key": "credentialId",
@@ -1128,22 +1020,21 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/auth-credentials/:credentialId",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials/:credentialId",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"auth-credentials",
 												":credentialId"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												},
 												{
 													"key": "credentialId",
@@ -1178,14 +1069,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts"
 													],
 													"query": [
@@ -1198,9 +1089,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -1224,7 +1114,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"description\": {\n    \"formatType\": \"plaintext\",\n    \"content\": \"Please read this contract and conditions carefully before using the Data Product\"\n  },\n  \"definitions\": {\n    \"formatType\": \"html\",\n    \"content\": \"<p><strong>GDPR</strong> -&nbsp;The General Data Protection Regulation 2016/679 is a regulation in EU law on data protection and privacy in the European Union and the European Economic Area </p>  <p> <strong>Data Subject</strong> -&nbsp;A data subject is an end user whose personal data can be collected </p>\"\n  }\n}",
+													"raw": "{\n    \"description\": {\n        \"formatType\": \"plaintext\",\n        \"content\": \"Please read this contract and conditions carefully before using the Data Product\"\n    },\n    \"definitions\": {\n        \"formatType\": \"html\",\n        \"content\": \"<p><strong>GDPR</strong> -&nbsp;The General Data Protection Regulation 2016/679 is a regulation in EU law on data protection and privacy in the European Union and the European Economic Area </p>  <p> <strong>Data Subject</strong> -&nbsp;A data subject is an end user whose personal data can be collected </p>\"\n    },\n    \"publisherOrganizationId\": \"aea56b5b-28bb-40cc-b586-3d36d664149d\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1232,21 +1122,20 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -1269,14 +1158,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts",
 														":id"
 													],
@@ -1290,9 +1179,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1320,14 +1208,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id/document",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id/document",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts",
 														":id",
 														"document"
@@ -1335,16 +1223,15 @@
 													"query": [
 														{
 															"key": "documentType",
-															"value": null,
+															"value": "",
 															"description": "Type of contract document to generate and download. Available values : pdf, docx",
 															"disabled": true
 														}
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1373,7 +1260,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"description\": {\n    \"formatType\": \"plaintext\",\n    \"content\": \"Please read this contract and conditions carefully before using the Data Product\"\n  },\n  \"definitions\": {\n    \"formatType\": \"html\",\n    \"content\": \"<p><strong>GDPR</strong> -&nbsp;The General Data Protection Regulation 2016/679 is a regulation in EU law on data protection and privacy in the European Union and the European Economic Area </p>  <p> <strong>Data Subject</strong> -&nbsp;A data subject is an end user whose personal data can be collected </p>\"\n  }\n}",
+													"raw": "{\n    \"description\": {\n        \"formatType\": \"plaintext\",\n        \"content\": \"Please read this contract and conditions carefully before using the Data Product\"\n    },\n    \"definitions\": {\n        \"formatType\": \"html\",\n        \"content\": \"<p><strong>GDPR</strong> -&nbsp;The General Data Protection Regulation 2016/679 is a regulation in EU law on data protection and privacy in the European Union and the European Economic Area </p>  <p> <strong>Data Subject</strong> -&nbsp;A data subject is an end user whose personal data can be collected </p>\"\n    }\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -1381,22 +1268,21 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts",
 														":id"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1433,22 +1319,21 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/contracts/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"contracts",
 														":id"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1472,17 +1357,16 @@
 													"name": "List all condition types supported by the system",
 													"request": {
 														"auth": {
-															"type": "bearer",
-															"bearer": [
-																{
-																	"key": "token",
-																	"value": "{{bearer_token}}",
-																	"type": "string"
-																}
-															]
+															"type": "noauth"
 														},
 														"method": "GET",
-														"header": [],
+														"header": [
+															{
+																"key": "Authorization",
+																"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE2NTI5NjM0NzAsIm5iZiI6MTY1Mjg3NzA3MCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9wbGF0Zm9ybW9mdHJ1c3RhcHBzZGV2LmIyY2xvZ2luLmNvbS80ZWRkNTU5Ny1hZTJhLTQxYWEtYThmOS1iYjY1ZWVmYzg3MWMvdjIuMC8iLCJzdWIiOiIxMGM0NGY2NC01YWY5LTQyMGQtOWE0ZC0xNTJkNTc2NTIzYTQiLCJhdWQiOiI1Y2NkMGFkNS00MDBjLTRiZjYtYTQyZS1kZmYwNmJiZDcwZGMiLCJub25jZSI6ImRlZmF1bHROb25jZSIsImlhdCI6MTY1Mjg3NzA3MCwiYXV0aF90aW1lIjoxNjUyODc3MDcwLCJvaWQiOiIxMGM0NGY2NC01YWY5LTQyMGQtOWE0ZC0xNTJkNTc2NTIzYTQiLCJnaXZlbl9uYW1lIjoiT25pIiwiZW1haWxzIjpbIm9uaUBzYnAtcm9tYW5pYS5jb20iXSwidGZwIjoiQjJDXzFfRGVmYXVsdCJ9.eAAGgs3qEx_IvGJk77z6BU4DY2WS_2HEV-e2vjbPNNxqnBx9DK65S8ZXUOxXz31pQiDM0eueJN4nJdFAzc7knjoDGRF7S5vSJ5WA-C0B_Gzx7NTmPGh_UzMV6HlGYY--jQ9Jn8x_-1IkbhL7lOUtgswNauj19wJ42xPg-RiGyJmKlE6lQ87ar4gPK2_tZEU4JFifxA0IVkFzI0HTLFZads3DU_EiIi8KimK4NnlDI63mfdy6WJDSmHW9nSYzjT1yV24qWa9C7Bx2AFVkPnLMKrxvggp-wfB_SWHg40BbLEN-yYIZYiDHltnI8lUfSzjXh3s_IFVSWcWZ4qLExWUEEw",
+																"type": "text"
+															}
+														],
 														"url": {
 															"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types",
 															"host": [
@@ -1536,17 +1420,21 @@
 													"name": "Create condition type",
 													"request": {
 														"auth": {
-															"type": "bearer",
-															"bearer": [
-																{
-																	"key": "token",
-																	"value": "{{bearer_token}}",
-																	"type": "string"
-																}
-															]
+															"type": "noauth"
 														},
 														"method": "POST",
-														"header": [],
+														"header": [
+															{
+																"key": "Ocp-Apim-Subscription-Key",
+																"value": "{{subscription_key}}",
+																"type": "text"
+															},
+															{
+																"key": "Authorization",
+																"value": "{{bearer_token}}",
+																"type": "text"
+															}
+														],
 														"body": {
 															"mode": "raw",
 															"raw": "{\n  \"name\": \"Consent\",\n  \"conditionTypeDescription\": {\n    \"formatType\": \"plaintext\",\n    \"content\": \"This condition type is used to set required consent\"\n  },\n  \"valueSet\": {\n    \"supported\": false\n  },\n  \"geographicalLimitation\": {\n    \"supported\": false\n  },\n  \"consent\": {\n    \"required\": true,\n    \"channels\": [\n      \"platformoftrust\",\n      \"mydatashare\",\n      \"signspace\"\n    ],\n    \"partyRoles\": [\n      \"datapublisher\",\n      \"datasubject\"\n    ]\n  }\n}",
@@ -1557,11 +1445,12 @@
 															}
 														},
 														"url": {
-															"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types",
+															"raw": "{{pot_base_url}}/internal/products/{{version}}/product-condition-types",
 															"host": [
 																"{{pot_base_url}}"
 															],
 															"path": [
+																"internal",
 																"products",
 																"{{version}}",
 																"product-condition-types"
@@ -1588,14 +1477,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"conditions"
 													],
 													"query": [
@@ -1608,9 +1497,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -1642,21 +1530,20 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"conditions"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -1679,14 +1566,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"conditions",
 														":id"
 													],
@@ -1700,9 +1587,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1739,22 +1625,21 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"conditions",
 														":id"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -1791,22 +1676,21 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"conditions",
 														":id"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "{{product_code}}",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -2208,21 +2092,20 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/purchase",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"purchase"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												}
 											]
 										}
@@ -2254,21 +2137,20 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/purchase",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"purchase"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												}
 											]
 										}
@@ -2291,22 +2173,21 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/purchase/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"purchase",
 												":id"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												},
 												{
 													"key": "id",
@@ -2335,7 +2216,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"selectedProductContract\": \"c3542bc8-734b-4fb5-b8d2-906ee168f928\",\r\n    \"selectedPricePlan\": \"2aecf329-d2eb-440a-ac06-ff8f0f262786\"\r\n}\t",
+											"raw": "{\r\n    \"selectedProductContract\": \"c3542bc8-734b-4fb5-b8d2-906ee168f928\",\r\n    \"selectedPricePlan\": \"2aecf329-d2eb-440a-ac06-ff8f0f262786\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2343,22 +2224,21 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/purchase/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"purchase",
 												":id"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{product_id}}"
 												},
 												{
 													"key": "id",
@@ -2395,22 +2275,21 @@
 											}
 										},
 										"url": {
-											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/purchase/:id",
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
 											"host": [
 												"{{pot_base_url}}"
 											],
 											"path": [
 												"products",
 												"{{version}}",
-												":productCode",
+												":productId",
 												"purchase",
 												":id"
 											],
 											"variable": [
 												{
-													"key": "productCode",
-													"value": "{{product_code}}",
-													"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+													"key": "productId",
+													"value": "{{productId}}"
 												},
 												{
 													"key": "id",
@@ -2691,18 +2570,25 @@
 									"item": [
 										{
 											"name": "List all quality attributes for current product",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
 											"request": {
 												"method": "GET",
 												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/quality-attributes",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"quality-attributes"
 													],
 													"query": [
@@ -2715,9 +2601,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -2749,21 +2634,20 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/quality-attributes",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"quality-attributes"
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														}
 													]
 												}
@@ -2776,14 +2660,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/quality-attributes/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"quality-attributes",
 														":id"
 													],
@@ -2797,9 +2681,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -2836,14 +2719,14 @@
 													}
 												},
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/quality-attributes/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"quality-attributes",
 														":id"
 													],
@@ -2857,9 +2740,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -2887,14 +2769,14 @@
 												"method": "DELETE",
 												"header": [],
 												"url": {
-													"raw": "{{pot_base_url}}/products/{{version}}/:productCode/quality-attributes/:id",
+													"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
 													"host": [
 														"{{pot_base_url}}"
 													],
 													"path": [
 														"products",
 														"{{version}}",
-														":productCode",
+														":productId",
 														"quality-attributes",
 														":id"
 													],
@@ -2908,9 +2790,8 @@
 													],
 													"variable": [
 														{
-															"key": "productCode",
-															"value": "<string>",
-															"description": "(Required) Product code is a unique identifier used to invoke a particular product. Must not contain spaces."
+															"key": "productId",
+															"value": "{{product_id}}"
 														},
 														{
 															"key": "id",
@@ -2968,6 +2849,130 @@
 											""
 										]
 									}
+								}
+							]
+						},
+						{
+							"name": "Protocol",
+							"item": [
+								{
+									"name": "Read One Protocol",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer-token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/protocols/:protocolId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"protocols",
+												":protocolId"
+											],
+											"variable": [
+												{
+													"key": "protocolId",
+													"value": "8af9a232-9043-431d-97e6-9e25e4c6f1e6"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Read Many Protocol",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer-token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/protocols",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"protocols"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Data Formats",
+							"item": [
+								{
+									"name": "Read Many Data Formats",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer-token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/data-formats",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"data-formats"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Read One Data Format",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer-token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/data-formats/:dataFormatId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"data-formats",
+												":dataFormatId"
+											],
+											"variable": [
+												{
+													"key": "dataFormatId",
+													"value": "ad36d852-2c62-4125-90ba-45f860d45417"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						}
@@ -3815,6 +3820,666 @@
 			]
 		},
 		{
+			"name": "Products v2 API - Internal",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Connector",
+							"item": [
+								{
+									"name": "Create connector",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"connector\",\n    \"name\": \"AccuWeather Connector\",\n    \"description\": \"Connection to AccuWeather API\",\n    \"imageUrl\": null,\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"contactPersonName\": \"Platform of Trust Oy\",\n    \"contactPersonEmail\": \"pot@mail.com\",\n    \"connectorInfo\": \"v2 connector\",\n    \"isExternal\": false,\n    \"connectorType\": \"generic\",\n    \"connectorParameterMap\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update connector",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"AccuWeather Connector\",\n    \"description\": \"Connection to AccuWeather API\",\n    \"imageUrl\": null,\n    \"parameterContext\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"contactPersonName\": \"Platform of Trust Oy\",\n    \"contactPersonEmail\": \"pot@mail.com\",\n    \"connectorInfo\": \"v2 connector\",\n    \"isExternal\": false,\n    \"connectorType\": \"generic\",\n    \"connectorParameterMap\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/:productId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Transformer",
+							"item": [
+								{
+									"name": "Create transformer",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"transformer\",\n    \"name\": \"AccuWeather Daily Forecast Transformer\",\n    \"description\": \"Harmonizes daily forecast data\",\n    \"imageUrl\": null,\n    \"outputFormatId\": \"329e02aa-50b0-4715-aa19-503a2edf8e94\",\n    \"inputFormatIds\": [\n        \"ddd71903-0a41-4c90-bfbe-5d07f235ebc8\"\n    ],\n    \"isExternal\": \"false\",\n    \"transformerType\": \"generic\",\n    \"transformationMap\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update transformer",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"AccuWeather Daily Forecast Transformer\",\n    \"description\": \"Harmonizes daily forecast data\",\n    \"imageUrl\": null,\n    \"outputFormatId\": \"329e02aa-50b0-4715-aa19-503a2edf8e94\",\n    \"inputFormatIds\": [\n        \"ddd71903-0a41-4c90-bfbe-5d07f235ebc8\"\n    ],\n    \"isExternal\": \"false\",\n    \"transformerType\": \"generic\",\n    \"transformationMap\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/:productId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Data Source Template",
+							"item": [
+								{
+									"name": "Create data source template",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											},
+											{
+												"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"datasource-template\",\n    \"name\": \"AccuWeather Daily Forecasts Template\",\n    \"description\": \"Data source template for AccuWeather daily forecasts\",\n    \"imageUrl\": null,\n    \"protocolId\": \"8af9a232-9043-431d-97e6-9e25e4c6f1e6\",\n    \"connectorId\": \"e1ae4609-9f4f-46d7-ad8d-1e3227a0c420\",\n    \"supportedTransformerIds\": [\n        \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\"\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update data source template",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Ocp-Apim-Subscription-Key",
+												"value": "{{subscription_key}}",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"AccuWeather Daily Forecasts Template\",\n    \"description\": \"Data source template for AccuWeather daily forecasts\",\n    \"imageUrl\": null,\n    \"protocolId\": \"8af9a232-9043-431d-97e6-9e25e4c6f1e6\",\n    \"connectorId\": \"e1ae4609-9f4f-46d7-ad8d-1e3227a0c420\",\n    \"supportedTransformerIds\": [\n        \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\"\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/:productId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"internal",
+												"{{api}}",
+												"{{version}}",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Protocol",
+					"item": [
+						{
+							"name": "Create Protocol",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE2NTMwNDE1OTgsIm5iZiI6MTY1Mjk1NTE5OCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9wbGF0Zm9ybW9mdHJ1c3RhcHBzZGV2LmIyY2xvZ2luLmNvbS80ZWRkNTU5Ny1hZTJhLTQxYWEtYThmOS1iYjY1ZWVmYzg3MWMvdjIuMC8iLCJzdWIiOiIxMGM0NGY2NC01YWY5LTQyMGQtOWE0ZC0xNTJkNTc2NTIzYTQiLCJhdWQiOiI1Y2NkMGFkNS00MDBjLTRiZjYtYTQyZS1kZmYwNmJiZDcwZGMiLCJub25jZSI6ImRlZmF1bHROb25jZSIsImlhdCI6MTY1Mjk1NTE5OCwiYXV0aF90aW1lIjoxNjUyOTU1MTk4LCJvaWQiOiIxMGM0NGY2NC01YWY5LTQyMGQtOWE0ZC0xNTJkNTc2NTIzYTQiLCJnaXZlbl9uYW1lIjoiT25pIiwiZW1haWxzIjpbIm9uaUBzYnAtcm9tYW5pYS5jb20iXSwidGZwIjoiQjJDXzFfRGVmYXVsdCJ9.iLpMfNlU7wRDVVTtOcH0cVgjyRBO8g-5Wl7BkD8nKPGnyNgs17-zHXf--i1S10cFzuEBXlznvweHPl_fB6o4Z0G_B7d3c0wrS4AuCUSauo0DiK-mSSQ7VLHvtczi9qayC04MidWduT0_QtzySDkUwSOKeUlMNcNyPzzmPDd9vPORN8GPCl8vsLAZPC5yGGwbVVIypOnUcIDtGdz5g1L2ddmZawPcEUAzFbmmZwaXw5f4bdRjvw5q8HBDKn2baIvY_guKIiokRkjvPOsk1oEBZDevcKLUY-t25VVyRlv4a6dAmVhCUCxDSYkx8IhdELdLgB6VlQBtuSgNmrfCIydleA",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"protocolCode\": \"protocol-code-2\",\r\n    \"name\": \"Protocol name\",\r\n    \"description\": \"Protocol description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://func-pot-core-protocol-dev-we.azurewebsites.net/api/protocols?code=4lsofGGc/UkArCddJf4aAnjdSoGFVam2hxMfcwY0ZfwRm3GPy3Gn5Q==",
+									"protocol": "https",
+									"host": [
+										"func-pot-core-protocol-dev-we",
+										"azurewebsites",
+										"net"
+									],
+									"path": [
+										"api",
+										"protocols"
+									],
+									"query": [
+										{
+											"key": "code",
+											"value": "4lsofGGc/UkArCddJf4aAnjdSoGFVam2hxMfcwY0ZfwRm3GPy3Gn5Q=="
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Protocol",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Updated Protocol name\",\r\n    \"description\": \"Protocol description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/internal/products/{{version}}/protocols/:protocolId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"products",
+										"{{version}}",
+										"protocols",
+										":protocolId"
+									],
+									"variable": [
+										{
+											"key": "protocolId",
+											"value": "8af9a232-9043-431d-97e6-9e25e4c6f1e6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Protocol",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/internal/products/{{version}}/protocols/:protocolId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"products",
+										"{{version}}",
+										"protocols",
+										":protocolId"
+									],
+									"variable": [
+										{
+											"key": "protocolId",
+											"value": "8af9a232-9043-431d-97e6-9e25e4c6f1e6"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Data Formats",
+					"item": [
+						{
+							"name": "Create Input Data Format",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dataFormatCode\": \"input-data-format-code-2\",\r\n    \"description\": \"Description\",\r\n    \"name\": \"Input Data Format\",\r\n    \"ontologyContext\": \"http://example.com\",\r\n    \"type\": \"input\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/internal/products/{{version}}/data-formats",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"products",
+										"{{version}}",
+										"data-formats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Output Data Format",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dataFormatCode\": \"output-data-format-code-3\",\r\n    \"description\": \"Description\",\r\n    \"name\": \"Output Data Format\",\r\n    \"ontologyContext\": \"http://example.com\",\r\n    \"type\": \"output\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/data-formats",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"data-formats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Many Data Formats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/data-formats",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"data-formats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read One Data Format",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/data-formats/:dataFormatId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"data-formats",
+										":dataFormatId"
+									],
+									"variable": [
+										{
+											"key": "dataFormatId",
+											"value": "ad36d852-2c62-4125-90ba-45f860d45417"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Data Format",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}data-formats/:dataFormatId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}data-formats",
+										":dataFormatId"
+									],
+									"variable": [
+										{
+											"key": "dataFormatId",
+											"value": "ad36d852-2c62-4125-90ba-45f860d45417"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Data Format",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Description\",\r\n    \"name\": \"Input Data Format\",\r\n    \"ontologyContext\": \"http://example.com\",\r\n    \"type\": \"input\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/data-formats/:dataFormatId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"data-formats",
+										":dataFormatId"
+									],
+									"variable": [
+										{
+											"key": "dataFormatId",
+											"value": "ddd71903-0a41-4c90-bfbe-5d07f235ebc8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Organizations v1 API",
 			"item": [
 				{
@@ -4173,6 +4838,137 @@
 										"{{version}}",
 										"token",
 										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "App Token (Internal)",
+					"item": [
+						{
+							"name": "Create App Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/internal/users/{{version}}/:azureAdUserId/app-tokens?appTokenExpirationTime=10000&appToken=both",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"users",
+										"{{version}}",
+										":azureAdUserId",
+										"app-tokens"
+									],
+									"query": [
+										{
+											"key": "appTokenExpirationTime",
+											"value": "10000"
+										},
+										{
+											"key": "appToken",
+											"value": "both"
+										}
+									],
+									"variable": [
+										{
+											"key": "azureAdUserId",
+											"value": "781b08b4-4e67-44a2-9b21-5c5b0aed2fcc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ReadMany App Token",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhTmsifQ.eyJleHAiOjE2NTI3ODI4NDUsIm5iZiI6MTY1MjY5NjQ0NSwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9wbGF0Zm9ybW9mdHJ1c3RhcHBzZGV2LmIyY2xvZ2luLmNvbS80ZWRkNTU5Ny1hZTJhLTQxYWEtYThmOS1iYjY1ZWVmYzg3MWMvdjIuMC8iLCJzdWIiOiI5ZmI1NzRkZS1jN2MzLTQ2ZmQtOGIwYy0zYzg5NTMwNWYyYzciLCJhdWQiOiI1Y2NkMGFkNS00MDBjLTRiZjYtYTQyZS1kZmYwNmJiZDcwZGMiLCJub25jZSI6ImRlZmF1bHROb25jZSIsImlhdCI6MTY1MjY5NjQ0NSwiYXV0aF90aW1lIjoxNjUyNjk2NDQ1LCJpc0ZvcmdvdFBhc3N3b3JkIjp0cnVlLCJlbWFpbHMiOlsidmxhZGRAc2JwLXJvbWFuaWEuY29tIl0sIm9pZCI6IjlmYjU3NGRlLWM3YzMtNDZmZC04YjBjLTNjODk1MzA1ZjJjNyIsInRmcCI6IkIyQ18xX0RlZmF1bHQifQ.FPEOEhItMhJ06xxn7Kexox2Tep2cZ2v49_jIjJLLy9LUrVdXPZaES3PErUx6iMSd0WrMd7wbnkL7l3qgWT8b0gatvgQJe6JTSetDUn4MsJRZu_J72N3Xwmxmkzhutky0xIwK7SXx2En4B1rZjS7HjJLvpJM5WPKzzsx6SfVasqYeKw3eygTzzvLxhHfYs18ScWcCo1ZRQLU6Pg58RlLWQtjN1J2pxox3uSeTS_oCG3H8jtOlmz2p0Ugz1IPNvWOzZOXzwBwbQXFss7-0LHf98t0GnTGjFsvKJtzkAC4CqBFlM74N0TY1ba_O1iI0z-ws-xjStasw5R8J0RCtki9kMw",
+										"type": "text"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{subscription_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/internal/users/{{version}}/:azureAdUserId/app-tokens",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"users",
+										"{{version}}",
+										":azureAdUserId",
+										"app-tokens"
+									],
+									"variable": [
+										{
+											"key": "azureAdUserId",
+											"value": "781b08b4-4e67-44a2-9b21-5c5b0aed2fcc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revoke App Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2NhbGhvc3QiLCJzdWIiOiI3ODFiMDhiNC00ZTY3LTQ0YTItOWIyMS01YzViMGFlZDJmY2MiLCJleHAiOjE2NTIzNTEzNDgsIm5iZiI6MTY1MjM1MTI0OCwiaWF0IjoxNjUyMzUxMjQ4LCJ0eXBlIjoiQXBwIiwidG9rZW5JZCI6IjA5OWE1NzA5LTQzNDYtNDU1Yi1hYTRlLTBiZjA3NDg0M2FmNyJ9.HUrZZmhZ1-BTMPCUtducBhShS04p-qdxdD_GHrLq3eY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/internal/users/{{version}}/:azureAdUserId/app-tokens/revoke?appToken=primary",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"internal",
+										"users",
+										"{{version}}",
+										":azureAdUserId",
+										"app-tokens",
+										"revoke"
+									],
+									"query": [
+										{
+											"key": "appToken",
+											"value": "primary"
+										}
+									],
+									"variable": [
+										{
+											"key": "azureAdUserId",
+											"value": "781b08b4-4e67-44a2-9b21-5c5b0aed2fcc"
+										}
 									]
 								}
 							},
@@ -4625,6 +5421,505 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "pi8-s3",
+					"item": [
+						{
+							"name": "Condition Groups",
+							"item": [
+								{
+									"name": "List all available condition groups",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "extendModels",
+												"value": "",
+												"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-groups",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-groups"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create condition group",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Contracting parties\",\n\t\"agreementSection\": 1,\n\t\"mandatoryGroup\": true,\n\t\"description\": \"description\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-groups",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-groups"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get condition group details",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-groups/:conditionGroupId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-groups",
+												":conditionGroupId"
+											],
+											"variable": [
+												{
+													"key": "conditionGroupId",
+													"value": "uuid",
+													"description": "Internal identifier of the condition group. UUID format."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update condition group details",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Contracting parties\",\n\t\"agreementSection\": 1,\n\t\"mandatoryGroup\": true,\n\t\"description\": \"description\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-groups/:conditionGroupId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-groups",
+												":conditionGroupId"
+											],
+											"variable": [
+												{
+													"key": "conditionGroupId",
+													"value": "uuid",
+													"description": "Internal identifier of the condition group. UUID format."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete condition group",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-groups/:conditionGroupId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-groups",
+												":conditionGroupId"
+											],
+											"variable": [
+												{
+													"key": "conditionGroupId",
+													"value": "uuid",
+													"description": "Internal identifier of the condition group. UUID format."
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Condition Types",
+							"item": [
+								{
+									"name": "List all condition types supported by the system",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-types",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-types"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "text, valueset, geographical, consent",
+													"description": "The type of conditions to be returned: text, valueset, geographical, consent (can be used in any combination)- valueset: Returns the conditions that have the valueSet option set to 'true'- geographical: Returns the conditions that have the geographicalLimitation option set to 'true'- consent: Returns the conditions that have the consent option set to 'true'- text: Returns the conditions that have all of the other options set to 'false'     ",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create condition type",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Resale Price\",\n\t\"section\": \"2021-05-03T00:00:00Z\",\n\t\"propertyType\": \"slider\",\n\t\"conditionTypeDescription\": {\n\t\t\"formatType\": \"plaintext\",\n\t\t\"content\": \"Does the Licensor ask for price when the Licensee is reselling the Modified Data.\"\n\t},\n\t\"conditionContractText\": {\n\t\t\"formatType\": \"html\",\n\t\t\"content\": \"5.3 The standard resale price for the Modified Data are: <[valueSetPlaceholder]>\"\n\t},\n\t\"geographicalLimitation\": {\n\t\t\"supported\": false\n\t},\n\t\"consent\": {\n\t\t\"required\": false\n\t},\n\t\"valueSet\": {\n\t\t\"supported\": true,\n\t\t\"values\": [\n\t\t\t{\n\t\t\t\t\"name\": \"No\",\n\t\t\t\t\"path\": \"1\",\n\t\t\t\t\"contractText\": {\n\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\"content\": \"Resale is not allowed\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Yes\",\n\t\t\t\t\"path\": \"2\",\n\t\t\t\t\"subValues\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"One-off payment\",\n\t\t\t\t\t\t\"path\": \"2021-02-01T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"Lump sum of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"continuous monthly subscription fee\",\n\t\t\t\t\t\t\"path\": \"2021-02-02T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Annual subscription fee\",\n\t\t\t\t\t\t\"path\": \"2021-02-03T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"License fees based on the users / data products\",\n\t\t\t\t\t\t\"path\": \"2021-02-04T00:00:00Z\",\n\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"name\": \"Subscription period\",\n\t\t\t\t\t\t\t\t\"path\": \"2001-02-04T00:00:00Z\",\n\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"name\": \"Monthly\",\n\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1\",\n\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\",\n\t\t\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Users\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1.1\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]> per Users\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Data Products\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1.2\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]> per Data Products\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"name\": \"Annual\",\n\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2\",\n\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\",\n\t\t\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Users\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2.1\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]> per Users\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Data Products\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2.2\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]> per Data Products\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Revenue Share\",\n\t\t\t\t\t\t\"path\": \"2021-02-05T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"<[customValuePlaceholder]> percent (%) of the net income of the sales of the Modified Data.\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Other\",\n\t\t\t\t\t\t\"path\": \"2021-02-06T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"<[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"text\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t]\n\t},\n\t\"conditionGroupId\": \"5896c8fa-42e0-11ec-81d3-0242ac130003\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-types",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-types"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get one condition type by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-types/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the condition type"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update condition type",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Resale Price\",\n\t\"section\": \"2021-05-03T00:00:00Z\",\n\t\"propertyType\": \"slider\",\n\t\"conditionTypeDescription\": {\n\t\t\"formatType\": \"plaintext\",\n\t\t\"content\": \"Does the Licensor ask for price when the Licensee is reselling the Modified Data.\"\n\t},\n\t\"conditionContractText\": {\n\t\t\"formatType\": \"html\",\n\t\t\"content\": \"5.3 The standard resale price for the Modified Data are: <[valueSetPlaceholder]>\"\n\t},\n\t\"geographicalLimitation\": {\n\t\t\"supported\": false\n\t},\n\t\"consent\": {\n\t\t\"required\": false\n\t},\n\t\"valueSet\": {\n\t\t\"supported\": true,\n\t\t\"values\": [\n\t\t\t{\n\t\t\t\t\"name\": \"No\",\n\t\t\t\t\"path\": \"1\",\n\t\t\t\t\"contractText\": {\n\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\"content\": \"Resale is not allowed\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"name\": \"Yes\",\n\t\t\t\t\"path\": \"2\",\n\t\t\t\t\"subValues\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"One-off payment\",\n\t\t\t\t\t\t\"path\": \"2021-02-01T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"Lump sum of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"continuous monthly subscription fee\",\n\t\t\t\t\t\t\"path\": \"2021-02-02T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Annual subscription fee\",\n\t\t\t\t\t\t\"path\": \"2021-02-03T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"License fees based on the users / data products\",\n\t\t\t\t\t\t\"path\": \"2021-02-04T00:00:00Z\",\n\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"name\": \"Subscription period\",\n\t\t\t\t\t\t\t\t\"path\": \"2001-02-04T00:00:00Z\",\n\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"name\": \"Monthly\",\n\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1\",\n\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\",\n\t\t\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Users\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1.1\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]> per Users\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Data Products\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.1.2\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"Monthly subscription License Fees of <[customValuePlaceholder]> per Data Products\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"name\": \"Annual\",\n\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2\",\n\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\",\n\t\t\t\t\t\t\t\t\t\t\"subValues\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Users\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2.1\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]> per Users\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"name\": \"Data Products\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"path\": \"2.4.1.2.2\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"content\": \"annual subscription License Fees of <[customValuePlaceholder]> per Data Products\"\n\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Revenue Share\",\n\t\t\t\t\t\t\"path\": \"2021-02-05T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"<[customValuePlaceholder]> percent (%) of the net income of the sales of the Modified Data.\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"number\"\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"name\": \"Other\",\n\t\t\t\t\t\t\"path\": \"2021-02-06T00:00:00Z\",\n\t\t\t\t\t\t\"contractText\": {\n\t\t\t\t\t\t\t\"formatType\": \"html\",\n\t\t\t\t\t\t\t\"content\": \"<[customValuePlaceholder]>\"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"customValueType\": \"text\"\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t]\n\t},\n\t\"conditionGroupId\": \"5896c8fa-42e0-11ec-81d3-0242ac130003\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-types/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the condition type"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete condition type",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/product-license/condition-types/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"product-license",
+												"condition-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the condition type"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Conditions for the products",
+							"item": [
+								{
+									"name": "List all conditions for the current data product Copy",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/conditions",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"conditions"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List all condition groups for the product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productCode/condition-groups",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productCode",
+												"condition-groups"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productCode",
+													"value": "{{product_code}}",
+													"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
