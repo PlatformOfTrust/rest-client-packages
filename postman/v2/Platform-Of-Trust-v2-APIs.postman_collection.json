@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "1ef3103d-2974-40c5-9b6e-6e35cb29b355",
+		"_postman_id": "8b2dd81b-9492-419e-a170-8b20d8dba54d",
 		"name": "Platform Of Trust v2 APIs",
 		"description": "Collection for managining PoT v2 APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9516382"
 	},
 	"item": [
 		{
@@ -5922,6 +5923,94 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Insights - Internal",
+			"item": [
+				{
+					"name": "List overall product statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/products",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"internal",
+								"{{api}}",
+								"{{version}}",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List products with statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/products/{{productType}}",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"internal",
+								"{{api}}",
+								"{{version}}",
+								"products",
+								"{{productType}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/products/{{productType}}/{{product_id}}",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"internal",
+								"{{api}}",
+								"{{version}}",
+								"products",
+								"{{productType}}",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List overall customer statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pot_base_url}}/internal/{{api}}/{{version}}/customers",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"internal",
+								"{{api}}",
+								"{{version}}",
+								"customers"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
