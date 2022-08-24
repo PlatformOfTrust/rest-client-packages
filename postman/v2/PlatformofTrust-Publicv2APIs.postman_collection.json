@@ -1,0 +1,2248 @@
+{
+	"info": {
+		"_postman_id": "c168fa29-a6ed-4215-9002-684300930df3",
+		"name": "Platform of Trust - Public v2 APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14817669"
+	},
+	"item": [
+		{
+			"name": "Products v2 API",
+			"item": [
+				{
+					"name": "ProductTypes",
+					"item": [
+						{
+							"name": "List all product types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/product-types",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"product-types"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Retrieve the list of supported product types in Platform of Trust",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "DataProduct",
+							"item": [
+								{
+									"name": "List all data products",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"description": "Optional Authorization. Required to discover private and organization level products.",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=dataproduct",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "dataproduct",
+													"description": "The type of products to be returned"
+												},
+												{
+													"key": "visibility",
+													"value": "<string>",
+													"description": "Visibility of the products to be listed (public, private, organization)",
+													"disabled": true
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Create data product",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"dataproduct\",\n    \"name\": \"Example Data Product\",\n    \"description\": \"Data product to retrieve harmonized data from Example API\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    },\n    \"dataSourceId\": \"86c7f429-8908-40de-a012-f2951d088d78\",\n    \"selectedDataSourceTransformerId\": \"20e785c2-6f77-4c89-9c58-9f22690e4d46\",\n    \"harmonizedData\": true\n}\n"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update data product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"AccuWeather Daily Forecast\",\n    \"description\": \"Data product to retrieve harmonized daily forecast data from the AccuWeather API\",\n    \"imageUrl\": null,\n    \"industries\": \"construction\",\n    \"visibility\": {\n        \"type\": \"public\"\n    },\n    \"dataSourceId\": \"1f608758-2c80-4b99-a618-73a7b5bb7922\",\n    \"selectedDataSourceTransformerId\": \"c4546e2b-4599-4eb6-bacf-60cfd16c1e60\",\n    \"harmonizedData\": true\n}\n"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product of type DataProduct"
+						},
+						{
+							"name": "Connector",
+							"item": [
+								{
+									"name": "List all connectors",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=connector",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "connector",
+													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Connector"
+						},
+						{
+							"name": "Transformer",
+							"item": [
+								{
+									"name": "List all transformers",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=transformer",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "transformer",
+													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Transformer"
+						},
+						{
+							"name": "DataSource",
+							"item": [
+								{
+									"name": "List all data sources",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=datasource",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "datasource",
+													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<stging>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								},
+								{
+									"name": "Create data source",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"productCode\": \"{{product_code}}\",\n    \"type\": \"datasource\",\n    \"name\": \"Example Data Source\",\n    \"imageUrl\": null,\n\t\t\"description\": \"Example Description\",\n    \"dataSourceTemplateId\": \"8b266c25-ef60-4d28-be0a-ebb8fd16fac7\",\n    \"accessPoint\": \"http://example.com/api/v1/\",\n    \"selectedTransformerIds\": [\n        \"20e785c2-6f77-4c89-9c58-9f22690e4d46\"\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update data source",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Indicate the media type of the resource.",
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Example Data Source\",\n    \"imageUrl\": null,\n\t\t\"description\": \"Example Description Updated\",\n    \"dataSourceTemplateId\": \"8b266c25-ef60-4d28-be0a-ebb8fd16fac7\",\n    \"accessPoint\": \"http://example.com/api/v1/\",\n    \"selectedTransformerIds\": [\n        \"20e785c2-6f77-4c89-9c58-9f22690e4d46\"\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Manage product type of Data Source"
+						},
+						{
+							"name": "DataSourceTemplate",
+							"item": [
+								{
+									"name": "List all data source templates",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}?type=datasource-template",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "<integer>",
+													"description": "Offset of a query. Must be at least 0",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "<integer>",
+													"description": "Limit the result of a query. Must be between 1 and 100",
+													"disabled": true
+												},
+												{
+													"key": "q",
+													"value": "<string>",
+													"description": "Query parameter to filter by name and description data",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "datasource-template",
+													"description": "The type of products to be returned"
+												},
+												{
+													"key": "extendModels",
+													"value": "<stging>",
+													"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+													"disabled": true
+												}
+											]
+										},
+										"description": "\n"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "List all product types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/product-types",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"product-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all products",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer_token}}",
+										"description": "Optional Authorization. Required to discover private and organization level products.",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "<integer>",
+											"description": "Offset of a query. Must be at least 0",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "Limit the result of a query. Must be between 1 and 100",
+											"disabled": true
+										},
+										{
+											"key": "q",
+											"value": "<string>",
+											"description": "Query parameter to filter by name and description data",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "<string>",
+											"description": "The type of products to be returned (dataproduct, datasource, connector, transformer)",
+											"disabled": true
+										},
+										{
+											"key": "visibility",
+											"value": "<string>",
+											"description": "Visibility of the products to be listed (public, private, organization, partner)",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "<string>",
+											"description": "Array of fields to sort the list of products by, in the order provided (supported fields: productCode,type,name,createdAt,updatedAt)",
+											"disabled": true
+										},
+										{
+											"key": "sortOrder",
+											"value": "<string>",
+											"description": "Sort order for the fields defined by the sortBy parameter (asc, desc)",
+											"disabled": true
+										},
+										{
+											"key": "extendModels",
+											"value": "<string>",
+											"description": "By default some of the models are included as an id or product code reference in the endpoint response. Use this query parameter to include the complete extended models in the response.",
+											"disabled": true
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get one product by id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId"
+									],
+									"query": [
+										{
+											"key": "extendModels",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete product",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch data a.k.a Broker API",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Create timestamp for request body",
+											"var date = (new Date()).toISOString()",
+											"pm.globals.set(\"date\", date);",
+											"",
+											"// Parse requestbody ",
+											"var requestBody = pm.variables.replaceIn(pm.request.body.raw)",
+											"requestBody = JSON.parse(requestBody)",
+											"",
+											"// Generating X-Pot-Signature",
+											"const clientSecret = pm.environment.get(\"client_secret\")",
+											"const bodyString = JSON.stringify(sortObject(requestBody))",
+											"",
+											"function sortObject(unordered, sortArrays = false) {",
+											"    if (!unordered || typeof unordered !== 'object') {",
+											"        return unordered;",
+											"    }",
+											"",
+											"    if (Array.isArray(unordered)) {",
+											"        const newArr = unordered.map((item) => sortObject(item, sortArrays));",
+											"        if (sortArrays) {",
+											"        newArr.sort();",
+											"        }",
+											"        return newArr;",
+											"    }",
+											"",
+											"    const ordered = {};",
+											"    Object.keys(unordered)",
+											"        .sort()",
+											"        .forEach((key) => {",
+											"        ordered[key] = sortObject(unordered[key], sortArrays);",
+											"        });",
+											"    return ordered;",
+											"}",
+											"",
+											"var hmac = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, clientSecret);",
+											"hmac.update(bodyString)",
+											"var hash = hmac.finalize();",
+											"var base64 = CryptoJS.enc.Base64.stringify(hash);",
+											"pm.environment.set(\"x_pot_signature_script_calculated\", base64);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Clear variables",
+											"pm.globals.unset(\"date\");",
+											"pm.environment.unset(\"x_pot_signature_script_calculated\");",
+											"console.log(request)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) NOTE!: Signature generation was changed since v1\n\nA HMAC-SHA256 signature in `base64` encoded format. The signature is created from the request payload and the app's client secret.\n\nE.g. based on following parameters\n\n```\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nsecret = \"topSecret\"\n```\n\nit will always generate the following signature if done correctly, regardless of technology used.\n\n```\n7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPython example:\n\n```\nimport base64\nimport hashlib\nimport hmac\nimport json\n\nbody = {\n    \"key\": \"valüe\",\n    \"key2\": {\n        \"name\": \"Jåhn Gätes\",\n        \"address\": \"Test Street\",\n        \"colors\": [\"Red\", \"Blue\"]\n    }\n}\nclient_secret = \"topSecret\"\n\nbody_string = json.dumps(\n    body,\n    sort_keys=True,\n    ensure_ascii=False,\n    separators=(\",\", \":\")\n)\n\ndigest = hmac.new(\n    client_secret.encode(\"utf-8\"),\n    body_string.encode(\"utf-8\"),\n    hashlib.sha256\n).digest()\n\n# return the digest in base64 encoded format:\nsignature = base64.b64encode(digest).decode()\n\nprint(signature)  # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nLet's explain once which parameters to use to generate correct `body_string`. \n`sort_keys=True` means that the output of dictionaries will be sorted by keys, `separators=(',', ':')` means there is no spaces between separators. `ensure_ascii=False` is used to keep non-ASCII characters as-is rather than escaping them; e.g. keep \"åäö\" rather than escaping to \"\\\\u00e5\\\\u00e4\\\\u00f6\".\n\nJavaScript example:\n\n```\nconst jsSHA = require(\"jssha\");\nconst stringify = require(\"json-stable-stringify\");\n\nconst body = {\n  \"key\": \"valüe\",\n  \"key2\": {\n    \"name\": \"Jåhn Gätes\",\n    \"address\": \"Test Street\",\n    \"colors\": [\"Red\", \"Blue\"]\n  }\n};\n\nconst clientSecret = \"client_secret\";\n\n// Sort keys and stringify.\n// Note \"json-stable-stringify\" is used\nconst bodyString = stringify(body);\n\nconst shaObj = new jsSHA(\n  \"SHA-256\", \n  \"TEXT\", \n  { encoding: \"UTF8\" }\n);\n\nshaObj.setHMACKey(clientSecret, \"TEXT\");\nshaObj.update(bodyString);\n\n// Signature in base64 to use in request\nconst signature = shaObj.getHMAC(\"B64\");\n\nconsole.log(signature) // 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n\nPHP example:\n\n```\n<?php\n\nfunction ksortRecursive(&$array) {\n    if (is_array($array)) {\n        ksort($array);\n        foreach ($array as &$arr) {\n            ksortRecursive($arr);\n        }\n    }\n}\n\n$body = array(\n  \"key\" => \"valüe\",\n  \"key2\" => array(\n    \"name\" => \"Jåhn Gätes\",\n    \"address\" => \"Test Street\",\n    \"colors\" => array(\"Red\", \"Blue\")\n  )\n);\n\n$client_secret = \"topSecret\";\n\nksortRecursive($body);\n\n$body_string = json_encode(\n   $body,   \n   JSON_UNESCAPED_UNICODE\n);\n\n$signature = base64_encode(\n  hash_hmac(\n    'sha256',\n        $body_string,\n        $client_secret,\n        true\n  )\n);\n\necho($signature . \"\\n\"); # 7aVthZdRg8OZw9MDQxe7DfTdsnTOvi68Lfuq3ynaBj4=\n```\n",
+										"key": "X-Pot-Signature",
+										"value": "{{x_pot_signature_script_calculated}}"
+									},
+									{
+										"description": "(Required) The requesting app's JWT token. The token is generated when the app is created.",
+										"key": "X-App-Token",
+										"value": "{{x-app-token}}"
+									},
+									{
+										"description": "Platform of Trust OAuth bearer token of the user currently logged in in his application. This is not mandatory, but if passed, the token will be verified.",
+										"key": "X-User-Token",
+										"value": "{{x-user-token}}",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"@context\": \"https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/\",\n    \"timestamp\": \"{{date}}\",\n    \"parameters\": {}\n}"
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode/data",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productCode",
+										"data"
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "{{product_code}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "My Data Products",
+					"item": [
+						{
+							"name": "List all my data products in use or created by me",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/my-data-products?list=as-consumer, as-creator",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"my-data-products"
+									],
+									"query": [
+										{
+											"key": "list",
+											"value": "as-consumer, as-creator",
+											"description": "(Required) Role of user to determine which type of my data products list is returned (as-consumer, as-creator))"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Protocols",
+					"item": [
+						{
+							"name": "List all protocols",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/protocols",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"protocols"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Credentials",
+					"item": [
+						{
+							"name": "List user credentials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"auth-credentials"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create credentials for a data product or a data source",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"Credentials for example-data-source\",\n    \"type\": \"api-key\",\n    \"key\": \"x-api-key\",\n    \"value\": \"abcdef12345\",\n    \"position\": \"header\",\n\t\t\"dataProductPublisherCredentials\": true\n}"
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"auth-credentials"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete credential",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Indicate the media type of the resource.",
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/auth-credentials/:credentialId",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"auth-credentials",
+										":credentialId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										},
+										{
+											"key": "credentialId",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Contract and conditions",
+					"item": [
+						{
+							"name": "Contract",
+							"item": [
+								{
+									"name": "List all contracts for the current data product",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"contracts"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get single contract for the current data product by id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"contracts",
+												":id"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the contract"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get the generated binary file for the contract document",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/contracts/:id/document",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"contracts",
+												":id",
+												"document"
+											],
+											"query": [
+												{
+													"key": "documentType",
+													"value": "",
+													"description": "Type of contract document to generate and download. Available values : pdf, docx",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the contract"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Conditions",
+							"item": [
+								{
+									"name": "Condition types",
+									"item": [
+										{
+											"name": "List all condition types supported by the system",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "",
+														"value": "",
+														"type": "text",
+														"disabled": true
+													}
+												],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														"product-condition-types"
+													],
+													"query": [
+														{
+															"key": "type",
+															"value": "text, valueset, geographical, consent",
+															"description": "The type of conditions to be returned: text, valueset, geographical, consent (can be used in any combination)- valueset: Returns the conditions that have the valueSet option set to 'true'- geographical: Returns the conditions that have the geographicalLimitation option set to 'true'- consent: Returns the conditions that have the consent option set to 'true'- text: Returns the conditions that have all of the other options set to 'false'     ",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get one condition type by id",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{pot_base_url}}/products/{{version}}/product-condition-types/:id",
+													"host": [
+														"{{pot_base_url}}"
+													],
+													"path": [
+														"products",
+														"{{version}}",
+														"product-condition-types",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<uuid>",
+															"description": "(Required) Internal identifier of the condition type"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "List all conditions for the current data product",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"conditions"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get single condition for the current data product by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/conditions/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"conditions",
+												":id"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the condition"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Purchase",
+					"item": [
+						{
+							"name": "List all user purchases for the current product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"purchase"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new purchase for the current product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"selectedProductContract\": \"71cc9d12-0400-44aa-9fab-cdc268cb6ed3\",\n    \"contractConditionsAccepted\": \"true\"\n}\t",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"purchase"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one purchase by purchase id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"purchase",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										},
+										{
+											"key": "id",
+											"value": "<uuid>",
+											"description": "(Required) Unique identifier of the product purchase"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a specific product purchase for the current product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"selectedProductContract\": \"c3542bc8-734b-4fb5-b8d2-906ee168f928\",\r\n    \"selectedPricePlan\": \"2aecf329-d2eb-440a-ac06-ff8f0f262786\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"purchase",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										},
+										{
+											"key": "id",
+											"value": "<uuid>",
+											"description": "(Required) Unique identifier of the product purchase"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a specific product purchase for the current product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productId/purchase/:id",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productId",
+										"purchase",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "{{product_id}}"
+										},
+										{
+											"key": "id",
+											"value": "<uuid>",
+											"description": "(Required) Unique identifier of the product purchase"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "List all permission requests for the user Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/permission-requests",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"permission-requests"
+									],
+									"query": [
+										{
+											"key": "requestStatus",
+											"value": "",
+											"description": "Used to filter permission requests by request status (pending, responded)",
+											"disabled": true
+										},
+										{
+											"key": "decisionStatus",
+											"value": "",
+											"description": "Used to filter permission requests by decision status (accepted, declined, revoked)",
+											"disabled": true
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Get single permission request for the user by id Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/permission-requests/:id",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"permission-requests",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "uuid",
+											"description": "(Required) Identifier of the permission request"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "Give decision for the permission request",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"accepted\",\n    \"details\": {\n        \"formatType\": \"plaintext\",\n        \"content\": \"Permission request accepted\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/permission-requests/:permissionRequestId/decision",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										"permission-requests",
+										":permissionRequestId",
+										"decision"
+									],
+									"variable": [
+										{
+											"key": "permissionRequestId",
+											"value": "uuid"
+										}
+									]
+								},
+								"description": "\n"
+							},
+							"response": []
+						},
+						{
+							"name": "List permission stack for a user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{pot_base_url}}/products/{{version}}/:productCode/permissions?consumerUserId=uuid",
+									"host": [
+										"{{pot_base_url}}"
+									],
+									"path": [
+										"products",
+										"{{version}}",
+										":productCode",
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "consumerUserId",
+											"value": "uuid",
+											"description": "Unique identifier of internal user (consumer)"
+										}
+									],
+									"variable": [
+										{
+											"key": "productCode",
+											"value": "{{product_id}}",
+											"description": "(Required) Product code is a unique identifier used to invoke a particular data product. Must not contain spaces."
+										}
+									]
+								},
+								"description": "Get all permission stacks or use query parameter user_id to ger permission stacks related to specific user"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Data Sheet",
+					"item": [
+						{
+							"name": "Quality Attributes Templates",
+							"item": [
+								{
+									"name": "List all quality attribute templates",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"description": "(Optional) Log in to see produst quality attributes created by you or your organization",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"quality-attribute-templates"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "standard",
+													"description": "(Optional) Filter response by category",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get one quality attribute template by id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{bearer_token}}",
+												"description": "(Optional) Log in to see produst quality attributes created by you or your organization",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/quality-attribute-templates/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												"quality-attribute-templates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "Internal identifier of the product quality attribute"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Quality Attribute",
+							"item": [
+								{
+									"name": "List all quality attributes for current product",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"quality-attributes"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create quality attribute for the current product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Uptime\",\n  \"description\": \"Defines uptime of this product\",\n  \"qualityLevel\": \"informative\",\n  \"qualityMetric\": {\n    \"type\": \"percentage\",\n    \"value\": \"99\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"quality-attributes"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get single quality attribute for the currend product by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"quality-attributes",
+												":id"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the quality attribute"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update quality attribute for the current product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Uptime\",\n  \"description\": \"Defines uptime of this product\",\n  \"qualityLevel\": \"informative\",\n  \"qualityMetric\": {\n    \"type\": \"percentage\",\n    \"value\": \"99\"\n  },\n  \"publisherOrganizationId\": \"414272f8-778e-11eb-9439-0242ac130002\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"quality-attributes",
+												":id"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the quality attribute"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete quality attribute for the current product",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearer_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{pot_base_url}}/products/{{version}}/:productId/quality-attributes/:id",
+											"host": [
+												"{{pot_base_url}}"
+											],
+											"path": [
+												"products",
+												"{{version}}",
+												":productId",
+												"quality-attributes",
+												":id"
+											],
+											"query": [
+												{
+													"key": "extendModels",
+													"value": "<string>",
+													"description": "(Optional) By default the conditions and condition types are included as an id reference in the endpoint response. Use this query parameter to include the complete extended models in the response. (condition, condition-type)",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "{{product_id}}"
+												},
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) Internal identifier of the quality attribute"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users v1 API",
+			"item": [
+				{
+					"name": "Generate an access token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authorizationCode\": \"AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/users/{{version}}/token/generate",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"users",
+								"{{version}}",
+								"token",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh an access token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refreshToken\": \"AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pot_base_url}}/users/{{version}}/token/refresh",
+							"host": [
+								"{{pot_base_url}}"
+							],
+							"path": [
+								"users",
+								"{{version}}",
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearer_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
